@@ -240,76 +240,107 @@ header{
 /* ================= SEARCH ================= */
 
 .search-area{
- position:absolute;
- left:50%;
- transform:translateX(-50%);
- width:min(430px,40%);
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    width:min(430px,40%);
 }
 
 .search-box{
- position:relative;
- display:flex;
- background:#0d0d0d;
- border:1px solid #222;
- border-radius:12px;
+    position:relative;
+    display:flex;
+    background:#0d0d0d;
+    border:1px solid #222;
+    border-radius:12px;
 }
 
 .search-box:focus-within{
- border-color:var(--green);
+    border-color:var(--green);
 }
 
 .search-box input{
- flex:1;
- background:none;
- border:0;
- outline:none;
- color:white;
- padding:13px 15px;
+    flex:1;
+    background:none;
+    border:0;
+    outline:none;
+    color:white;
+    padding:13px 15px;
 }
 
 .search-box button{
- width:50px;
- background:none;
- border:0;
- color:var(--green);
- cursor:pointer;
- font-size:17px;
+    width:50px;
+    background:none;
+    border:0;
+    color:var(--green);
+    cursor:pointer;
+    font-size:17px;
 }
 
 #suggestions{
- position:absolute;
- top:calc(100% + 8px);
- right:0;
- width:100%;
- background:#0c0c0c;
- border:1px solid #222;
- border-radius:12px;
- overflow:hidden;
- display:none;
- z-index:9999;
+    position:absolute;
+    top:calc(100% + 8px);
+    right:0;
+    width:100%;
+    background:#0c0c0c;
+    border:1px solid #222;
+    border-radius:12px;
+    overflow:hidden;
+    display:none;
+    z-index:9999;
 }
 
-#suggestions.active{display:block}
+#suggestions.active{
+    display:block;
+}
 
 .suggestion{
- padding:13px 15px;
- border-bottom:1px solid #181818;
- cursor:pointer;
+    padding:13px 15px;
+    border-bottom:1px solid #181818;
+    cursor:pointer;
 }
 
 .suggestion:hover{
- background:rgba(0,255,102,.06);
+    background:rgba(0,255,102,.06);
 }
 
 .suggestion-title{
- font-size:13px;
- color:#ddd;
+    font-size:13px;
+    color:#ddd;
 }
 
 .suggestion-type{
- color:var(--green);
- font-size:10px;
- margin-top:5px;
+    color:var(--green);
+    font-size:10px;
+    margin-top:5px;
+}
+
+
+/* 📱 Mobile */
+@media (max-width:768px){
+
+    .search-area{
+        position:relative;
+        left:auto;
+        transform:none;
+        width:90%;
+        margin:15px auto;
+    }
+
+    .search-box{
+        width:100%;
+    }
+
+    .search-box input{
+        padding:12px 14px;
+    }
+
+    .search-box button{
+        width:45px;
+    }
+
+    #suggestions{
+        width:100%;
+    }
 }
 
 /* ================= SIDE MENU ================= */
