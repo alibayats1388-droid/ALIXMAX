@@ -1124,91 +1124,71 @@ footer span{
 
 @media(max-width:900px){
 
-    .categories,
-    .content-grid{
-        grid-template-columns:1fr;
-    }
+ .search-area{display:none}
 
-    .profile{
-        grid-template-columns:1fr;
-        text-align:center;
-    }
+ .categories,
+ .content-grid{
+  grid-template-columns:1fr;
+ }
 
-    .avatar{
-        margin:auto;
-    }
+ .profile{
+  grid-template-columns:1fr;
+  text-align:center;
+ }
 
-    .admin-dashboard{
-        grid-template-columns:1fr;
-    }
+ .avatar{margin:auto}
 
-    .search-area{
-        position:relative;
-        left:auto;
-        transform:none;
-        width:90%;
-        margin:15px auto;
-    }
+ .admin-dashboard{
+  grid-template-columns:1fr;
+ }
 
-    .search-box{
-        width:100%;
-    }
-
-    .search-box input{
-        padding:12px 14px;
-    }
-
-    .search-box button{
-        width:45px;
-    }
-
-    #suggestions{
-        width:100%;
-    }
 }
-
 
 @media(max-width:600px){
 
-    header{
-        padding:0 5%;
-    }
+ header{padding:0 5%}
 
-    .logo{
-        font-size:22px;
-    }
+ .logo{font-size:22px}
 
-    .hero{
-        padding:140px 5% 90px;
-    }
+ .hero{padding:140px 5% 90px}
 
-    .hero h1{
-        font-size:48px;
-    }
+ .hero h1{font-size:48px}
 
-    .section{
-        padding:70px 5%;
-    }
+ .section{padding:70px 5%}
 
-    .form-row{
-        grid-template-columns:1fr;
-    }
+ .form-row{
+  grid-template-columns:1fr;
+ }
 
-    #sideMenu{
-        width:290px;
-    }
+ #sideMenu{width:290px}
 
-    .admin-header{
-        flex-direction:column;
-        align-items:stretch;
-    }
-
-    .search-area{
-        width:90%;
-        margin:15px auto;
-    }
+ .admin-header{
+  flex-direction:column;
+  align-items:stretch;
+ }
 
 }
+</style>
+</head>
+
+<body>
+
+<!-- INTRO -->
+<div id="intro">
+ <div class="intro-grid"></div>
+
+ <div class="intro-content">
+  <div class="intro-welcome">WELCOME TO</div>
+  <div class="intro-logo">ALIXMAX</div>
+  <div class="intro-sub">GAMING • MODS • GAMEPLAY • TUTORIALS</div>
+  <div class="intro-line"></div>
+  <div class="intro-loading">در حال ورود به دنیای ALIXMAX...</div>
+ </div>
+
+ <div class="intro-skip" onclick="closeIntro()">
+  ورود به سایت ←
+ </div>
+</div>
 
 
 <!-- HEADER -->
