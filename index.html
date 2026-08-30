@@ -1,0 +1,3027 @@
+```html
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+   <style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+        margin: 0;
+        padding: 30px;
+    }
+
+    #posts-container {
+        max-width: 900px;
+        margin: 30px auto;
+        display: grid;
+        gap: 20px;
+    }
+
+    .post-card {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+
+    .post-card img {
+        width: 100%;
+        max-height: 400px;
+        object-fit: cover;
+        display: block;
+    }
+
+    .post-content {
+        padding: 20px;
+    }
+
+    .post-type {
+        background: #eee;
+        padding: 5px 10px;
+        border-radius: 20px;
+        font-size: 13px;
+    }
+
+    .post-card h2 {
+        margin: 15px 0 10px;
+    }
+
+    .post-card p {
+        color: #555;
+        line-height: 1.7;
+    }
+</style>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALIXMAX | Gaming</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+ --green:#00ff66;
+ --black:#030303;
+ --dark:#080808;
+ --card:#0d0d0d;
+ --border:#202020;
+ --text:#eee;
+ --muted:#777;
+ --red:#ff3838;
+}
+
+html{scroll-behavior:smooth}
+
+body{
+ background:var(--black);
+ color:var(--text);
+ font-family:Tahoma,Arial,sans-serif;
+ overflow-x:hidden;
+}
+
+::-webkit-scrollbar{width:7px}
+::-webkit-scrollbar-track{background:#030303}
+::-webkit-scrollbar-thumb{
+ background:var(--green);
+ border-radius:20px;
+}
+
+/* ================= INTRO ================= */
+
+#intro{
+ position:fixed;
+ inset:0;
+ z-index:99999;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ background:
+ radial-gradient(circle at center,rgba(0,255,102,.16),transparent 35%),
+ #020202;
+ transition:.8s;
+}
+
+#intro.hide{
+ opacity:0;
+ visibility:hidden;
+}
+
+.intro-grid{
+ position:absolute;
+ inset:0;
+ background-image:
+ linear-gradient(rgba(0,255,102,.05) 1px,transparent 1px),
+ linear-gradient(90deg,rgba(0,255,102,.05) 1px,transparent 1px);
+ background-size:45px 45px;
+ transform:perspective(500px) rotateX(55deg) scale(1.8);
+ opacity:.35;
+}
+
+.intro-content{
+ position:relative;
+ z-index:2;
+ text-align:center;
+}
+
+.intro-welcome{
+ color:#777;
+ letter-spacing:6px;
+ font-size:12px;
+ margin-bottom:20px;
+}
+
+.intro-logo{
+ color:var(--green);
+ font-size:clamp(65px,12vw,150px);
+ font-weight:1000;
+ letter-spacing:8px;
+ text-shadow:0 0 10px var(--green),0 0 35px rgba(0,255,102,.7);
+ animation:pulse 2s infinite alternate;
+}
+
+@keyframes pulse{
+ from{opacity:.8}
+ to{opacity:1}
+}
+
+.intro-sub{
+ color:#aaa;
+ margin-top:15px;
+ letter-spacing:4px;
+ font-size:13px;
+}
+
+.intro-line{
+ width:260px;
+ height:2px;
+ background:var(--green);
+ box-shadow:0 0 20px var(--green);
+ margin:30px auto;
+}
+
+.intro-loading{
+ color:#555;
+ font-size:11px;
+}
+
+.intro-skip{
+ position:absolute;
+ bottom:30px;
+ left:50%;
+ transform:translateX(-50%);
+ border:1px solid #222;
+ border-radius:10px;
+ padding:10px 18px;
+ color:#777;
+ font-size:11px;
+ cursor:pointer;
+}
+
+/* ================= HEADER ================= */
+
+header{
+ position:fixed;
+ top:0;
+ right:0;
+ width:100%;
+ height:76px;
+ z-index:5000;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ padding:0 7%;
+ background:rgba(3,3,3,.88);
+ backdrop-filter:blur(15px);
+ border-bottom:1px solid rgba(0,255,102,.15);
+}
+
+.logo{
+ color:var(--green);
+ font-size:27px;
+ font-weight:1000;
+ letter-spacing:2px;
+}
+
+.menu-btn{
+ width:48px;
+ height:48px;
+ display:flex;
+ flex-direction:column;
+ justify-content:center;
+ align-items:center;
+ gap:6px;
+ cursor:pointer;
+ border-radius:10px;
+}
+
+.menu-btn:hover{
+ background:rgba(0,255,102,.06);
+}
+
+.menu-btn span{
+ width:28px;
+ height:3px;
+ background:var(--green);
+ border-radius:10px;
+ transition:.3s;
+}
+
+.menu-btn.active span:nth-child(1){
+ transform:translateY(9px) rotate(45deg);
+}
+
+.menu-btn.active span:nth-child(2){
+ opacity:0;
+}
+
+.menu-btn.active span:nth-child(3){
+ transform:translateY(-9px) rotate(-45deg);
+}
+
+/* ================= SEARCH ================= */
+
+.search-area{
+ position:absolute;
+ left:50%;
+ transform:translateX(-50%);
+ width:min(430px,40%);
+}
+
+.search-box{
+ position:relative;
+ display:flex;
+ background:#0d0d0d;
+ border:1px solid #222;
+ border-radius:12px;
+}
+
+.search-box:focus-within{
+ border-color:var(--green);
+}
+
+.search-box input{
+ flex:1;
+ background:none;
+ border:0;
+ outline:none;
+ color:white;
+ padding:13px 15px;
+}
+
+.search-box button{
+ width:50px;
+ background:none;
+ border:0;
+ color:var(--green);
+ cursor:pointer;
+ font-size:17px;
+}
+
+#suggestions{
+ position:absolute;
+ top:calc(100% + 8px);
+ right:0;
+ width:100%;
+ background:#0c0c0c;
+ border:1px solid #222;
+ border-radius:12px;
+ overflow:hidden;
+ display:none;
+ z-index:9999;
+}
+
+#suggestions.active{display:block}
+
+.suggestion{
+ padding:13px 15px;
+ border-bottom:1px solid #181818;
+ cursor:pointer;
+}
+
+.suggestion:hover{
+ background:rgba(0,255,102,.06);
+}
+
+.suggestion-title{
+ font-size:13px;
+ color:#ddd;
+}
+
+.suggestion-type{
+ color:var(--green);
+ font-size:10px;
+ margin-top:5px;
+}
+
+/* ================= SIDE MENU ================= */
+
+#sideMenu{
+ position:fixed;
+ top:76px;
+ right:-340px;
+ width:320px;
+ height:calc(100vh - 76px);
+ z-index:4999;
+ background:linear-gradient(180deg,#0d0d0d,#030303);
+ border-left:1px solid rgba(0,255,102,.25);
+ box-shadow:-20px 0 70px rgba(0,0,0,.8);
+ transition:.4s;
+ overflow-y:auto;
+ padding:20px 15px;
+}
+
+#sideMenu.active{right:0}
+
+.menu-title{
+ color:var(--green);
+ font-size:18px;
+ font-weight:bold;
+ padding:12px;
+ margin-bottom:8px;
+}
+
+.menu-link{
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:12px;
+ padding:15px;
+ color:#bbb;
+ text-decoration:none;
+ border-radius:10px;
+ margin-bottom:4px;
+ transition:.25s;
+ cursor:pointer;
+}
+
+.menu-link:hover{
+ background:rgba(0,255,102,.07);
+ color:var(--green);
+ transform:translateX(-5px);
+}
+
+.menu-left{
+ display:flex;
+ align-items:center;
+ gap:12px;
+}
+
+.lock{
+ font-size:20px;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+ min-height:760px;
+ padding:150px 8% 100px;
+ display:flex;
+ align-items:center;
+ position:relative;
+ overflow:hidden;
+ background:
+ radial-gradient(circle at 75% 45%,rgba(0,255,102,.14),transparent 32%),
+ radial-gradient(circle at 90% 10%,rgba(0,255,102,.08),transparent 25%),
+ #050505;
+}
+
+.hero-content{
+ position:relative;
+ z-index:2;
+ max-width:750px;
+}
+
+.badge{
+ display:inline-block;
+ color:var(--green);
+ border:1px solid rgba(0,255,102,.3);
+ background:rgba(0,255,102,.04);
+ padding:8px 14px;
+ border-radius:30px;
+ font-size:12px;
+ margin-bottom:20px;
+}
+
+.hero h1{
+ font-size:clamp(48px,7vw,90px);
+ line-height:1.05;
+ font-weight:1000;
+ margin-bottom:25px;
+}
+
+.hero h1 span{
+ color:var(--green);
+ text-shadow:0 0 30px rgba(0,255,102,.5);
+}
+
+.hero p{
+ max-width:620px;
+ color:#888;
+ line-height:2;
+ font-size:16px;
+ margin-bottom:30px;
+}
+
+.hero-buttons{
+ display:flex;
+ gap:12px;
+ flex-wrap:wrap;
+}
+
+.btn{
+ display:inline-block;
+ padding:14px 22px;
+ border-radius:10px;
+ text-decoration:none;
+ font-weight:bold;
+ transition:.3s;
+}
+
+.primary{
+ background:var(--green);
+ color:#000;
+}
+
+.primary:hover{
+ transform:translateY(-4px);
+ box-shadow:0 15px 35px rgba(0,255,102,.2);
+}
+
+.secondary{
+ color:#fff;
+ border:1px solid #333;
+}
+
+.secondary:hover{
+ color:var(--green);
+ border-color:var(--green);
+}
+
+/* ================= SECTION ================= */
+
+.section{
+ padding:90px 8%;
+}
+
+.section-title{
+ font-size:34px;
+}
+
+.section-title span{
+ color:var(--green);
+}
+
+.section-sub{
+ color:#666;
+ font-size:13px;
+ margin-top:8px;
+ margin-bottom:35px;
+}
+
+/* ================= CATEGORIES ================= */
+
+.categories{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:20px;
+}
+
+.category{
+ min-height:220px;
+ padding:30px;
+ background:linear-gradient(145deg,#111,#080808);
+ border:1px solid #1d1d1d;
+ border-radius:18px;
+ transition:.3s;
+}
+
+.category:hover{
+ transform:translateY(-8px);
+ border-color:rgba(0,255,102,.4);
+}
+
+.category-icon{
+ font-size:40px;
+ margin-bottom:18px;
+}
+
+.category h3{
+ font-size:22px;
+ margin-bottom:10px;
+}
+
+.category p{
+ color:#777;
+ line-height:1.8;
+ font-size:13px;
+}
+
+/* ================= CONTENT ================= */
+
+.latest{
+ background:#070707;
+}
+
+.content-grid{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:20px;
+}
+
+.content-card{
+ background:#0d0d0d;
+ border:1px solid #1c1c1c;
+ border-radius:16px;
+ overflow:hidden;
+ transition:.3s;
+}
+
+.content-card:hover{
+ transform:translateY(-6px);
+ border-color:rgba(0,255,102,.4);
+}
+
+.content-image{
+ height:205px;
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ overflow:hidden;
+ background:radial-gradient(circle,rgba(0,255,102,.15),#080808 65%);
+ font-size:55px;
+}
+
+.content-image img{
+ width:100%;
+ height:100%;
+ object-fit:cover;
+}
+
+.content-info{
+ padding:20px;
+}
+
+.content-info .tag{
+ color:var(--green);
+ font-size:10px;
+}
+
+.content-info h3{
+ margin:10px 0;
+}
+
+.content-info p{
+ color:#777;
+ font-size:13px;
+ line-height:1.8;
+}
+
+.content-actions{
+ display:none;
+ padding:0 20px 20px;
+ gap:8px;
+}
+
+.owner-mode .content-actions{
+ display:flex;
+}
+
+.edit-btn,
+.delete-btn{
+ padding:8px 12px;
+ border-radius:7px;
+ border:1px solid #333;
+ background:#111;
+ color:#bbb;
+ cursor:pointer;
+ font-size:11px;
+}
+
+.edit-btn:hover{
+ color:var(--green);
+ border-color:var(--green);
+}
+
+.delete-btn:hover{
+ color:var(--red);
+ border-color:var(--red);
+}
+
+/* ================= NO RESULTS ================= */
+
+.no-results{
+ display:none;
+ text-align:center;
+ padding:80px 20px;
+ color:#666;
+}
+
+.no-results.show{display:block}
+
+.no-results-icon{
+ font-size:55px;
+ margin-bottom:15px;
+}
+
+/* ================= PROFILE ================= */
+
+.profile{
+ display:grid;
+ grid-template-columns:160px 1fr;
+ gap:30px;
+ align-items:center;
+ padding:35px;
+ background:#0d0d0d;
+ border:1px solid #202020;
+ border-radius:20px;
+}
+
+.avatar{
+ width:140px;
+ height:140px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ border-radius:50%;
+ border:2px solid var(--green);
+ color:var(--green);
+ font-size:38px;
+ font-weight:bold;
+ box-shadow:0 0 35px rgba(0,255,102,.12);
+}
+
+.profile h2{
+ font-size:29px;
+ margin-bottom:10px;
+}
+
+.profile h2 span{
+ color:var(--green);
+}
+
+.profile p{
+ color:#888;
+ line-height:2;
+}
+
+.profile-links{
+ display:flex;
+ gap:10px;
+ margin-top:20px;
+ flex-wrap:wrap;
+}
+
+.profile-links a{
+ color:#bbb;
+ border:1px solid #292929;
+ padding:10px 14px;
+ border-radius:8px;
+ text-decoration:none;
+ font-size:12px;
+}
+
+/* ================= COMMENTS ================= */
+
+.comments{
+ max-width:900px;
+ margin:auto;
+}
+
+.comment-form{
+ background:#0c0c0c;
+ padding:25px;
+ border:1px solid #1e1e1e;
+ border-radius:15px;
+ margin-bottom:25px;
+}
+
+.form-row{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:12px;
+}
+
+.label{
+ display:block;
+ color:#aaa;
+ font-size:12px;
+ margin-bottom:7px;
+}
+
+.required{
+ color:red;
+ font-size:17px;
+}
+
+.comment-form input,
+.comment-form textarea{
+ width:100%;
+ padding:13px;
+ margin-bottom:15px;
+ background:#050505;
+ border:1px solid #222;
+ color:white;
+ border-radius:9px;
+ outline:none;
+}
+
+.comment-form textarea{
+ min-height:100px;
+ resize:vertical;
+}
+
+.submit-btn{
+ background:var(--green);
+ color:#000;
+ border:0;
+ padding:12px 24px;
+ border-radius:8px;
+ font-weight:bold;
+ cursor:pointer;
+}
+
+.comment{
+ background:#0b0b0b;
+ border:1px solid #1b1b1b;
+ padding:20px;
+ border-radius:13px;
+ margin-bottom:13px;
+}
+
+.comment-top{
+ display:flex;
+ justify-content:space-between;
+}
+
+.comment-name{
+ color:var(--green);
+ font-weight:bold;
+}
+
+.comment-date{
+ color:#555;
+ font-size:10px;
+}
+
+.comment-phone{
+ color:#555;
+ font-size:10px;
+ margin-top:6px;
+}
+
+.comment-text{
+ color:#aaa;
+ line-height:1.8;
+ margin-top:10px;
+}
+
+.owner-reply{
+ margin-top:15px;
+ padding:14px;
+ border-right:3px solid var(--green);
+ background:rgba(0,255,102,.04);
+ border-radius:8px;
+}
+
+.owner-label{
+ color:var(--green);
+ font-size:11px;
+ font-weight:bold;
+ margin-bottom:7px;
+}
+
+.owner-reply-text{
+ color:#aaa;
+ font-size:13px;
+ line-height:1.8;
+}
+
+.comment-actions{
+ display:none;
+ gap:7px;
+ margin-top:15px;
+}
+
+.owner-mode .comment-actions{
+ display:flex;
+}
+
+.action-btn{
+ border:1px solid #333;
+ background:#111;
+ color:#bbb;
+ padding:7px 10px;
+ border-radius:7px;
+ cursor:pointer;
+ font-size:11px;
+}
+
+.action-delete:hover{
+ color:var(--red);
+ border-color:var(--red);
+}
+
+/* ================= ADMIN PANEL ================= */
+
+#admin{
+ display:none;
+ background:
+ radial-gradient(circle at top right,
+ rgba(0,255,102,.07),
+ transparent 30%),
+ #080808;
+ border-top:1px solid #151515;
+}
+
+.owner-mode #admin{
+ display:block;
+}
+
+.admin-header{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ gap:15px;
+ margin-bottom:25px;
+}
+
+.admin-header h2{
+ color:var(--green);
+}
+
+.logout-btn{
+ background:#111;
+ border:1px solid #333;
+ color:#aaa;
+ padding:10px 16px;
+ border-radius:8px;
+ cursor:pointer;
+}
+
+.logout-btn:hover{
+ color:var(--red);
+ border-color:var(--red);
+}
+
+.admin-dashboard{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:15px;
+ margin-bottom:25px;
+}
+
+.stat{
+ background:#0d0d0d;
+ border:1px solid #202020;
+ border-radius:14px;
+ padding:20px;
+}
+
+.stat-number{
+ color:var(--green);
+ font-size:30px;
+ font-weight:bold;
+}
+
+.stat-title{
+ color:#777;
+ font-size:12px;
+ margin-top:7px;
+}
+
+.admin-box{
+ max-width:900px;
+ margin:auto;
+ background:#0c0c0c;
+ border:1px solid #202020;
+ padding:30px;
+ border-radius:18px;
+}
+
+.admin-box h3{
+ color:var(--green);
+ margin-bottom:20px;
+}
+
+.admin-box input,
+.admin-box textarea,
+.admin-box select{
+ width:100%;
+ background:#050505;
+ color:white;
+ border:1px solid #222;
+ padding:13px;
+ border-radius:8px;
+ margin-bottom:12px;
+ outline:none;
+}
+
+.admin-box textarea{
+ min-height:100px;
+}
+
+.upload-area{
+ display:block;
+ padding:25px;
+ border:1px dashed #333;
+ border-radius:12px;
+ text-align:center;
+ cursor:pointer;
+ margin-bottom:15px;
+}
+
+.upload-area:hover{
+ border-color:var(--green);
+}
+
+.upload-area input{
+ display:none;
+}
+
+.upload-title{
+ color:var(--green);
+ font-weight:bold;
+ margin-bottom:7px;
+}
+
+.upload-text{
+ color:#777;
+ font-size:11px;
+}
+
+.image-preview{
+ display:none;
+ margin-bottom:15px;
+ border-radius:12px;
+ overflow:hidden;
+ border:1px solid #222;
+}
+
+.image-preview.active{
+ display:block;
+}
+
+.image-preview img{
+ width:100%;
+ max-height:300px;
+ object-fit:cover;
+}
+
+.publish{
+ background:var(--green);
+ color:#000;
+ border:0;
+ padding:12px 25px;
+ border-radius:8px;
+ font-weight:bold;
+ cursor:pointer;
+}
+
+/* ================= OWNER LOGIN ================= */
+
+.owner-overlay{
+ position:fixed;
+ inset:0;
+ background:rgba(0,0,0,.8);
+ backdrop-filter:blur(8px);
+ z-index:10000;
+ display:none;
+ align-items:center;
+ justify-content:center;
+ padding:20px;
+}
+
+.owner-overlay.active{
+ display:flex;
+}
+
+.owner-login-box{
+ width:min(420px,100%);
+ background:#0c0c0c;
+ border:1px solid rgba(0,255,102,.3);
+ border-radius:20px;
+ padding:30px;
+ box-shadow:0 20px 80px rgba(0,0,0,.8);
+ text-align:center;
+}
+
+.big-lock{
+ font-size:55px;
+ margin-bottom:15px;
+}
+
+.owner-login-box h2{
+ color:var(--green);
+ margin-bottom:10px;
+}
+
+.owner-login-box p{
+ color:#666;
+ font-size:12px;
+ margin-bottom:20px;
+}
+
+.owner-login-box input{
+ width:100%;
+ padding:14px;
+ background:#050505;
+ border:1px solid #222;
+ color:white;
+ border-radius:9px;
+ outline:none;
+ margin-bottom:12px;
+ text-align:center;
+}
+
+.owner-login-box button{
+ width:100%;
+ padding:13px;
+ border:0;
+ border-radius:9px;
+ background:var(--green);
+ color:#000;
+ font-weight:bold;
+ cursor:pointer;
+}
+
+.close-owner{
+ margin-top:12px;
+ color:#666;
+ cursor:pointer;
+ font-size:12px;
+}
+
+.close-owner:hover{
+ color:white;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+ padding:35px;
+ text-align:center;
+ color:#555;
+ border-top:1px solid #151515;
+}
+
+footer span{
+ color:var(--green);
+}
+
+/* ================= TOAST ================= */
+
+#toast{
+ position:fixed;
+ bottom:25px;
+ left:50%;
+ transform:translate(-50%,120px);
+ opacity:0;
+ z-index:999999;
+ background:#101010;
+ border:1px solid var(--green);
+ color:white;
+ padding:13px 20px;
+ border-radius:10px;
+ transition:.3s;
+}
+
+#toast.show{
+ opacity:1;
+ transform:translate(-50%,0);
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:900px){
+
+ .search-area{display:none}
+
+ .categories,
+ .content-grid{
+  grid-template-columns:1fr;
+ }
+
+ .profile{
+  grid-template-columns:1fr;
+  text-align:center;
+ }
+
+ .avatar{margin:auto}
+
+ .admin-dashboard{
+  grid-template-columns:1fr;
+ }
+
+}
+
+@media(max-width:600px){
+
+ header{padding:0 5%}
+
+ .logo{font-size:22px}
+
+ .hero{padding:140px 5% 90px}
+
+ .hero h1{font-size:48px}
+
+ .section{padding:70px 5%}
+
+ .form-row{
+  grid-template-columns:1fr;
+ }
+
+ #sideMenu{width:290px}
+
+ .admin-header{
+  flex-direction:column;
+  align-items:stretch;
+ }
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- INTRO -->
+<div id="intro">
+ <div class="intro-grid"></div>
+
+ <div class="intro-content">
+  <div class="intro-welcome">WELCOME TO</div>
+  <div class="intro-logo">ALIXMAX</div>
+  <div class="intro-sub">GAMING • MODS • GAMEPLAY • TUTORIALS</div>
+  <div class="intro-line"></div>
+  <div class="intro-loading">در حال ورود به دنیای ALIXMAX...</div>
+ </div>
+
+ <div class="intro-skip" onclick="closeIntro()">
+  ورود به سایت ←
+ </div>
+</div>
+
+
+<!-- HEADER -->
+<header>
+
+ <div class="logo">ALIXMAX</div>
+
+ <div class="search-area">
+  <div class="search-box">
+
+   <input
+    id="searchInput"
+    type="search"
+    placeholder="جستجوی مطلب..."
+    autocomplete="off"
+    oninput="showSuggestions()"
+    onkeydown="searchEnter(event)"
+   >
+
+   <button onclick="performSearch()">🔎</button>
+
+   <div id="suggestions"></div>
+
+  </div>
+ </div>
+
+ <div
+  class="menu-btn"
+  id="menuBtn"
+  onclick="toggleMenu()"
+ >
+  <span></span>
+  <span></span>
+  <span></span>
+ </div>
+
+</header>
+
+
+<!-- SIDE MENU -->
+<div id="sideMenu">
+
+ <div class="menu-title">
+  منوی ALIXMAX 🎮
+ </div>
+
+ <a class="menu-link" href="#home">
+  <span class="menu-left">🏠 صفحه اصلی</span>
+ </a>
+
+ <a class="menu-link" href="#categories">
+  <span class="menu-left">🗂️ دسته‌بندی‌ها</span>
+ </a>
+
+ <a class="menu-link" href="#mods">
+  <span class="menu-left">🧩 مودها</span>
+ </a>
+
+ <a class="menu-link" href="#gameplays">
+  <span class="menu-left">🎬 گیمپلی‌ها</span>
+ </a>
+
+ <a class="menu-link" href="#tutorials">
+  <span class="menu-left">📚 آموزش‌ها</span>
+ </a>
+
+ <a class="menu-link" href="#latest">
+  <span class="menu-left">🆕 جدیدترین مطالب</span>
+ </a>
+
+ <a class="menu-link" href="#profile">
+  <span class="menu-left">👤 پروفایل ALIXMAX</span>
+ </a>
+
+ <a class="menu-link" href="#comments">
+  <span class="menu-left">💬 نظرات کاربران</span>
+ </a>
+
+
+ <!-- OWNER -->
+ <div
+  class="menu-link"
+  onclick="openOwnerLogin()"
+ >
+
+  <span class="menu-left">
+   👑 پنل مدیریتی
+  </span>
+
+  <span
+   class="lock"
+   id="menuLock"
+  >
+   🔒
+  </span>
+
+ </div>
+
+
+ <a
+  class="menu-link"
+  href="https://www.aparat.com/Alixmax.yt"
+  target="_blank"
+ >
+  <span class="menu-left">
+   📺 آپارات
+  </span>
+ </a>
+
+</div>
+
+
+<!-- HERO -->
+<section class="hero" id="home">
+
+ <div class="hero-content">
+
+  <div class="badge">
+   🎮 دنیای گیمینگ ALIXMAX
+  </div>
+
+  <h1>
+   دنیای
+   <span>گیمینگ</span>
+   اینجاست.
+  </h1>
+
+  <p>
+   مودهای جذاب، گیمپلی‌های خفن،
+   آموزش‌های کاربردی و محتوای گیمینگ
+   در یک سایت اختصاصی برای ALIXMAX.
+  </p>
+
+  <div class="hero-buttons">
+
+   <a href="#latest" class="btn primary">
+    مشاهده مطالب 🎮
+   </a>
+
+   <a
+    href="https://www.aparat.com/Alixmax.yt"
+    target="_blank"
+    class="btn secondary"
+   >
+    کانال آپارات 📺
+   </a>
+
+  </div>
+
+ </div>
+
+</section>
+
+
+<!-- CATEGORIES -->
+<section class="section" id="categories">
+
+ <h2 class="section-title">
+  دسته‌بندی <span>محتوا</span>
+ </h2>
+
+ <p class="section-sub">
+  چیزی که می‌خوای رو پیدا کن.
+ </p>
+
+ <div class="categories">
+
+  <div class="category" id="mods">
+   <div class="category-icon">🧩</div>
+   <h3>مودها</h3>
+   <p>
+    مودهای جذاب و کاربردی برای بازی‌های مختلف.
+   </p>
+  </div>
+
+  <div class="category" id="gameplays">
+   <div class="category-icon">🎬</div>
+   <h3>گیمپلی‌ها</h3>
+   <p>
+    گیمپلی‌ها و ویدیوهای اختصاصی ALIXMAX.
+   </p>
+  </div>
+
+  <div class="category" id="tutorials">
+   <div class="category-icon">📚</div>
+   <h3>آموزش‌ها</h3>
+   <p>
+    آموزش مود، رفع ارور و ترفندهای گیمینگ.
+   </p>
+  </div>
+
+ </div>
+
+</section>
+
+
+<!-- LATEST -->
+<section class="section latest" id="latest">
+
+ <h2 class="section-title">
+  جدیدترین <span>مطالب</span>
+ </h2>
+
+ <p class="section-sub">
+  مطالب منتشرشده توسط ALIXMAX.
+ </p>
+
+ <div class="content-grid" id="contentGrid"></div>
+
+ <div class="no-results" id="noResults">
+
+  <div class="no-results-icon">🔍</div>
+
+  <h3>مطلبی یافت نشد</h3>
+
+  <p>
+   چیزی مرتبط با جستجوی شما وجود ندارد.
+  </p>
+
+ </div>
+
+</section>
+
+
+<!-- PROFILE -->
+<section class="section" id="profile">
+
+ <div class="profile">
+
+  <div class="avatar">
+   AM
+  </div>
+
+  <div>
+
+   <h2>
+    پروفایل <span>ALIXMAX</span>
+   </h2>
+
+   <p>
+    سازنده محتوای گیمینگ و علاقه‌مند به بازی،
+    مود، گیمپلی و دنیای کامپیوتر.
+   </p>
+
+   <div class="profile-links">
+
+    <a
+     href="https://www.aparat.com/Alixmax.yt"
+     target="_blank"
+    >
+     📺 آپارات
+    </a>
+
+    <a href="#">
+     📷 اینستاگرام
+    </a>
+
+    <a href="#">
+     ▶️ یوتیوب
+    </a>
+
+   </div>
+
+  </div>
+
+ </div>
+
+</section>
+
+
+<!-- COMMENTS -->
+<section class="section" id="comments">
+
+ <h2 class="section-title">
+  نظرات <span>کاربران</span>
+ </h2>
+
+ <p class="section-sub">
+  نظرت رو با ALIXMAX به اشتراک بذار.
+ </p>
+
+ <div class="comments">
+
+  <div class="comment-form">
+
+   <div class="form-row">
+
+    <div>
+
+     <label class="label">
+      نام شما <span class="required">*</span>
+     </label>
+
+     <input
+      id="commentName"
+      type="text"
+      placeholder="نام شما"
+     >
+
+    </div>
+
+    <div>
+
+     <label class="label">
+      شماره موبایل <span class="required">*</span>
+     </label>
+
+     <input
+      id="commentPhone"
+      type="tel"
+      maxlength="11"
+      placeholder="09123456789"
+     >
+
+    </div>
+
+   </div>
+
+   <label class="label">
+    نظر شما <span class="required">*</span>
+   </label>
+
+   <textarea
+    id="commentText"
+    placeholder="نظر خودت رو بنویس..."
+   ></textarea>
+
+   <button
+    class="submit-btn"
+    onclick="addComment()"
+   >
+    ارسال نظر 💬
+   </button>
+
+  </div>
+
+  <div id="commentsList"></div>
+
+ </div>
+
+</section>
+
+
+<!-- ADMIN -->
+<section class="section" id="admin">
+
+ <div class="admin-header">
+
+  <div>
+   <h2>👑 پنل مدیریت ALIXMAX</h2>
+   <p class="section-sub">
+    کنترل کامل محتوای سایت
+   </p>
+  </div>
+
+  <button
+   class="logout-btn"
+   onclick="logoutOwner()"
+  >
+   🔒 خروج از Owner
+  </button>
+
+ </div>
+
+
+ <div class="admin-dashboard">
+
+  <div class="stat">
+   <div
+    class="stat-number"
+    id="postCount"
+   >0</div>
+
+   <div class="stat-title">
+    تعداد مطالب
+   </div>
+  </div>
+
+  <div class="stat">
+   <div
+    class="stat-number"
+    id="commentCount"
+   >0</div>
+
+   <div class="stat-title">
+    تعداد نظرات
+   </div>
+  </div>
+
+  <div class="stat">
+   <div class="stat-number">
+    👑
+   </div>
+
+   <div class="stat-title">
+    Owner: ALIXMAX
+   </div>
+  </div>
+
+ </div>
+
+
+ <div class="admin-box">
+
+  <h3 id="adminFormTitle">
+   ➕ انتشار مطلب جدید
+  </h3>
+
+  <input
+   id="postTitle"
+   type="text"
+   placeholder="عنوان مطلب"
+  >
+
+  <select id="postType">
+
+   <option value="مود">
+    🧩 مود
+   </option>
+
+   <option value="گیمپلی">
+    🎬 گیمپلی
+   </option>
+
+   <option value="آموزش">
+    📚 آموزش
+   </option>
+
+  </select>
+
+  <textarea
+   id="postDescription"
+   placeholder="توضیحات مطلب"
+  ></textarea>
+
+  <label
+   class="upload-area"
+   for="postImage"
+  >
+
+   <div class="upload-title">
+    🖼️ انتخاب تصویر شاخص
+   </div>
+
+   <div class="upload-text">
+    JPG / PNG / WEBP - حداکثر 5MB
+   </div>
+
+   <input
+    id="postImage"
+    type="file"
+    accept="image/*"
+    onchange="previewImage(event)"
+   >
+
+  </label>
+
+  <div
+   class="image-preview"
+   id="imagePreview"
+  >
+   <img
+    id="previewImg"
+    alt=""
+   >
+  </div>
+
+  <button
+   class="publish"
+   id="publishBtn"
+   onclick="publishPost()"
+  >
+   انتشار مطلب 🚀
+  </button>
+
+ </div>
+
+</section>
+
+
+<footer>
+ © 2026 <span>ALIXMAX</span> — All Rights Reserved.
+</footer>
+
+
+<!-- OWNER LOGIN -->
+<div
+ class="owner-overlay"
+ id="ownerOverlay"
+>
+
+ <div class="owner-login-box">
+
+  <div
+   class="big-lock"
+   id="loginLock"
+  >
+   🔒
+  </div>
+
+  <h2>
+   Owner — ALIXMAX
+  </h2>
+
+  <p>
+   برای ورود به پنل مدیریتی رمز Owner را وارد کنید.
+  </p>
+
+  <input
+   id="ownerPassword"
+   type="password"
+   placeholder="رمز Owner"
+   onkeydown="ownerEnter(event)"
+  >
+
+  <button onclick="loginOwner()">
+   ورود به پنل 👑
+  </button>
+
+  <div
+   class="close-owner"
+   onclick="closeOwnerLogin()"
+  >
+   بستن
+  </div>
+
+ </div>
+
+</div>
+
+
+<div id="toast"></div>
+
+
+<script>
+
+/* =====================================================
+   OWNER PASSWORD
+   ===================================================== */
+
+const OWNER_PASSWORD = "@Alibayat1388";
+
+
+/* =====================================================
+   DATA
+   ===================================================== */
+
+let posts = [];
+let comments = [];
+
+let selectedImage = null;
+let editingPostId = null;
+let ownerMode = false;
+
+
+/* =====================================================
+   INTRO
+   ===================================================== */
+
+function closeIntro(){
+
+ document
+  .getElementById("intro")
+  .classList.add("hide");
+
+}
+
+setTimeout(closeIntro,5000);
+
+
+/* =====================================================
+   MENU
+   ===================================================== */
+
+function toggleMenu(){
+
+ const menu =
+  document.getElementById("sideMenu");
+
+ const btn =
+  document.getElementById("menuBtn");
+
+ menu.classList.toggle("active");
+
+ btn.classList.toggle("active");
+
+}
+
+
+document.addEventListener("click",function(e){
+
+ const menu =
+  document.getElementById("sideMenu");
+
+ const btn =
+  document.getElementById("menuBtn");
+
+
+ if(
+  menu.classList.contains("active") &&
+  !menu.contains(e.target) &&
+  !btn.contains(e.target)
+ ){
+
+  menu.classList.remove("active");
+
+  btn.classList.remove("active");
+
+ }
+
+});
+
+
+document
+ .querySelectorAll(".menu-link")
+ .forEach(link=>{
+
+  link.addEventListener("click",function(e){
+
+   if(
+    this.getAttribute("onclick")
+   )
+    return;
+
+   document
+    .getElementById("sideMenu")
+    .classList.remove("active");
+
+   document
+    .getElementById("menuBtn")
+    .classList.remove("active");
+
+  });
+
+ });
+
+
+/* =====================================================
+   OWNER LOGIN
+   ===================================================== */
+
+function openOwnerLogin(){
+
+ document
+  .getElementById("ownerOverlay")
+  .classList.add("active");
+
+ document
+  .getElementById("ownerPassword")
+  .focus();
+
+}
+
+
+function closeOwnerLogin(){
+
+ document
+  .getElementById("ownerOverlay")
+  .classList.remove("active");
+
+}
+
+
+function ownerEnter(e){
+
+ if(e.key === "Enter"){
+  loginOwner();
+ }
+
+}
+
+
+function loginOwner(){
+
+ const password =
+  document
+   .getElementById("ownerPassword")
+   .value;
+
+ if(password === OWNER_PASSWORD){
+
+  ownerMode = true;
+
+  document.body
+   .classList.add("owner-mode");
+
+  document
+   .getElementById("menuLock")
+   .textContent = "🔓";
+
+  document
+   .getElementById("loginLock")
+   .textContent = "🔓";
+
+  closeOwnerLogin();
+
+  renderPosts();
+  renderComments();
+  updateStats();
+
+  document
+   .getElementById("admin")
+   .scrollIntoView({
+    behavior:"smooth"
+   });
+
+  showToast(
+   "ورود موفق! خوش آمدی ALIXMAX 👑"
+  );
+
+ }else{
+
+  showToast(
+   "رمز Owner اشتباه است ❌"
+  );
+
+ }
+
+}
+
+
+function logoutOwner(){
+
+ ownerMode = false;
+
+ document.body
+  .classList.remove("owner-mode");
+
+ document
+  .getElementById("menuLock")
+  .textContent = "🔒";
+
+ document
+  .getElementById("loginLock")
+  .textContent = "🔒";
+
+ showToast(
+  "از Owner خارج شدی 🔒"
+ );
+
+}
+
+
+/* =====================================================
+   IMAGE
+   ===================================================== */
+
+function previewImage(event){
+
+ const file =
+  event.target.files[0];
+
+ if(!file) return;
+
+ if(!file.type.startsWith("image/")){
+
+  showToast(
+   "فقط فایل تصویری انتخاب کن."
+  );
+
+  return;
+
+ }
+
+ if(file.size > 5*1024*1024){
+
+  showToast(
+   "حجم تصویر باید کمتر از 5MB باشد."
+  );
+
+  return;
+
+ }
+
+ selectedImage = file;
+
+ const reader =
+  new FileReader();
+
+ reader.onload=function(e){
+
+  document
+   .getElementById("previewImg")
+   .src=e.target.result;
+
+  document
+   .getElementById("imagePreview")
+   .classList.add("active");
+
+ };
+
+ reader.readAsDataURL(file);
+
+}
+
+
+/* =====================================================
+   CREATE POST
+   ===================================================== */
+
+function publishPost(){
+
+ if(!ownerMode){
+
+  openOwnerLogin();
+
+  return;
+
+ }
+
+ const title =
+  document
+   .getElementById("postTitle")
+   .value.trim();
+
+ const type =
+  document
+   .getElementById("postType")
+   .value;
+
+ const description =
+  document
+   .getElementById("postDescription")
+   .value.trim();
+
+
+ if(!title){
+
+  showToast("عنوان مطلب را وارد کن.");
+
+  return;
+
+ }
+
+
+ if(!description){
+
+  showToast("توضیحات مطلب را وارد کن.");
+
+  return;
+
+ }
+
+
+ if(editingPostId){
+
+  updatePost(
+   title,
+   type,
+   description
+  );
+
+  return;
+
+ }
+
+
+ if(selectedImage){
+
+  const reader =
+   new FileReader();
+
+  reader.onload=function(e){
+
+   createPost(
+    title,
+    type,
+    description,
+    e.target.result
+   );
+
+  };
+
+  reader.readAsDataURL(selectedImage);
+
+ }else{
+
+  createPost(
+   title,
+   type,
+   description,
+   null
+  );
+
+ }
+
+}
+
+
+function createPost(
+ title,
+ type,
+ description,
+ image
+){
+
+ const post={
+
+  id:Date.now(),
+
+  title:title,
+
+  type:type,
+
+  description:description,
+
+  image:image,
+
+  createdAt:
+   new Date().toLocaleDateString("fa-IR")
+
+ };
+
+ posts.unshift(post);
+
+ savePosts();
+
+ renderPosts();
+
+ clearPostForm();
+
+ updateStats();
+
+ showToast(
+  "مطلب با موفقیت منتشر شد 🚀"
+ );
+
+}
+
+
+/* =====================================================
+   RENDER POSTS
+   ===================================================== */
+
+function renderPosts(){
+
+ const grid =
+  document.getElementById("contentGrid");
+
+ grid.innerHTML="";
+
+
+ posts.forEach(post=>{
+
+  const card =
+   document.createElement("div");
+
+  card.className =
+   "content-card searchable";
+
+  card.dataset.title =
+   post.title;
+
+  card.dataset.type =
+   post.type;
+
+
+  let icon="🎮";
+
+  if(post.type==="مود")
+   icon="🧩";
+
+  if(post.type==="گیمپلی")
+   icon="🎬";
+
+  if(post.type==="آموزش")
+   icon="📚";
+
+
+  const image =
+   post.image
+   ?
+   `<img src="${post.image}" alt="${escapeHTML(post.title)}">`
+   :
+   icon;
+
+
+  card.innerHTML=`
+
+   <div class="content-image">
+    ${image}
+   </div>
+
+   <div class="content-info">
+
+    <span class="tag">
+     ${escapeHTML(post.type)}
+    </span>
+
+    <h3>
+     ${escapeHTML(post.title)}
+    </h3>
+
+    <p>
+     ${escapeHTML(post.description)}
+    </p>
+
+   </div>
+
+   <div class="content-actions">
+
+    <button
+     class="edit-btn"
+     onclick="editPost(${post.id})"
+    >
+     ✏️ ویرایش
+    </button>
+
+    <button
+     class="delete-btn"
+     onclick="deletePost(${post.id})"
+    >
+     🗑️ حذف
+    </button>
+
+   </div>
+  `;
+
+
+  grid.appendChild(card);
+
+ });
+
+}
+
+
+/* =====================================================
+   EDIT POST
+   ===================================================== */
+
+function editPost(id){
+
+ if(!ownerMode) return;
+
+ const post =
+  posts.find(p=>p.id===id);
+
+ if(!post) return;
+
+ editingPostId=id;
+
+ document
+  .getElementById("postTitle")
+  .value=post.title;
+
+ document
+  .getElementById("postType")
+  .value=post.type;
+
+ document
+  .getElementById("postDescription")
+  .value=post.description;
+
+
+ if(post.image){
+
+  document
+   .getElementById("previewImg")
+   .src=post.image;
+
+  document
+   .getElementById("imagePreview")
+   .classList.add("active");
+
+ }
+
+
+ document
+  .getElementById("adminFormTitle")
+  .textContent="✏️ ویرایش مطلب";
+
+ document
+  .getElementById("publishBtn")
+  .textContent="ذخیره تغییرات 💾";
+
+
+ document
+  .getElementById("admin")
+  .scrollIntoView({
+   behavior:"smooth"
+  });
+
+}
+
+
+function updatePost(
+ title,
+ type,
+ description
+){
+
+ const post =
+  posts.find(
+   p=>p.id===editingPostId
+  );
+
+ if(!post) return;
+
+ post.title=title;
+ post.type=type;
+ post.description=description;
+
+
+ if(selectedImage){
+
+  const reader =
+   new FileReader();
+
+  reader.onload=function(e){
+
+   post.image=e.target.result;
+
+   finishUpdate();
+
+  };
+
+  reader.readAsDataURL(selectedImage);
+
+ }else{
+
+  finishUpdate();
+
+ }
+
+}
+
+
+function finishUpdate(){
+
+ savePosts();
+
+ renderPosts();
+
+ clearPostForm();
+
+ updateStats();
+
+ showToast(
+  "مطلب ویرایش شد ✏️"
+ );
+
+}
+
+
+function deletePost(id){
+
+ if(!ownerMode) return;
+
+ const post =
+  posts.find(
+   p=>p.id===id
+  );
+
+ if(!post) return;
+
+ if(
+  !confirm(
+   `مطلب «${post.title}» حذف شود؟`
+  )
+ )
+  return;
+
+
+ posts =
+  posts.filter(
+   p=>p.id!==id
+  );
+
+ savePosts();
+
+ renderPosts();
+
+ updateStats();
+
+ showToast(
+  "مطلب حذف شد 🗑️"
+ );
+
+}
+
+
+function clearPostForm(){
+
+ editingPostId=null;
+ selectedImage=null;
+
+ document
+  .getElementById("postTitle")
+  .value="";
+
+ document
+  .getElementById("postDescription")
+  .value="";
+
+ document
+  .getElementById("postImage")
+  .value="";
+
+ document
+  .getElementById("previewImg")
+  .src="";
+
+ document
+  .getElementById("imagePreview")
+  .classList.remove("active");
+
+ document
+  .getElementById("adminFormTitle")
+  .textContent="➕ انتشار مطلب جدید";
+
+ document
+  .getElementById("publishBtn")
+  .textContent="انتشار مطلب 🚀";
+
+}
+
+
+/* =====================================================
+   SEARCH
+   ===================================================== */
+
+function showSuggestions(){
+
+ const input =
+  document.getElementById("searchInput");
+
+ const suggestions =
+  document.getElementById("suggestions");
+
+ const query =
+  input.value.trim().toLowerCase();
+
+ suggestions.innerHTML="";
+
+
+ if(!query){
+
+  suggestions.classList.remove("active");
+
+  return;
+
+ }
+
+
+ const results =
+  posts.filter(post=>
+
+   post.title
+    .toLowerCase()
+    .includes(query)
+
+   ||
+
+   post.type
+    .toLowerCase()
+    .includes(query)
+
+  );
+
+
+ if(!results.length){
+
+  suggestions.classList.remove("active");
+
+  return;
+
+ }
+
+
+ results
+  .slice(0,6)
+  .forEach(post=>{
+
+   const item =
+    document.createElement("div");
+
+   item.className="suggestion";
+
+   item.innerHTML=`
+
+    <div class="suggestion-title">
+     ${escapeHTML(post.title)}
+    </div>
+
+    <div class="suggestion-type">
+     ${escapeHTML(post.type)}
+    </div>
+   `;
+
+   item.onclick=function(){
+
+    input.value=post.title;
+
+    suggestions
+     .classList
+     .remove("active");
+
+    performSearch();
+
+   };
+
+   suggestions.appendChild(item);
+
+  });
+
+
+ suggestions.classList.add("active");
+
+}
+
+
+function performSearch(){
+
+ const input =
+  document.getElementById("searchInput");
+
+ const query =
+  input.value.trim().toLowerCase();
+
+ document
+  .getElementById("suggestions")
+  .classList.remove("active");
+
+
+ const cards =
+  document.querySelectorAll(".searchable");
+
+ const noResults =
+  document.getElementById("noResults");
+
+
+ if(!query){
+
+  cards.forEach(
+   card=>card.style.display=""
+  );
+
+  noResults.classList.remove("show");
+
+  return;
+
+ }
+
+
+ let found=0;
+
+
+ cards.forEach(card=>{
+
+  const title =
+   card.dataset.title.toLowerCase();
+
+  const type =
+   card.dataset.type.toLowerCase();
+
+
+  if(
+   title.includes(query) ||
+   type.includes(query)
+  ){
+
+   card.style.display="";
+   found++;
+
+  }else{
+
+   card.style.display="none";
+
+  }
+
+ });
+
+
+ if(found===0){
+
+  noResults.classList.add("show");
+
+ }else{
+
+  noResults.classList.remove("show");
+
+  document
+   .getElementById("latest")
+   .scrollIntoView({
+    behavior:"smooth"
+   });
+
+ }
+
+}
+
+
+function searchEnter(e){
+
+ if(e.key==="Enter")
+  performSearch();
+
+}
+
+
+/* =====================================================
+   COMMENTS
+   ===================================================== */
+
+function addComment(){
+
+ const name =
+  document
+   .getElementById("commentName")
+   .value.trim();
+
+ const phone =
+  document
+   .getElementById("commentPhone")
+   .value.trim();
+
+ const text =
+  document
+   .getElementById("commentText")
+   .value.trim();
+
+
+ if(!name){
+
+  showToast(
+   "نام شما اجباری است."
+  );
+
+  return;
+
+ }
+
+
+ if(!/^09\d{9}$/.test(phone)){
+
+  showToast(
+   "شماره موبایل معتبر نیست."
+  );
+
+  return;
+
+ }
+
+
+ if(!text){
+
+  showToast(
+   "متن نظر را وارد کن."
+  );
+
+  return;
+
+ }
+
+
+ comments.unshift({
+
+  id:Date.now(),
+
+  name:name,
+
+  phone:phone,
+
+  text:text,
+
+  reply:"",
+
+  date:
+   new Date().toLocaleDateString("fa-IR")
+
+ });
+
+
+ saveComments();
+
+ renderComments();
+
+ updateStats();
+
+
+ document
+  .getElementById("commentName")
+  .value="";
+
+ document
+  .getElementById("commentPhone")
+  .value="";
+
+ document
+  .getElementById("commentText")
+  .value="";
+
+
+ showToast(
+  "نظر شما ثبت شد 💚"
+ );
+
+}
+
+
+function renderComments(){
+
+ const list =
+  document.getElementById("commentsList");
+
+ list.innerHTML="";
+
+
+ if(!comments.length){
+
+  list.innerHTML=`
+
+   <div style="
+    text-align:center;
+    color:#555;
+    padding:30px;
+   ">
+    هنوز نظری ثبت نشده.
+   </div>
+
+  `;
+
+  return;
+
+ }
+
+
+ comments.forEach(comment=>{
+
+  const div =
+   document.createElement("div");
+
+  div.className="comment";
+
+
+  const masked =
+   comment.phone.slice(0,3)
+   +
+   "*******"
+   +
+   comment.phone.slice(-2);
+
+
+  div.innerHTML=`
+
+   <div class="comment-top">
+
+    <div class="comment-name">
+     ${escapeHTML(comment.name)}
+    </div>
+
+    <div class="comment-date">
+     ${comment.date}
+    </div>
+
+   </div>
+
+   <div class="comment-phone">
+    📱 ${masked}
+   </div>
+
+   <div class="comment-text">
+    ${escapeHTML(comment.text)}
+   </div>
+
+   ${
+    comment.reply
+    ?
+    `
+    <div class="owner-reply">
+
+     <div class="owner-label">
+      👑 پاسخ ALIXMAX
+     </div>
+
+     <div class="owner-reply-text">
+      ${escapeHTML(comment.reply)}
+     </div>
+
+    </div>
+    `
+    :
+    ""
+   }
+
+   <div class="comment-actions">
+
+    <button
+     class="action-btn"
+     onclick="replyComment(${comment.id})"
+    >
+     ↩️ پاسخ
+    </button>
+
+    <button
+     class="action-btn"
+     onclick="editComment(${comment.id})"
+    >
+     ✏️ ویرایش
+    </button>
+
+    <button
+     class="action-btn action-delete"
+     onclick="deleteComment(${comment.id})"
+    >
+     🗑️ حذف
+    </button>
+
+   </div>
+
+  `;
+
+
+  list.appendChild(div);
+
+ });
+
+}
+
+
+function replyComment(id){
+
+ if(!ownerMode) return;
+
+ const comment =
+  comments.find(
+   c=>c.id===id
+  );
+
+ if(!comment) return;
+
+ const reply =
+  prompt(
+   "پاسخ ALIXMAX:",
+   comment.reply||""
+  );
+
+ if(reply===null) return;
+
+ if(!reply.trim()){
+
+  showToast(
+   "پاسخ نمی‌تواند خالی باشد."
+  );
+
+  return;
+
+ }
+
+ comment.reply=
+  reply.trim();
+
+ saveComments();
+
+ renderComments();
+
+ showToast(
+  "پاسخ ارسال شد 👑"
+ );
+
+}
+
+
+function editComment(id){
+
+ if(!ownerMode) return;
+
+ const comment =
+  comments.find(
+   c=>c.id===id
+  );
+
+ if(!comment) return;
+
+ const text =
+  prompt(
+   "ویرایش نظر:",
+   comment.text
+  );
+
+ if(text===null) return;
+
+ if(!text.trim()) return;
+
+ comment.text=
+  text.trim();
+
+ saveComments();
+
+ renderComments();
+
+ showToast(
+  "نظر ویرایش شد ✏️"
+ );
+
+}
+
+
+function deleteComment(id){
+
+ if(!ownerMode) return;
+
+ if(
+  !confirm(
+   "این نظر حذف شود؟"
+  )
+ )
+  return;
+
+
+ comments =
+  comments.filter(
+   c=>c.id!==id
+  );
+
+ saveComments();
+
+ renderComments();
+
+ updateStats();
+
+ showToast(
+  "نظر حذف شد 🗑️"
+ );
+
+}
+
+
+/* =====================================================
+   STORAGE
+   ===================================================== */
+
+function savePosts(){
+
+ localStorage.setItem(
+  "ALIXMAX_POSTS",
+  JSON.stringify(posts)
+ );
+
+}
+
+
+function saveComments(){
+
+ localStorage.setItem(
+  "ALIXMAX_COMMENTS",
+  JSON.stringify(comments)
+ );
+
+}
+
+
+function loadData(){
+
+ try{
+
+  posts =
+   JSON.parse(
+    localStorage.getItem(
+     "ALIXMAX_POSTS"
+    )
+   ) || [];
+
+ }catch{
+
+  posts=[];
+
+ }
+
+
+ try{
+
+  comments =
+   JSON.parse(
+    localStorage.getItem(
+     "ALIXMAX_COMMENTS"
+    )
+   ) || [];
+
+ }catch{
+
+  comments=[];
+
+ }
+
+}
+
+
+/* =====================================================
+   STATISTICS
+   ===================================================== */
+
+function updateStats(){
+
+ document
+  .getElementById("postCount")
+  .textContent=posts.length;
+
+ document
+  .getElementById("commentCount")
+  .textContent=comments.length;
+
+}
+
+
+/* =====================================================
+   SECURITY / HTML
+   ===================================================== */
+
+function escapeHTML(text){
+
+ const div =
+  document.createElement("div");
+
+ div.textContent=text;
+
+ return div.innerHTML;
+
+}
+
+
+/* =====================================================
+   TOAST
+   ===================================================== */
+
+function showToast(message){
+
+ const toast =
+  document.getElementById("toast");
+
+ toast.textContent=message;
+
+ toast.classList.add("show");
+
+ clearTimeout(
+  window.toastTimer
+ );
+
+ window.toastTimer =
+  setTimeout(
+   ()=>{
+    toast.classList.remove("show");
+   },
+   3000
+  );
+
+}
+
+
+/* =====================================================
+   START
+   ===================================================== */
+
+loadData();
+
+renderPosts();
+
+renderComments();
+
+updateStats();
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase.js"></script>
+<div id="posts-container"></div>
+</body>
+</html>
+```
