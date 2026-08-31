@@ -1,62 +1,21 @@
 ```html
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-   <style>
-    body {
-        font-family: Arial, sans-serif;
-        background: #f4f4f4;
-        margin: 0;
-        padding: 30px;
-    }
 
-    #posts-container {
-        max-width: 900px;
-        margin: 30px auto;
-        display: grid;
-        gap: 20px;
-    }
-
-    .post-card {
-        background: white;
-        border-radius: 15px;
-        overflow: hidden;
-        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    }
-
-    .post-card img {
-        width: 100%;
-        max-height: 400px;
-        object-fit: cover;
-        display: block;
-    }
-
-    .post-content {
-        padding: 20px;
-    }
-
-    .post-type {
-        background: #eee;
-        padding: 5px 10px;
-        border-radius: 20px;
-        font-size: 13px;
-    }
-
-    .post-card h2 {
-        margin: 15px 0 10px;
-    }
-
-    .post-card p {
-        color: #555;
-        line-height: 1.7;
-    }
-</style>
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>ALIXMAX | Gaming</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+
+*{
+ box-sizing:border-box;
+ margin:0;
+ padding:0;
+}
 
 :root{
  --green:#00ff66;
@@ -67,9 +26,12 @@
  --text:#eee;
  --muted:#777;
  --red:#ff3838;
+ --gold:#ffd000;
 }
 
-html{scroll-behavior:smooth}
+html{
+ scroll-behavior:smooth;
+}
 
 body{
  background:var(--black);
@@ -78,12 +40,19 @@ body{
  overflow-x:hidden;
 }
 
-::-webkit-scrollbar{width:7px}
-::-webkit-scrollbar-track{background:#030303}
+::-webkit-scrollbar{
+ width:7px;
+}
+
+::-webkit-scrollbar-track{
+ background:#030303;
+}
+
 ::-webkit-scrollbar-thumb{
  background:var(--green);
  border-radius:20px;
 }
+
 
 /* ================= INTRO ================= */
 
@@ -134,7 +103,9 @@ body{
  font-size:clamp(65px,12vw,150px);
  font-weight:1000;
  letter-spacing:8px;
- text-shadow:0 0 10px var(--green),0 0 35px rgba(0,255,102,.7);
+ text-shadow:
+ 0 0 10px var(--green),
+ 0 0 35px rgba(0,255,102,.7);
  animation:pulse 2s infinite alternate;
 }
 
@@ -175,6 +146,7 @@ body{
  font-size:11px;
  cursor:pointer;
 }
+
 
 /* ================= HEADER ================= */
 
@@ -237,111 +209,84 @@ header{
  transform:translateY(-9px) rotate(-45deg);
 }
 
+
 /* ================= SEARCH ================= */
 
 .search-area{
-    position:absolute;
-    left:50%;
-    transform:translateX(-50%);
-    width:min(430px,40%);
+ position:absolute;
+ left:50%;
+ transform:translateX(-50%);
+ width:min(430px,40%);
 }
 
 .search-box{
-    position:relative;
-    display:flex;
-    background:#0d0d0d;
-    border:1px solid #222;
-    border-radius:12px;
+ position:relative;
+ display:flex;
+ background:#0d0d0d;
+ border:1px solid #222;
+ border-radius:12px;
 }
 
 .search-box:focus-within{
-    border-color:var(--green);
+ border-color:var(--green);
 }
 
 .search-box input{
-    flex:1;
-    background:none;
-    border:0;
-    outline:none;
-    color:white;
-    padding:13px 15px;
+ flex:1;
+ background:none;
+ border:0;
+ outline:none;
+ color:white;
+ padding:13px 15px;
 }
 
 .search-box button{
-    width:50px;
-    background:none;
-    border:0;
-    color:var(--green);
-    cursor:pointer;
-    font-size:17px;
+ width:50px;
+ background:none;
+ border:0;
+ color:var(--green);
+ cursor:pointer;
+ font-size:17px;
 }
 
 #suggestions{
-    position:absolute;
-    top:calc(100% + 8px);
-    right:0;
-    width:100%;
-    background:#0c0c0c;
-    border:1px solid #222;
-    border-radius:12px;
-    overflow:hidden;
-    display:none;
-    z-index:9999;
+ position:absolute;
+ top:calc(100% + 8px);
+ right:0;
+ width:100%;
+ background:#0c0c0c;
+ border:1px solid #222;
+ border-radius:12px;
+ overflow:hidden;
+ display:none;
+ z-index:9999;
 }
 
 #suggestions.active{
-    display:block;
+ display:block;
 }
 
 .suggestion{
-    padding:13px 15px;
-    border-bottom:1px solid #181818;
-    cursor:pointer;
+ padding:13px 15px;
+ border-bottom:1px solid #181818;
+ cursor:pointer;
 }
 
 .suggestion:hover{
-    background:rgba(0,255,102,.06);
+ background:rgba(0,255,102,.06);
 }
 
 .suggestion-title{
-    font-size:13px;
-    color:#ddd;
+ font-size:13px;
+ color:#ddd;
 }
 
 .suggestion-type{
-    color:var(--green);
-    font-size:10px;
-    margin-top:5px;
+ color:var(--green);
+ font-size:10px;
+ margin-top:5px;
 }
 
-
-/* 📱 Mobile */
-@media (max-width:768px){
-
-    .search-area{
-        position:relative;
-        left:auto;
-        transform:none;
-        width:90%;
-        margin:15px auto;
-    }
-
-    .search-box{
-        width:100%;
-    }
-
-    .search-box input{
-        padding:12px 14px;
-    }
-
-    .search-box button{
-        width:45px;
-    }
-
-    #suggestions{
-        width:100%;
-    }
-}
 
 /* ================= SIDE MENU ================= */
 
@@ -360,7 +305,9 @@ header{
  padding:20px 15px;
 }
 
-#sideMenu.active{right:0}
+#sideMenu.active{
+ right:0;
+}
 
 .menu-title{
  color:var(--green);
@@ -396,9 +343,6 @@ header{
  gap:12px;
 }
 
-.lock{
- font-size:20px;
-}
 
 /* ================= HERO ================= */
 
@@ -465,6 +409,7 @@ header{
  text-decoration:none;
  font-weight:bold;
  transition:.3s;
+ cursor:pointer;
 }
 
 .primary{
@@ -487,6 +432,7 @@ header{
  border-color:var(--green);
 }
 
+
 /* ================= SECTION ================= */
 
 .section{
@@ -507,6 +453,7 @@ header{
  margin-top:8px;
  margin-bottom:35px;
 }
+
 
 /* ================= CATEGORIES ================= */
 
@@ -546,7 +493,8 @@ header{
  font-size:13px;
 }
 
-/* ================= CONTENT ================= */
+
+/* ================= LATEST ================= */
 
 .latest{
  background:#070707;
@@ -606,52 +554,360 @@ header{
  line-height:1.8;
 }
 
-.content-actions{
- display:none;
- padding:0 20px 20px;
- gap:8px;
+
+/* ================= SHOP ================= */
+
+.shop-section{
+ background:
+ radial-gradient(circle at top left,rgba(0,255,102,.07),transparent 35%),
+ #050505;
 }
 
-.owner-mode .content-actions{
- display:flex;
+.shop-grid{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:20px;
 }
 
-.edit-btn,
-.delete-btn{
- padding:8px 12px;
- border-radius:7px;
- border:1px solid #333;
- background:#111;
- color:#bbb;
- cursor:pointer;
- font-size:11px;
+.shop-card{
+ position:relative;
+ background:linear-gradient(145deg,#111,#080808);
+ border:1px solid #222;
+ border-radius:20px;
+ padding:30px;
+ transition:.3s;
+ overflow:hidden;
 }
 
-.edit-btn:hover{
+.shop-card:hover{
+ transform:translateY(-8px);
+ border-color:rgba(0,255,102,.5);
+ box-shadow:0 15px 50px rgba(0,0,0,.4);
+}
+
+.shop-icon{
+ font-size:55px;
+ margin-bottom:20px;
+}
+
+.shop-card h3{
+ font-size:23px;
+ margin-bottom:10px;
+}
+
+.shop-card p{
+ color:#777;
+ line-height:1.9;
+ font-size:13px;
+ margin-bottom:20px;
+}
+
+.shop-price{
  color:var(--green);
+ font-size:14px;
+ font-weight:bold;
+ margin-bottom:20px;
+}
+
+.shop-btn{
+ width:100%;
+ padding:13px;
+ border:0;
+ border-radius:10px;
+ background:var(--green);
+ color:#000;
+ font-weight:bold;
+ cursor:pointer;
+ transition:.3s;
+}
+
+.shop-btn:hover{
+ transform:translateY(-2px);
+ box-shadow:0 10px 25px rgba(0,255,102,.15);
+}
+
+
+/* ================= EDITOR CALCULATOR ================= */
+
+#editorPage{
+ display:none;
+ min-height:100vh;
+ padding:130px 8% 80px;
+ background:
+ radial-gradient(circle at top right,rgba(0,255,102,.08),transparent 35%),
+ #050505;
+}
+
+#editorPage.active{
+ display:block;
+}
+
+.editor-box{
+ max-width:700px;
+ margin:auto;
+ background:#0c0c0c;
+ border:1px solid #222;
+ border-radius:22px;
+ padding:30px;
+ box-shadow:0 20px 80px rgba(0,0,0,.5);
+}
+
+.editor-box h2{
+ color:var(--green);
+ margin-bottom:10px;
+}
+
+.editor-box > p{
+ color:#666;
+ font-size:13px;
+ margin-bottom:25px;
+ line-height:1.8;
+}
+
+.editor-field{
+ margin-bottom:18px;
+}
+
+.editor-field label{
+ display:block;
+ color:#aaa;
+ font-size:12px;
+ margin-bottom:8px;
+}
+
+.editor-field input,
+.editor-field select{
+ width:100%;
+ padding:14px;
+ background:#050505;
+ border:1px solid #222;
+ color:white;
+ border-radius:9px;
+ outline:none;
+}
+
+.editor-field input:focus,
+.editor-field select:focus{
  border-color:var(--green);
 }
 
-.delete-btn:hover{
+.price-box{
+ margin-top:25px;
+ padding:22px;
+ background:rgba(0,255,102,.04);
+ border:1px solid rgba(0,255,102,.2);
+ border-radius:15px;
+}
+
+.price-row{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ margin-bottom:10px;
+ color:#999;
+ font-size:13px;
+}
+
+.price-row:last-child{
+ margin-bottom:0;
+}
+
+.final-price{
+ color:var(--green);
+ font-size:25px;
+ font-weight:bold;
+}
+
+.discount-box{
+ margin-top:20px;
+ display:flex;
+ gap:8px;
+}
+
+.discount-box input{
+ flex:1;
+ padding:13px;
+ background:#050505;
+ border:1px solid #222;
+ color:white;
+ border-radius:9px;
+ outline:none;
+}
+
+.discount-box button{
+ padding:13px 18px;
+ border:1px solid var(--green);
+ background:transparent;
+ color:var(--green);
+ border-radius:9px;
+ cursor:pointer;
+ font-weight:bold;
+}
+
+.discount-message{
+ margin-top:8px;
+ font-size:11px;
+ min-height:17px;
+}
+
+.discount-success{
+ color:var(--green);
+}
+
+.discount-error{
  color:var(--red);
- border-color:var(--red);
 }
 
-/* ================= NO RESULTS ================= */
+.editor-actions{
+ display:flex;
+ gap:10px;
+ margin-top:25px;
+}
 
-.no-results{
+.editor-actions button{
+ flex:1;
+ padding:14px;
+ border-radius:10px;
+ cursor:pointer;
+ font-weight:bold;
+}
+
+.cancel-btn{
+ background:#111;
+ color:#aaa;
+ border:1px solid #333;
+}
+
+.confirm-btn{
+ background:var(--green);
+ color:#000;
+ border:0;
+}
+
+
+/* ================= UPLOAD PAGE ================= */
+
+#uploadPage{
  display:none;
- text-align:center;
- padding:80px 20px;
- color:#666;
+ min-height:100vh;
+ padding:130px 8% 80px;
+ background:
+ radial-gradient(circle at top left,rgba(0,255,102,.08),transparent 35%),
+ #050505;
 }
 
-.no-results.show{display:block}
+#uploadPage.active{
+ display:block;
+}
 
-.no-results-icon{
- font-size:55px;
+.upload-box{
+ max-width:700px;
+ margin:auto;
+ background:#0c0c0c;
+ border:1px solid #222;
+ border-radius:22px;
+ padding:35px;
+ text-align:center;
+}
+
+.upload-box h2{
+ color:var(--green);
+ margin-bottom:10px;
+}
+
+.upload-summary{
+ color:#777;
+ line-height:2;
+ font-size:13px;
+ margin-bottom:25px;
+}
+
+.video-upload{
+ display:block;
+ border:1px dashed #333;
+ border-radius:15px;
+ padding:40px 20px;
+ cursor:pointer;
+ transition:.3s;
+}
+
+.video-upload:hover{
+ border-color:var(--green);
+ background:rgba(0,255,102,.03);
+}
+
+.video-upload-icon{
+ font-size:50px;
  margin-bottom:15px;
 }
+
+.video-upload-title{
+ color:var(--green);
+ font-weight:bold;
+ margin-bottom:8px;
+}
+
+.video-upload-text{
+ color:#666;
+ font-size:11px;
+}
+
+#videoFile{
+ display:none;
+}
+
+.file-info{
+ display:none;
+ margin-top:20px;
+ padding:15px;
+ background:#080808;
+ border:1px solid #222;
+ border-radius:10px;
+ text-align:right;
+}
+
+.file-info.active{
+ display:block;
+}
+
+.file-name{
+ color:#ddd;
+ font-size:13px;
+ word-break:break-all;
+}
+
+.file-size{
+ color:#666;
+ font-size:11px;
+ margin-top:6px;
+}
+
+.upload-actions{
+ display:flex;
+ gap:10px;
+ margin-top:20px;
+}
+
+.upload-actions button{
+ flex:1;
+ padding:13px;
+ border-radius:9px;
+ cursor:pointer;
+ font-weight:bold;
+}
+
+.back-shop{
+ background:#111;
+ border:1px solid #333;
+ color:#aaa;
+}
+
+.send-video{
+ background:var(--green);
+ border:0;
+ color:#000;
+}
+
 
 /* ================= PROFILE ================= */
 
@@ -709,6 +965,7 @@ header{
  text-decoration:none;
  font-size:12px;
 }
+
 
 /* ================= COMMENTS ================= */
 
@@ -805,61 +1062,12 @@ header{
  margin-top:10px;
 }
 
-.owner-reply{
- margin-top:15px;
- padding:14px;
- border-right:3px solid var(--green);
- background:rgba(0,255,102,.04);
- border-radius:8px;
-}
 
-.owner-label{
- color:var(--green);
- font-size:11px;
- font-weight:bold;
- margin-bottom:7px;
-}
-
-.owner-reply-text{
- color:#aaa;
- font-size:13px;
- line-height:1.8;
-}
-
-.comment-actions{
- display:none;
- gap:7px;
- margin-top:15px;
-}
-
-.owner-mode .comment-actions{
- display:flex;
-}
-
-.action-btn{
- border:1px solid #333;
- background:#111;
- color:#bbb;
- padding:7px 10px;
- border-radius:7px;
- cursor:pointer;
- font-size:11px;
-}
-
-.action-delete:hover{
- color:var(--red);
- border-color:var(--red);
-}
-
-/* ================= ADMIN PANEL ================= */
+/* ================= ADMIN ================= */
 
 #admin{
  display:none;
- background:
- radial-gradient(circle at top right,
- rgba(0,255,102,.07),
- transparent 30%),
- #080808;
+ background:#080808;
  border-top:1px solid #151515;
 }
 
@@ -886,11 +1094,6 @@ header{
  padding:10px 16px;
  border-radius:8px;
  cursor:pointer;
-}
-
-.logout-btn:hover{
- color:var(--red);
- border-color:var(--red);
 }
 
 .admin-dashboard{
@@ -950,53 +1153,6 @@ header{
  min-height:100px;
 }
 
-.upload-area{
- display:block;
- padding:25px;
- border:1px dashed #333;
- border-radius:12px;
- text-align:center;
- cursor:pointer;
- margin-bottom:15px;
-}
-
-.upload-area:hover{
- border-color:var(--green);
-}
-
-.upload-area input{
- display:none;
-}
-
-.upload-title{
- color:var(--green);
- font-weight:bold;
- margin-bottom:7px;
-}
-
-.upload-text{
- color:#777;
- font-size:11px;
-}
-
-.image-preview{
- display:none;
- margin-bottom:15px;
- border-radius:12px;
- overflow:hidden;
- border:1px solid #222;
-}
-
-.image-preview.active{
- display:block;
-}
-
-.image-preview img{
- width:100%;
- max-height:300px;
- object-fit:cover;
-}
-
 .publish{
  background:var(--green);
  color:#000;
@@ -1006,6 +1162,7 @@ header{
  font-weight:bold;
  cursor:pointer;
 }
+
 
 /* ================= OWNER LOGIN ================= */
 
@@ -1081,9 +1238,6 @@ header{
  font-size:12px;
 }
 
-.close-owner:hover{
- color:white;
-}
 
 /* ================= FOOTER ================= */
 
@@ -1097,6 +1251,7 @@ footer{
 footer span{
  color:var(--green);
 }
+
 
 /* ================= TOAST ================= */
 
@@ -1120,14 +1275,22 @@ footer span{
  transform:translate(-50%,0);
 }
 
+
 /* ================= MOBILE ================= */
 
 @media(max-width:900px){
 
- .search-area{display:none}
+ .search-area{
+  position:relative;
+  left:auto;
+  transform:none;
+  width:90%;
+  margin:15px auto;
+ }
 
  .categories,
- .content-grid{
+ .content-grid,
+ .shop-grid{
   grid-template-columns:1fr;
  }
 
@@ -1136,7 +1299,9 @@ footer span{
   text-align:center;
  }
 
- .avatar{margin:auto}
+ .avatar{
+  margin:auto;
+ }
 
  .admin-dashboard{
   grid-template-columns:1fr;
@@ -1146,57 +1311,102 @@ footer span{
 
 @media(max-width:600px){
 
- header{padding:0 5%}
+ header{
+  padding:0 5%;
+ }
 
- .logo{font-size:22px}
+ .logo{
+  font-size:22px;
+ }
 
- .hero{padding:140px 5% 90px}
+ .hero{
+  padding:140px 5% 90px;
+ }
 
- .hero h1{font-size:48px}
+ .hero h1{
+  font-size:48px;
+ }
 
- .section{padding:70px 5%}
+ .section{
+  padding:70px 5%;
+ }
 
  .form-row{
   grid-template-columns:1fr;
  }
 
- #sideMenu{width:290px}
+ #sideMenu{
+  width:290px;
+ }
 
  .admin-header{
   flex-direction:column;
   align-items:stretch;
  }
 
+ .editor-actions,
+ .upload-actions{
+  flex-direction:column;
+ }
+
+ .discount-box{
+  flex-direction:column;
+ }
+
 }
 </style>
+
 </head>
+
 
 <body>
 
-<!-- INTRO -->
+
+<!-- ================= INTRO ================= -->
+
 <div id="intro">
+
  <div class="intro-grid"></div>
 
  <div class="intro-content">
-  <div class="intro-welcome">WELCOME TO</div>
-  <div class="intro-logo">ALIXMAX</div>
-  <div class="intro-sub">GAMING • MODS • GAMEPLAY • TUTORIALS</div>
+
+  <div class="intro-welcome">
+   WELCOME TO
+  </div>
+
+  <div class="intro-logo">
+   ALIXMAX
+  </div>
+
+  <div class="intro-sub">
+   GAMING • MODS • GAMEPLAY • TUTORIALS
+  </div>
+
   <div class="intro-line"></div>
-  <div class="intro-loading">در حال ورود به دنیای ALIXMAX...</div>
+
+  <div class="intro-loading">
+   در حال ورود به دنیای ALIXMAX...
+  </div>
+
  </div>
 
  <div class="intro-skip" onclick="closeIntro()">
   ورود به سایت ←
  </div>
+
 </div>
 
 
-<!-- HEADER -->
+<!-- ================= HEADER ================= -->
+
 <header>
 
- <div class="logo">ALIXMAX</div>
+ <div class="logo">
+  ALIXMAX
+ </div>
 
  <div class="search-area">
+
   <div class="search-box">
 
    <input
@@ -1208,27 +1418,34 @@ footer span{
     onkeydown="searchEnter(event)"
    >
 
-   <button onclick="performSearch()">🔎</button>
+   <button onclick="performSearch()">
+    🔎
+   </button>
 
    <div id="suggestions"></div>
 
   </div>
+
  </div>
+
 
  <div
   class="menu-btn"
   id="menuBtn"
   onclick="toggleMenu()"
  >
+
   <span></span>
   <span></span>
   <span></span>
+
  </div>
 
 </header>
 
 
-<!-- SIDE MENU -->
+<!-- ================= SIDE MENU ================= -->
+
 <div id="sideMenu">
 
  <div class="menu-title">
@@ -1243,16 +1460,8 @@ footer span{
   <span class="menu-left">🗂️ دسته‌بندی‌ها</span>
  </a>
 
- <a class="menu-link" href="#mods">
-  <span class="menu-left">🧩 مودها</span>
- </a>
-
- <a class="menu-link" href="#gameplays">
-  <span class="menu-left">🎬 گیمپلی‌ها</span>
- </a>
-
- <a class="menu-link" href="#tutorials">
-  <span class="menu-left">📚 آموزش‌ها</span>
+ <a class="menu-link" href="#shop">
+  <span class="menu-left">🛒 فروشگاه</span>
  </a>
 
  <a class="menu-link" href="#latest">
@@ -1267,8 +1476,6 @@ footer span{
   <span class="menu-left">💬 نظرات کاربران</span>
  </a>
 
-
- <!-- OWNER -->
  <div
   class="menu-link"
   onclick="openOwnerLogin()"
@@ -1278,30 +1485,29 @@ footer span{
    👑 پنل مدیریتی
   </span>
 
-  <span
-   class="lock"
-   id="menuLock"
-  >
+  <span id="menuLock">
    🔒
   </span>
 
  </div>
-
 
  <a
   class="menu-link"
   href="https://www.aparat.com/Alixmax.yt"
   target="_blank"
  >
+
   <span class="menu-left">
    📺 آپارات
   </span>
+
  </a>
 
 </div>
 
 
-<!-- HERO -->
+<!-- ================= HOME ================= -->
+
 <section class="hero" id="home">
 
  <div class="hero-content">
@@ -1318,7 +1524,7 @@ footer span{
 
   <p>
    مودهای جذاب، گیمپلی‌های خفن،
-   آموزش‌های کاربردی و محتوای گیمینگ
+   آموزش‌های کاربردی و خدمات گیمینگ
    در یک سایت اختصاصی برای ALIXMAX.
   </p>
 
@@ -1328,22 +1534,19 @@ footer span{
     مشاهده مطالب 🎮
    </a>
 
-   <a
-    href="https://www.aparat.com/Alixmax.yt"
-    target="_blank"
-    class="btn secondary"
-   >
-    کانال آپارات 📺
+   <a href="#shop" class="btn secondary">
+    ورود به فروشگاه 🛒
    </a>
 
-  </div>
+ </div>
 
  </div>
 
 </section>
 
 
-<!-- CATEGORIES -->
+<!-- ================= CATEGORIES ================= -->
+
 <section class="section" id="categories">
 
  <h2 class="section-title">
@@ -1385,7 +1588,379 @@ footer span{
 </section>
 
 
-<!-- LATEST -->
+<!-- ================= SHOP ================= -->
+
+<section class="section shop-section" id="shop">
+
+ <h2 class="section-title">
+  ALIXMAX <span>SHOP</span>
+ </h2>
+
+ <p class="section-sub">
+  خدمات و محصولات گیمینگ ALIXMAX
+ </p>
+
+
+ <div class="shop-grid">
+
+
+  <!-- MODS -->
+
+  <div class="shop-card">
+
+   <div class="shop-icon">
+    🧩
+   </div>
+
+   <h3>
+    مودهای فروشی
+   </h3>
+
+   <p>
+    مودهای اختصاصی و حرفه‌ای برای بازی‌های مختلف.
+   </p>
+
+   <div class="shop-price">
+    قیمت بر اساس هر مود
+   </div>
+
+   <button
+    class="shop-btn"
+    onclick="showToast('بخش مودهای فروشی به‌زودی فعال می‌شود 🧩')"
+   >
+    مشاهده مودها
+   </button>
+
+  </div>
+
+
+  <!-- THUMBNAIL -->
+
+  <div class="shop-card">
+
+   <div class="shop-icon">
+    🖼️
+   </div>
+
+   <h3>
+    طراحی تامنیل
+   </h3>
+
+   <p>
+    طراحی تامنیل حرفه‌ای برای ویدیو، آپارات، یوتیوب و شبکه‌های اجتماعی.
+   </p>
+
+   <div class="shop-price">
+    سفارش طراحی تامنیل
+   </div>
+
+   <button
+    class="shop-btn"
+    onclick="showToast('بخش سفارش تامنیل به‌زودی فعال می‌شود 🖼️')"
+   >
+    سفارش تامنیل
+   </button>
+
+  </div>
+
+
+  <!-- VIDEO EDIT -->
+
+  <div class="shop-card">
+
+   <div class="shop-icon">
+    🎬
+   </div>
+
+   <h3>
+    ادیت ویدیو
+   </h3>
+
+   <p>
+    ادیت ویدیو بر اساس مدت زمان و سبک محتوای شما.
+   </p>
+
+   <div class="shop-price">
+    از ۲۰ هزار تومان / ۵ دقیقه
+   </div>
+
+   <button
+    class="shop-btn"
+    onclick="openEditor()"
+   >
+    سفارش ادیت 🎬
+   </button>
+
+  </div>
+
+
+ </div>
+
+</section>
+
+
+<!-- ================= EDITOR CALCULATOR ================= -->
+
+<section id="editorPage">
+
+ <div class="editor-box">
+
+  <h2>
+   🎬 سفارش ادیت ویدیو
+  </h2>
+
+  <p>
+   مدت زمان و سبک ویدیو را انتخاب کن تا قیمت دقیق ادیت محاسبه شود.
+  </p>
+
+
+  <div class="editor-field">
+
+   <label>
+    مدت زمان ویدیو (دقیقه)
+   </label>
+
+   <input
+    id="videoMinutes"
+    type="number"
+    min="1"
+    step="1"
+    value="5"
+    oninput="calculateEditPrice()"
+   >
+
+  </div>
+
+
+  <div class="editor-field">
+
+   <label>
+    سبک ویدیو
+   </label>
+
+   <select
+    id="videoStyle"
+    onchange="calculateEditPrice()"
+   >
+
+    <option value="gaming">
+     🎮 گیمینگ — هر ۵ دقیقه ۴۰,۰۰۰ تومان
+    </option>
+
+    <option value="challenge">
+     😂 چالشی — هر ۵ دقیقه ۳۰,۰۰۰ تومان
+    </option>
+
+    <option value="vlog">
+     🎥 ولاگ — هر ۵ دقیقه ۲۰,۰۰۰ تومان
+    </option>
+
+    <option value="other">
+     📹 سایر — هر ۵ دقیقه ۲۰,۰۰۰ تومان
+    </option>
+
+   </select>
+
+  </div>
+
+
+  <div class="price-box">
+
+   <div class="price-row">
+
+    <span>
+     مدت ویدیو
+    </span>
+
+    <strong id="priceMinutes">
+     ۵ دقیقه
+    </strong>
+
+   </div>
+
+
+   <div class="price-row">
+
+    <span>
+     قیمت پایه
+    </span>
+
+    <strong id="basePrice">
+     ۴۰,۰۰۰ تومان
+    </strong>
+
+   </div>
+
+
+   <div
+    class="price-row"
+    id="discountRow"
+    style="display:none"
+   >
+
+    <span>
+     تخفیف ۳۰٪
+    </span>
+
+    <strong id="discountAmount">
+     ۰ تومان
+    </strong>
+
+   </div>
+
+
+   <div class="price-row">
+
+    <span>
+     قیمت نهایی
+    </span>
+
+    <strong
+     class="final-price"
+     id="finalPrice"
+    >
+     ۴۰,۰۰۰ تومان
+    </strong>
+
+   </div>
+
+  </div>
+
+
+  <!-- DISCOUNT -->
+
+  <div class="discount-box">
+
+   <input
+    id="discountCode"
+    type="text"
+    placeholder="کد تخفیف"
+   >
+
+   <button onclick="applyDiscount()">
+    اعمال کد تخفیف
+   </button>
+
+  </div>
+
+  <div
+   id="discountMessage"
+   class="discount-message"
+  ></div>
+
+
+  <!-- ACTIONS -->
+
+  <div class="editor-actions">
+
+   <button
+    class="cancel-btn"
+    onclick="cancelEditor()"
+   >
+    ❌ انصراف
+   </button>
+
+   <button
+    class="confirm-btn"
+    onclick="confirmEditor()"
+   >
+    ✅ تأیید و بارگذاری
+   </button>
+
+  </div>
+
+ </div>
+
+</section>
+
+
+<!-- ================= UPLOAD ================= -->
+
+<section id="uploadPage">
+
+ <div class="upload-box">
+
+  <h2>
+   📤 بارگذاری ویدیو
+  </h2>
+
+  <div
+   class="upload-summary"
+   id="uploadSummary"
+  >
+  </div>
+
+
+  <label
+   class="video-upload"
+   for="videoFile"
+  >
+
+   <div class="video-upload-icon">
+    🎥
+   </div>
+
+   <div class="video-upload-title">
+    انتخاب ویدیو
+   </div>
+
+   <div class="video-upload-text">
+    برای انتخاب ویدیو کلیک کن
+   </div>
+
+   <input
+    id="videoFile"
+    type="file"
+    accept="video/*"
+    onchange="selectVideo(event)"
+   >
+
+  </label>
+
+
+  <div
+   class="file-info"
+   id="fileInfo"
+  >
+
+   <div
+    class="file-name"
+    id="fileName"
+   ></div>
+
+   <div
+    class="file-size"
+    id="fileSize"
+   ></div>
+
+  </div>
+
+
+  <div class="upload-actions">
+
+   <button
+    class="back-shop"
+    onclick="backToEditor()"
+   >
+    ← برگشت
+   </button>
+
+   <button
+    class="send-video"
+    onclick="submitVideo()"
+   >
+    📤 ارسال ویدیو
+   </button>
+
+  </div>
+
+ </div>
+
+</section>
+
+
+<!-- ================= LATEST ================= -->
+
 <section class="section latest" id="latest">
 
  <h2 class="section-title">
@@ -1396,24 +1971,16 @@ footer span{
   مطالب منتشرشده توسط ALIXMAX.
  </p>
 
- <div class="content-grid" id="contentGrid"></div>
-
- <div class="no-results" id="noResults">
-
-  <div class="no-results-icon">🔍</div>
-
-  <h3>مطلبی یافت نشد</h3>
-
-  <p>
-   چیزی مرتبط با جستجوی شما وجود ندارد.
-  </p>
-
- </div>
+ <div
+  class="content-grid"
+  id="contentGrid"
+ ></div>
 
 </section>
 
 
-<!-- PROFILE -->
+<!-- ================= PROFILE ================= -->
+
 <section class="section" id="profile">
 
  <div class="profile">
@@ -1459,7 +2026,8 @@ footer span{
 </section>
 
 
-<!-- COMMENTS -->
+<!-- ================= COMMENTS ================= -->
+
 <section class="section" id="comments">
 
  <h2 class="section-title">
@@ -1532,16 +2100,22 @@ footer span{
 </section>
 
 
-<!-- ADMIN -->
+<!-- ================= ADMIN ================= -->
+
 <section class="section" id="admin">
 
  <div class="admin-header">
 
   <div>
-   <h2>👑 پنل مدیریت ALIXMAX</h2>
+
+   <h2>
+    👑 پنل مدیریت ALIXMAX
+   </h2>
+
    <p class="section-sub">
     کنترل کامل محتوای سایت
    </p>
+
   </div>
 
   <button
@@ -1557,28 +2131,39 @@ footer span{
  <div class="admin-dashboard">
 
   <div class="stat">
+
    <div
     class="stat-number"
     id="postCount"
-   >0</div>
+   >
+    0
+   </div>
 
    <div class="stat-title">
     تعداد مطالب
    </div>
+
   </div>
 
+
   <div class="stat">
+
    <div
     class="stat-number"
     id="commentCount"
-   >0</div>
+   >
+    0
+   </div>
 
    <div class="stat-title">
     تعداد نظرات
    </div>
+
   </div>
 
+
   <div class="stat">
+
    <div class="stat-number">
     👑
    </div>
@@ -1586,6 +2171,7 @@ footer span{
    <div class="stat-title">
     Owner: ALIXMAX
    </div>
+
   </div>
 
  </div>
@@ -1593,7 +2179,7 @@ footer span{
 
  <div class="admin-box">
 
-  <h3 id="adminFormTitle">
+  <h3>
    ➕ انتشار مطلب جدید
   </h3>
 
@@ -1624,41 +2210,16 @@ footer span{
    placeholder="توضیحات مطلب"
   ></textarea>
 
-  <label
-   class="upload-area"
-   for="postImage"
+  <input
+   id="postImage"
+   type="file"
+   accept="image/*"
   >
 
-   <div class="upload-title">
-    🖼️ انتخاب تصویر شاخص
-   </div>
-
-   <div class="upload-text">
-    JPG / PNG / WEBP - حداکثر 5MB
-   </div>
-
-   <input
-    id="postImage"
-    type="file"
-    accept="image/*"
-    onchange="previewImage(event)"
-   >
-
-  </label>
-
-  <div
-   class="image-preview"
-   id="imagePreview"
-  >
-   <img
-    id="previewImg"
-    alt=""
-   >
-  </div>
+  <br><br>
 
   <button
    class="publish"
-   id="publishBtn"
    onclick="publishPost()"
   >
    انتشار مطلب 🚀
@@ -1670,11 +2231,14 @@ footer span{
 
 
 <footer>
+
  © 2026 <span>ALIXMAX</span> — All Rights Reserved.
+
 </footer>
 
 
-<!-- OWNER LOGIN -->
+<!-- ================= OWNER LOGIN ================= -->
+
 <div
  class="owner-overlay"
  id="ownerOverlay"
@@ -1682,10 +2246,7 @@ footer span{
 
  <div class="owner-login-box">
 
-  <div
-   class="big-lock"
-   id="loginLock"
-  >
+  <div class="big-lock">
    🔒
   </div>
 
@@ -1723,112 +2284,40 @@ footer span{
 <div id="toast"></div>
 
 
+<!-- ================= JAVASCRIPT ================= -->
+
 <script>
 
-/* =====================================================
-   OWNER PASSWORD
-   ===================================================== */
 
-const OWNER_PASSWORD = "@Alibayat1388";
+/* ================= DATA ================= */
 
+let posts =
+ JSON.parse(
+  localStorage.getItem("ALIXMAX_POSTS")
+ ) || [];
 
-/* =====================================================
-   DATA
-   ===================================================== */
+let comments =
+ JSON.parse(
+  localStorage.getItem("ALIXMAX_COMMENTS")
+ ) || [];
 
-let posts = [];
-let comments = [];
+let ownerMode=false;
 
-let selectedImage = null;
-let editingPostId = null;
-let ownerMode = false;
+let selectedVideo=null;
 
-
-/* =====================================================
-   INTRO
-   ===================================================== */
-
-function closeIntro(){
-
- document
-  .getElementById("intro")
-  .classList.add("hide");
-
-}
-
-setTimeout(closeIntro,5000);
+let editOrder={
+ minutes:5,
+ style:"gaming",
+ basePrice:40000,
+ discount:0,
+ finalPrice:40000
+};
 
 
-/* =====================================================
-   MENU
-   ===================================================== */
+/* ================= OWNER ================= */
 
-function toggleMenu(){
+const OWNER_PASSWORD="@Alibayat1388";
 
- const menu =
-  document.getElementById("sideMenu");
-
- const btn =
-  document.getElementById("menuBtn");
-
- menu.classList.toggle("active");
-
- btn.classList.toggle("active");
-
-}
-
-
-document.addEventListener("click",function(e){
-
- const menu =
-  document.getElementById("sideMenu");
-
- const btn =
-  document.getElementById("menuBtn");
-
-
- if(
-  menu.classList.contains("active") &&
-  !menu.contains(e.target) &&
-  !btn.contains(e.target)
- ){
-
-  menu.classList.remove("active");
-
-  btn.classList.remove("active");
-
- }
-
-});
-
-
-document
- .querySelectorAll(".menu-link")
- .forEach(link=>{
-
-  link.addEventListener("click",function(e){
-
-   if(
-    this.getAttribute("onclick")
-   )
-    return;
-
-   document
-    .getElementById("sideMenu")
-    .classList.remove("active");
-
-   document
-    .getElementById("menuBtn")
-    .classList.remove("active");
-
-  });
-
- });
-
-
-/* =====================================================
-   OWNER LOGIN
-   ===================================================== */
 
 function openOwnerLogin(){
 
@@ -1854,7 +2343,7 @@ function closeOwnerLogin(){
 
 function ownerEnter(e){
 
- if(e.key === "Enter"){
+ if(e.key==="Enter"){
   loginOwner();
  }
 
@@ -1863,37 +2352,22 @@ function ownerEnter(e){
 
 function loginOwner(){
 
- const password =
+ const password=
   document
    .getElementById("ownerPassword")
    .value;
 
- if(password === OWNER_PASSWORD){
+ if(password===OWNER_PASSWORD){
 
-  ownerMode = true;
+  ownerMode=true;
 
-  document.body
-   .classList.add("owner-mode");
+  document.body.classList.add("owner-mode");
 
   document
    .getElementById("menuLock")
-   .textContent = "🔓";
-
-  document
-   .getElementById("loginLock")
-   .textContent = "🔓";
+   .textContent="🔓";
 
   closeOwnerLogin();
-
-  renderPosts();
-  renderComments();
-  updateStats();
-
-  document
-   .getElementById("admin")
-   .scrollIntoView({
-    behavior:"smooth"
-   });
 
   showToast(
    "ورود موفق! خوش آمدی ALIXMAX 👑"
@@ -1912,18 +2386,13 @@ function loginOwner(){
 
 function logoutOwner(){
 
- ownerMode = false;
+ ownerMode=false;
 
- document.body
-  .classList.remove("owner-mode");
+ document.body.classList.remove("owner-mode");
 
  document
   .getElementById("menuLock")
-  .textContent = "🔒";
-
- document
-  .getElementById("loginLock")
-  .textContent = "🔒";
+  .textContent="🔒";
 
  showToast(
   "از Owner خارج شدی 🔒"
@@ -1932,62 +2401,439 @@ function logoutOwner(){
 }
 
 
-/* =====================================================
-   IMAGE
-   ===================================================== */
+/* ================= INTRO ================= */
 
-function previewImage(event){
+function closeIntro(){
 
- const file =
-  event.target.files[0];
+ document
+  .getElementById("intro")
+  .classList.add("hide");
 
- if(!file) return;
+}
 
- if(!file.type.startsWith("image/")){
+setTimeout(closeIntro,5000);
 
-  showToast(
-   "فقط فایل تصویری انتخاب کن."
-  );
 
-  return;
+/* ================= MENU ================= */
 
- }
+function toggleMenu(){
 
- if(file.size > 5*1024*1024){
+ document
+  .getElementById("sideMenu")
+  .classList.toggle("active");
 
-  showToast(
-   "حجم تصویر باید کمتر از 5MB باشد."
-  );
-
-  return;
-
- }
-
- selectedImage = file;
-
- const reader =
-  new FileReader();
-
- reader.onload=function(e){
-
-  document
-   .getElementById("previewImg")
-   .src=e.target.result;
-
-  document
-   .getElementById("imagePreview")
-   .classList.add("active");
-
- };
-
- reader.readAsDataURL(file);
+ document
+  .getElementById("menuBtn")
+  .classList.toggle("active");
 
 }
 
 
-/* =====================================================
-   CREATE POST
-   ===================================================== */
+document.addEventListener("click",function(e){
+
+ const menu=
+  document.getElementById("sideMenu");
+
+ const btn=
+  document.getElementById("menuBtn");
+
+ if(
+  menu.classList.contains("active") &&
+  !menu.contains(e.target) &&
+  !btn.contains(e.target)
+ ){
+
+  menu.classList.remove("active");
+
+  btn.classList.remove("active");
+
+ }
+
+});
+
+
+/* ================= SHOP ================= */
+
+function openEditor(){
+
+ document
+  .getElementById("editorPage")
+  .classList.add("active");
+
+ document
+  .getElementById("uploadPage")
+  .classList.remove("active");
+
+ document
+  .getElementById("editorPage")
+  .scrollIntoView({
+   behavior:"smooth"
+  });
+
+ calculateEditPrice();
+
+}
+
+
+function cancelEditor(){
+
+ document
+  .getElementById("editorPage")
+  .classList.remove("active");
+
+ document
+  .getElementById("shop")
+  .scrollIntoView({
+   behavior:"smooth"
+  });
+
+}
+
+
+function calculateEditPrice(){
+
+ let minutes=
+  parseInt(
+   document
+    .getElementById("videoMinutes")
+    .value
+  );
+
+ if(!minutes || minutes<1){
+  minutes=1;
+ }
+
+ let style=
+  document
+   .getElementById("videoStyle")
+   .value;
+
+ let rate=40000;
+
+ if(style==="gaming"){
+  rate=40000;
+ }
+
+ if(style==="challenge"){
+  rate=30000;
+ }
+
+ if(style==="vlog"){
+  rate=20000;
+ }
+
+ if(style==="other"){
+  rate=20000;
+ }
+
+
+ /*
+   قیمت دقیق:
+   هر 5 دقیقه × نرخ
+ */
+
+ let basePrice=
+  (minutes/5)*rate;
+
+
+ let discount=
+  editOrder.discount;
+
+ let discountAmount=
+  basePrice*discount;
+
+ let finalPrice=
+  basePrice-discountAmount;
+
+
+ editOrder.minutes=minutes;
+ editOrder.style=style;
+ editOrder.basePrice=basePrice;
+ editOrder.finalPrice=finalPrice;
+
+
+ document
+  .getElementById("priceMinutes")
+  .textContent=
+   formatNumber(minutes)+" دقیقه";
+
+
+ document
+  .getElementById("basePrice")
+  .textContent=
+   formatPrice(basePrice);
+
+
+ document
+  .getElementById("discountAmount")
+  .textContent=
+   formatPrice(discountAmount);
+
+
+ document
+  .getElementById("finalPrice")
+  .textContent=
+   formatPrice(finalPrice);
+
+
+ if(discount>0){
+
+  document
+   .getElementById("discountRow")
+   .style.display="flex";
+
+ }else{
+
+  document
+   .getElementById("discountRow")
+   .style.display="none";
+
+ }
+
+}
+
+
+function applyDiscount(){
+
+ const input=
+  document
+   .getElementById("discountCode");
+
+ const code=
+  input.value.trim().toLowerCase();
+
+ const message=
+  document
+   .getElementById("discountMessage");
+
+
+ if(code==="alixmax503"){
+
+  editOrder.discount=.30;
+
+  message.textContent=
+   "کد تخفیف با موفقیت اعمال شد! ۳۰٪ تخفیف 🎉";
+
+  message.className=
+   "discount-message discount-success";
+
+  calculateEditPrice();
+
+  showToast(
+   "۳۰٪ تخفیف اعمال شد 💚"
+  );
+
+ }else{
+
+  editOrder.discount=0;
+
+  message.textContent=
+   "کد تخفیف نامعتبر است ❌";
+
+  message.className=
+   "discount-message discount-error";
+
+  calculateEditPrice();
+
+ }
+
+}
+
+
+function confirmEditor(){
+
+ calculateEditPrice();
+
+ document
+  .getElementById("editorPage")
+  .classList.remove("active");
+
+ document
+  .getElementById("uploadPage")
+  .classList.add("active");
+
+
+ const styleNames={
+  gaming:"🎮 گیمینگ",
+  challenge:"😂 چالشی",
+  vlog:"🎥 ولاگ",
+  other:"📹 سایر"
+ };
+
+
+ document
+  .getElementById("uploadSummary")
+  .innerHTML=`
+
+   سفارش شما:
+
+   <br>
+
+   ⏱️ مدت:
+   <strong>
+    ${formatNumber(editOrder.minutes)} دقیقه
+   </strong>
+
+   <br>
+
+   🎬 سبک:
+   <strong>
+    ${styleNames[editOrder.style]}
+   </strong>
+
+   <br>
+
+   💰 مبلغ نهایی:
+   <strong style="color:var(--green)">
+    ${formatPrice(editOrder.finalPrice)}
+   </strong>
+
+  `;
+
+
+ document
+  .getElementById("uploadPage")
+  .scrollIntoView({
+   behavior:"smooth"
+  });
+
+}
+
+
+function backToEditor(){
+
+ document
+  .getElementById("uploadPage")
+  .classList.remove("active");
+
+ document
+  .getElementById("editorPage")
+  .classList.add("active");
+
+}
+
+
+/* ================= VIDEO UPLOAD ================= */
+
+function selectVideo(event){
+
+ const file=
+  event.target.files[0];
+
+ if(!file)
+  return;
+
+
+ if(!file.type.startsWith("video/")){
+
+  showToast(
+   "لطفاً یک فایل ویدیویی انتخاب کن ❌"
+  );
+
+  event.target.value="";
+
+  return;
+
+ }
+
+
+ selectedVideo=file;
+
+
+ document
+  .getElementById("fileName")
+  .textContent=
+   "🎥 "+file.name;
+
+
+ document
+  .getElementById("fileSize")
+  .textContent=
+   "حجم فایل: "+
+   formatFileSize(file.size);
+
+
+ document
+  .getElementById("fileInfo")
+  .classList.add("active");
+
+}
+
+
+function submitVideo(){
+
+ if(!selectedVideo){
+
+  showToast(
+   "اول ویدیو را انتخاب کن 🎥"
+  );
+
+  return;
+
+ }
+
+
+ /*
+   در این مرحله فایل فقط انتخاب شده.
+   برای ارسال واقعی باید به Supabase Storage
+   متصل شود.
+ */
+
+ showToast(
+  "ویدیو آماده ارسال است 📤"
+ );
+
+}
+
+
+/* ================= PRICE ================= */
+
+function formatPrice(number){
+
+ return Math.round(number)
+  .toLocaleString("fa-IR")
+  +" تومان";
+
+}
+
+
+function formatNumber(number){
+
+ return Number(number)
+  .toLocaleString("fa-IR");
+
+}
+
+
+function formatFileSize(bytes){
+
+ if(bytes<1024*1024){
+
+  return(
+   (bytes/1024).toFixed(1)
+   +" KB"
+  );
+
+ }
+
+ if(bytes<1024*1024*1024){
+
+  return(
+   (bytes/(1024*1024)).toFixed(2)
+   +" MB"
+  );
+
+ }
+
+ return(
+  (bytes/(1024*1024*1024)).toFixed(2)
+  +" GB"
+ );
+
+}
+
+
+/* ================= POSTS ================= */
 
 function publishPost(){
 
@@ -1999,25 +2845,31 @@ function publishPost(){
 
  }
 
- const title =
+ const title=
   document
    .getElementById("postTitle")
    .value.trim();
 
- const type =
+ const type=
   document
    .getElementById("postType")
    .value;
 
- const description =
+ const description=
   document
    .getElementById("postDescription")
    .value.trim();
 
+ const imageInput=
+  document
+   .getElementById("postImage");
+
 
  if(!title){
 
-  showToast("عنوان مطلب را وارد کن.");
+  showToast(
+   "عنوان مطلب را وارد کن."
+  );
 
   return;
 
@@ -2026,19 +2878,8 @@ function publishPost(){
 
  if(!description){
 
-  showToast("توضیحات مطلب را وارد کن.");
-
-  return;
-
- }
-
-
- if(editingPostId){
-
-  updatePost(
-   title,
-   type,
-   description
+  showToast(
+   "توضیحات مطلب را وارد کن."
   );
 
   return;
@@ -2046,31 +2887,60 @@ function publishPost(){
  }
 
 
- if(selectedImage){
+ const post={
+  id:Date.now(),
+  title:title,
+  type:type,
+  description:description,
+  image:null,
+  createdAt:
+   new Date().toLocaleDateString("fa-IR")
+ };
 
-  const reader =
+
+ if(imageInput.files[0]){
+
+  const reader=
    new FileReader();
 
   reader.onload=function(e){
 
-   createPost(
-    title,
-    type,
-    description,
-    e.target.result
+   post.image=e.target.result;
+
+   posts.unshift(post);
+
+   savePosts();
+
+   renderPosts();
+
+   clearPostForm();
+
+   updateStats();
+
+   showToast(
+    "مطلب با موفقیت منتشر شد 🚀"
    );
 
   };
 
-  reader.readAsDataURL(selectedImage);
+  reader.readAsDataURL(
+   imageInput.files[0]
+  );
 
  }else{
 
-  createPost(
-   title,
-   type,
-   description,
-   null
+  posts.unshift(post);
+
+  savePosts();
+
+  renderPosts();
+
+  clearPostForm();
+
+  updateStats();
+
+  showToast(
+   "مطلب با موفقیت منتشر شد 🚀"
   );
 
  }
@@ -2078,54 +2948,9 @@ function publishPost(){
 }
 
 
-function createPost(
- title,
- type,
- description,
- image
-){
-
- const post={
-
-  id:Date.now(),
-
-  title:title,
-
-  type:type,
-
-  description:description,
-
-  image:image,
-
-  createdAt:
-   new Date().toLocaleDateString("fa-IR")
-
- };
-
- posts.unshift(post);
-
- savePosts();
-
- renderPosts();
-
- clearPostForm();
-
- updateStats();
-
- showToast(
-  "مطلب با موفقیت منتشر شد 🚀"
- );
-
-}
-
-
-/* =====================================================
-   RENDER POSTS
-   ===================================================== */
-
 function renderPosts(){
 
- const grid =
+ const grid=
   document.getElementById("contentGrid");
 
  grid.innerHTML="";
@@ -2133,16 +2958,16 @@ function renderPosts(){
 
  posts.forEach(post=>{
 
-  const card =
+  const card=
    document.createElement("div");
 
-  card.className =
+  card.className=
    "content-card searchable";
 
-  card.dataset.title =
+  card.dataset.title=
    post.title;
 
-  card.dataset.type =
+  card.dataset.type=
    post.type;
 
 
@@ -2158,7 +2983,7 @@ function renderPosts(){
    icon="📚";
 
 
-  const image =
+  const image=
    post.image
    ?
    `<img src="${post.image}" alt="${escapeHTML(post.title)}">`
@@ -2188,23 +3013,6 @@ function renderPosts(){
 
    </div>
 
-   <div class="content-actions">
-
-    <button
-     class="edit-btn"
-     onclick="editPost(${post.id})"
-    >
-     ✏️ ویرایش
-    </button>
-
-    <button
-     class="delete-btn"
-     onclick="deletePost(${post.id})"
-    >
-     🗑️ حذف
-    </button>
-
-   </div>
   `;
 
 
@@ -2215,165 +3023,7 @@ function renderPosts(){
 }
 
 
-/* =====================================================
-   EDIT POST
-   ===================================================== */
-
-function editPost(id){
-
- if(!ownerMode) return;
-
- const post =
-  posts.find(p=>p.id===id);
-
- if(!post) return;
-
- editingPostId=id;
-
- document
-  .getElementById("postTitle")
-  .value=post.title;
-
- document
-  .getElementById("postType")
-  .value=post.type;
-
- document
-  .getElementById("postDescription")
-  .value=post.description;
-
-
- if(post.image){
-
-  document
-   .getElementById("previewImg")
-   .src=post.image;
-
-  document
-   .getElementById("imagePreview")
-   .classList.add("active");
-
- }
-
-
- document
-  .getElementById("adminFormTitle")
-  .textContent="✏️ ویرایش مطلب";
-
- document
-  .getElementById("publishBtn")
-  .textContent="ذخیره تغییرات 💾";
-
-
- document
-  .getElementById("admin")
-  .scrollIntoView({
-   behavior:"smooth"
-  });
-
-}
-
-
-function updatePost(
- title,
- type,
- description
-){
-
- const post =
-  posts.find(
-   p=>p.id===editingPostId
-  );
-
- if(!post) return;
-
- post.title=title;
- post.type=type;
- post.description=description;
-
-
- if(selectedImage){
-
-  const reader =
-   new FileReader();
-
-  reader.onload=function(e){
-
-   post.image=e.target.result;
-
-   finishUpdate();
-
-  };
-
-  reader.readAsDataURL(selectedImage);
-
- }else{
-
-  finishUpdate();
-
- }
-
-}
-
-
-function finishUpdate(){
-
- savePosts();
-
- renderPosts();
-
- clearPostForm();
-
- updateStats();
-
- showToast(
-  "مطلب ویرایش شد ✏️"
- );
-
-}
-
-
-function deletePost(id){
-
- if(!ownerMode) return;
-
- const post =
-  posts.find(
-   p=>p.id===id
-  );
-
- if(!post) return;
-
- if(
-  !confirm(
-   `مطلب «${post.title}» حذف شود؟`
-  )
- )
-  return;
-
-
- posts =
-  posts.filter(
-   p=>p.id!==id
-  );
-
- savePosts();
-
- renderPosts();
-
- updateStats();
-
- showToast(
-  "مطلب حذف شد 🗑️"
- );
-
-}
-
-
 function clearPostForm(){
-
- editingPostId=null;
- selectedImage=null;
 
  document
   .getElementById("postTitle")
@@ -2387,38 +3037,30 @@ function clearPostForm(){
   .getElementById("postImage")
   .value="";
 
- document
-  .getElementById("previewImg")
-  .src="";
+}
 
- document
-  .getElementById("imagePreview")
-  .classList.remove("active");
 
- document
-  .getElementById("adminFormTitle")
-  .textContent="➕ انتشار مطلب جدید";
+function savePosts(){
 
- document
-  .getElementById("publishBtn")
-  .textContent="انتشار مطلب 🚀";
+ localStorage.setItem(
+  "ALIXMAX_POSTS",
+  JSON.stringify(posts)
+ );
 
 }
 
 
-/* =====================================================
-   SEARCH
-   ===================================================== */
+/* ================= SEARCH ================= */
 
 function showSuggestions(){
 
- const input =
+ const input=
   document.getElementById("searchInput");
 
- const suggestions =
+ const suggestions=
   document.getElementById("suggestions");
 
- const query =
+ const query=
   input.value.trim().toLowerCase();
 
  suggestions.innerHTML="";
@@ -2433,7 +3075,7 @@ function showSuggestions(){
  }
 
 
- const results =
+ const results=
   posts.filter(post=>
 
    post.title
@@ -2446,7 +3088,7 @@ function showSuggestions(){
     .toLowerCase()
     .includes(query)
 
-  );
+ );
 
 
  if(!results.length){
@@ -2462,7 +3104,7 @@ function showSuggestions(){
   .slice(0,6)
   .forEach(post=>{
 
-   const item =
+   const item=
     document.createElement("div");
 
    item.className="suggestion";
@@ -2476,7 +3118,9 @@ function showSuggestions(){
     <div class="suggestion-type">
      ${escapeHTML(post.type)}
     </div>
+
    `;
+
 
    item.onclick=function(){
 
@@ -2490,6 +3134,7 @@ function showSuggestions(){
 
    };
 
+
    suggestions.appendChild(item);
 
   });
@@ -2502,10 +3147,10 @@ function showSuggestions(){
 
 function performSearch(){
 
- const input =
+ const input=
   document.getElementById("searchInput");
 
- const query =
+ const query=
   input.value.trim().toLowerCase();
 
  document
@@ -2513,11 +3158,8 @@ function performSearch(){
   .classList.remove("active");
 
 
- const cards =
+ const cards=
   document.querySelectorAll(".searchable");
-
- const noResults =
-  document.getElementById("noResults");
 
 
  if(!query){
@@ -2526,22 +3168,17 @@ function performSearch(){
    card=>card.style.display=""
   );
 
-  noResults.classList.remove("show");
-
   return;
 
  }
 
 
- let found=0;
-
-
  cards.forEach(card=>{
 
-  const title =
+  const title=
    card.dataset.title.toLowerCase();
 
-  const type =
+  const type=
    card.dataset.type.toLowerCase();
 
 
@@ -2551,7 +3188,6 @@ function performSearch(){
   ){
 
    card.style.display="";
-   found++;
 
   }else{
 
@@ -2561,51 +3197,33 @@ function performSearch(){
 
  });
 
-
- if(found===0){
-
-  noResults.classList.add("show");
-
- }else{
-
-  noResults.classList.remove("show");
-
-  document
-   .getElementById("latest")
-   .scrollIntoView({
-    behavior:"smooth"
-   });
-
- }
-
 }
 
 
 function searchEnter(e){
 
- if(e.key==="Enter")
+ if(e.key==="Enter"){
   performSearch();
+ }
 
 }
 
 
-/* =====================================================
-   COMMENTS
-   ===================================================== */
+/* ================= COMMENTS ================= */
 
 function addComment(){
 
- const name =
+ const name=
   document
    .getElementById("commentName")
    .value.trim();
 
- const phone =
+ const phone=
   document
    .getElementById("commentPhone")
    .value.trim();
 
- const text =
+ const text=
   document
    .getElementById("commentText")
    .value.trim();
@@ -2654,15 +3272,17 @@ function addComment(){
 
   text:text,
 
-  reply:"",
-
   date:
    new Date().toLocaleDateString("fa-IR")
 
  });
 
 
- saveComments();
+ localStorage.setItem(
+  "ALIXMAX_COMMENTS",
+  JSON.stringify(comments)
+ );
+
 
  renderComments();
 
@@ -2691,7 +3311,7 @@ function addComment(){
 
 function renderComments(){
 
- const list =
+ const list=
   document.getElementById("commentsList");
 
  list.innerHTML="";
@@ -2718,18 +3338,16 @@ function renderComments(){
 
  comments.forEach(comment=>{
 
-  const div =
+  const div=
    document.createElement("div");
 
   div.className="comment";
 
 
-  const masked =
+  const masked=
    comment.phone.slice(0,3)
-   +
-   "*******"
-   +
-   comment.phone.slice(-2);
+   +"*******"
+   +comment.phone.slice(-2);
 
 
   div.innerHTML=`
@@ -2754,51 +3372,6 @@ function renderComments(){
     ${escapeHTML(comment.text)}
    </div>
 
-   ${
-    comment.reply
-    ?
-    `
-    <div class="owner-reply">
-
-     <div class="owner-label">
-      👑 پاسخ ALIXMAX
-     </div>
-
-     <div class="owner-reply-text">
-      ${escapeHTML(comment.reply)}
-     </div>
-
-    </div>
-    `
-    :
-    ""
-   }
-
-   <div class="comment-actions">
-
-    <button
-     class="action-btn"
-     onclick="replyComment(${comment.id})"
-    >
-     ↩️ پاسخ
-    </button>
-
-    <button
-     class="action-btn"
-     onclick="editComment(${comment.id})"
-    >
-     ✏️ ویرایش
-    </button>
-
-    <button
-     class="action-btn action-delete"
-     onclick="deleteComment(${comment.id})"
-    >
-     🗑️ حذف
-    </button>
-
-   </div>
-
   `;
 
 
@@ -2809,198 +3382,31 @@ function renderComments(){
 }
 
 
-function replyComment(id){
-
- if(!ownerMode) return;
-
- const comment =
-  comments.find(
-   c=>c.id===id
-  );
-
- if(!comment) return;
-
- const reply =
-  prompt(
-   "پاسخ ALIXMAX:",
-   comment.reply||""
-  );
-
- if(reply===null) return;
-
- if(!reply.trim()){
-
-  showToast(
-   "پاسخ نمی‌تواند خالی باشد."
-  );
-
-  return;
-
- }
-
- comment.reply=
-  reply.trim();
-
- saveComments();
-
- renderComments();
-
- showToast(
-  "پاسخ ارسال شد 👑"
- );
-
-}
-
-
-function editComment(id){
-
- if(!ownerMode) return;
-
- const comment =
-  comments.find(
-   c=>c.id===id
-  );
-
- if(!comment) return;
-
- const text =
-  prompt(
-   "ویرایش نظر:",
-   comment.text
-  );
-
- if(text===null) return;
-
- if(!text.trim()) return;
-
- comment.text=
-  text.trim();
-
- saveComments();
-
- renderComments();
-
- showToast(
-  "نظر ویرایش شد ✏️"
- );
-
-}
-
-
-function deleteComment(id){
-
- if(!ownerMode) return;
-
- if(
-  !confirm(
-   "این نظر حذف شود؟"
-  )
- )
-  return;
-
-
- comments =
-  comments.filter(
-   c=>c.id!==id
-  );
-
- saveComments();
-
- renderComments();
-
- updateStats();
-
- showToast(
-  "نظر حذف شد 🗑️"
- );
-
-}
-
-
-/* =====================================================
-   STORAGE
-   ===================================================== */
-
-function savePosts(){
-
- localStorage.setItem(
-  "ALIXMAX_POSTS",
-  JSON.stringify(posts)
- );
-
-}
-
-
-function saveComments(){
-
- localStorage.setItem(
-  "ALIXMAX_COMMENTS",
-  JSON.stringify(comments)
- );
-
-}
-
-
-function loadData(){
-
- try{
-
-  posts =
-   JSON.parse(
-    localStorage.getItem(
-     "ALIXMAX_POSTS"
-    )
-   ) || [];
-
- }catch{
-
-  posts=[];
-
- }
-
-
- try{
-
-  comments =
-   JSON.parse(
-    localStorage.getItem(
-     "ALIXMAX_COMMENTS"
-    )
-   ) || [];
-
- }catch{
-
-  comments=[];
-
- }
-
-}
-
-
-/* =====================================================
-   STATISTICS
-   ===================================================== */
+/* ================= STATS ================= */
 
 function updateStats(){
 
- document
-  .getElementById("postCount")
-  .textContent=posts.length;
+ const postCount=
+  document.getElementById("postCount");
 
- document
-  .getElementById("commentCount")
-  .textContent=comments.length;
+ const commentCount=
+  document.getElementById("commentCount");
+
+
+ if(postCount)
+  postCount.textContent=posts.length;
+
+ if(commentCount)
+  commentCount.textContent=comments.length;
 
 }
 
 
-/* =====================================================
-   SECURITY / HTML
-   ===================================================== */
+/* ================= SECURITY ================= */
 
 function escapeHTML(text){
 
- const div =
+ const div=
   document.createElement("div");
 
  div.textContent=text;
@@ -3010,13 +3416,11 @@ function escapeHTML(text){
 }
 
 
-/* =====================================================
-   TOAST
-   ===================================================== */
+/* ================= TOAST ================= */
 
 function showToast(message){
 
- const toast =
+ const toast=
   document.getElementById("toast");
 
  toast.textContent=message;
@@ -3027,7 +3431,7 @@ function showToast(message){
   window.toastTimer
  );
 
- window.toastTimer =
+ window.toastTimer=
   setTimeout(
    ()=>{
     toast.classList.remove("show");
@@ -3038,21 +3442,25 @@ function showToast(message){
 }
 
 
-/* =====================================================
-   START
-   ===================================================== */
-
-loadData();
+/* ================= START ================= */
 
 renderPosts();
 
 renderComments();
 
 updateStats();
+
+calculateEditPrice();
+
 </script>
+
+
+<!-- SUPABASE -->
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="supabase.js"></script>
-<div id="posts-container"></div>
+
+
 </body>
 </html>
 ```
