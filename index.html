@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 
@@ -343,6 +342,12 @@ header{
  gap:12px;
 }
 
+.wallet-menu{
+ border-top:1px solid #222;
+ margin-top:10px;
+ padding-top:15px;
+}
+
 
 /* ================= HERO ================= */
 
@@ -627,7 +632,218 @@ header{
 }
 
 
-/* ================= EDITOR CALCULATOR ================= */
+/* ================= SPONSOR ================= */
+
+.sponsor-section{
+ background:#060606;
+}
+
+.sponsor-box{
+ max-width:900px;
+ margin:auto;
+ background:#0c0c0c;
+ border:1px solid #222;
+ border-radius:22px;
+ padding:30px;
+}
+
+.sponsor-box h2{
+ color:var(--green);
+ margin-bottom:10px;
+}
+
+.sponsor-box > p{
+ color:#666;
+ line-height:1.9;
+ font-size:13px;
+ margin-bottom:25px;
+}
+
+.sponsor-grid{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:15px;
+}
+
+.field{
+ margin-bottom:15px;
+}
+
+.field.full{
+ grid-column:1/-1;
+}
+
+.field label{
+ display:block;
+ color:#aaa;
+ font-size:12px;
+ margin-bottom:7px;
+}
+
+.field input,
+.field textarea,
+.field select{
+ width:100%;
+ background:#050505;
+ border:1px solid #222;
+ color:#fff;
+ padding:13px;
+ border-radius:9px;
+ outline:none;
+}
+
+.field input:focus,
+.field textarea:focus,
+.field select:focus{
+ border-color:var(--green);
+}
+
+.field textarea{
+ min-height:120px;
+ resize:vertical;
+}
+
+.banner-upload{
+ border:1px dashed #333;
+ padding:25px;
+ border-radius:12px;
+ text-align:center;
+ cursor:pointer;
+ transition:.3s;
+}
+
+.banner-upload:hover{
+ border-color:var(--green);
+ background:rgba(0,255,102,.03);
+}
+
+.banner-upload input{
+ display:none;
+}
+
+.banner-preview{
+ display:none;
+ margin-top:15px;
+}
+
+.banner-preview.active{
+ display:block;
+}
+
+.banner-preview img{
+ width:100%;
+ max-height:250px;
+ object-fit:cover;
+ border-radius:10px;
+ border:1px solid #222;
+}
+
+.discount-area{
+ margin-top:10px;
+ padding:18px;
+ background:#080808;
+ border:1px solid #202020;
+ border-radius:12px;
+}
+
+.discount-area-title{
+ color:#aaa;
+ font-size:12px;
+ margin-bottom:10px;
+}
+
+.discount-row{
+ display:flex;
+ gap:8px;
+}
+
+.discount-row input{
+ flex:1;
+}
+
+.discount-row button{
+ padding:12px 16px;
+ border:1px solid var(--green);
+ background:transparent;
+ color:var(--green);
+ border-radius:8px;
+ cursor:pointer;
+}
+
+.sponsor-submit{
+ width:100%;
+ padding:14px;
+ background:var(--green);
+ color:#000;
+ border:0;
+ border-radius:10px;
+ font-weight:bold;
+ cursor:pointer;
+ margin-top:15px;
+}
+
+.sponsor-message{
+ min-height:18px;
+ margin-top:10px;
+ font-size:12px;
+ color:var(--green);
+}
+
+
+/* ================= SPONSORS ================= */
+
+.approved-sponsors{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:20px;
+ margin-top:30px;
+}
+
+.sponsor-card{
+ background:#0d0d0d;
+ border:1px solid #202020;
+ border-radius:17px;
+ overflow:hidden;
+}
+
+.sponsor-banner{
+ height:170px;
+ background:#080808;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ font-size:50px;
+}
+
+.sponsor-banner img{
+ width:100%;
+ height:100%;
+ object-fit:cover;
+}
+
+.sponsor-card-info{
+ padding:20px;
+}
+
+.sponsor-card-info h3{
+ color:var(--green);
+ margin-bottom:8px;
+}
+
+.sponsor-card-info p{
+ color:#777;
+ font-size:12px;
+ line-height:1.8;
+}
+
+.sponsor-price{
+ margin-top:12px;
+ color:#ddd;
+ font-weight:bold;
+}
+
+
+/* ================= EDITOR ================= */
 
 #editorPage{
  display:none;
@@ -649,7 +865,6 @@ header{
  border:1px solid #222;
  border-radius:22px;
  padding:30px;
- box-shadow:0 20px 80px rgba(0,0,0,.5);
 }
 
 .editor-box h2{
@@ -686,11 +901,6 @@ header{
  outline:none;
 }
 
-.editor-field input:focus,
-.editor-field select:focus{
- border-color:var(--green);
-}
-
 .price-box{
  margin-top:25px;
  padding:22px;
@@ -706,10 +916,6 @@ header{
  margin-bottom:10px;
  color:#999;
  font-size:13px;
-}
-
-.price-row:last-child{
- margin-bottom:0;
 }
 
 .final-price{
@@ -731,7 +937,6 @@ header{
  border:1px solid #222;
  color:white;
  border-radius:9px;
- outline:none;
 }
 
 .discount-box button{
@@ -741,7 +946,6 @@ header{
  color:var(--green);
  border-radius:9px;
  cursor:pointer;
- font-weight:bold;
 }
 
 .discount-message{
@@ -785,15 +989,13 @@ header{
 }
 
 
-/* ================= UPLOAD PAGE ================= */
+/* ================= UPLOAD ================= */
 
 #uploadPage{
  display:none;
  min-height:100vh;
  padding:130px 8% 80px;
- background:
- radial-gradient(circle at top left,rgba(0,255,102,.08),transparent 35%),
- #050505;
+ background:#050505;
 }
 
 #uploadPage.active{
@@ -828,12 +1030,10 @@ header{
  border-radius:15px;
  padding:40px 20px;
  cursor:pointer;
- transition:.3s;
 }
 
 .video-upload:hover{
  border-color:var(--green);
- background:rgba(0,255,102,.03);
 }
 
 .video-upload-icon{
@@ -873,7 +1073,6 @@ header{
 .file-name{
  color:#ddd;
  font-size:13px;
- word-break:break-all;
 }
 
 .file-size{
@@ -933,7 +1132,6 @@ header{
  color:var(--green);
  font-size:38px;
  font-weight:bold;
- box-shadow:0 0 35px rgba(0,255,102,.12);
 }
 
 .profile h2{
@@ -997,7 +1195,6 @@ header{
 
 .required{
  color:red;
- font-size:17px;
 }
 
 .comment-form input,
@@ -1098,7 +1295,7 @@ header{
 
 .admin-dashboard{
  display:grid;
- grid-template-columns:repeat(3,1fr);
+ grid-template-columns:repeat(4,1fr);
  gap:15px;
  margin-bottom:25px;
 }
@@ -1123,12 +1320,13 @@ header{
 }
 
 .admin-box{
- max-width:900px;
+ max-width:1000px;
  margin:auto;
  background:#0c0c0c;
  border:1px solid #202020;
  padding:30px;
  border-radius:18px;
+ margin-bottom:25px;
 }
 
 .admin-box h3{
@@ -1161,6 +1359,261 @@ header{
  border-radius:8px;
  font-weight:bold;
  cursor:pointer;
+}
+
+
+/* ================= SPONSOR REQUEST ADMIN ================= */
+
+.request-card{
+ background:#080808;
+ border:1px solid #242424;
+ border-radius:15px;
+ padding:20px;
+ margin-bottom:15px;
+}
+
+.request-card.pending{
+ border-right:3px solid var(--gold);
+}
+
+.request-card.approved{
+ border-right:3px solid var(--green);
+}
+
+.request-card.rejected{
+ display:none;
+}
+
+.request-header{
+ display:flex;
+ justify-content:space-between;
+ gap:15px;
+ margin-bottom:15px;
+}
+
+.request-name{
+ color:var(--green);
+ font-size:18px;
+ font-weight:bold;
+}
+
+.request-status{
+ color:var(--gold);
+ font-size:11px;
+}
+
+.request-status.approved-status{
+ color:var(--green);
+}
+
+.request-details{
+ color:#888;
+ font-size:12px;
+ line-height:2;
+}
+
+.request-banner{
+ margin-top:15px;
+ max-height:200px;
+ overflow:hidden;
+ border-radius:10px;
+}
+
+.request-banner img{
+ width:100%;
+ max-height:200px;
+ object-fit:cover;
+}
+
+.request-actions{
+ display:flex;
+ gap:8px;
+ margin-top:15px;
+ flex-wrap:wrap;
+}
+
+.request-actions button{
+ padding:10px 16px;
+ border-radius:8px;
+ border:0;
+ cursor:pointer;
+ font-weight:bold;
+}
+
+.approve-btn{
+ background:var(--green);
+ color:#000;
+}
+
+.reject-btn{
+ background:#2a1111;
+ color:#ff5555;
+ border:1px solid #ff3838!important;
+}
+
+.done-btn{
+ background:#12351f;
+ color:var(--green);
+ border:1px solid var(--green)!important;
+}
+
+
+/* ================= WALLET ================= */
+
+#walletPage{
+ display:none;
+ min-height:100vh;
+ padding:130px 8% 80px;
+ background:
+ radial-gradient(circle at top right,rgba(0,255,102,.10),transparent 35%),
+ #050505;
+}
+
+#walletPage.active{
+ display:block;
+}
+
+.wallet-box{
+ max-width:800px;
+ margin:auto;
+}
+
+.wallet-balance{
+ background:linear-gradient(145deg,#102218,#080808);
+ border:1px solid rgba(0,255,102,.35);
+ border-radius:22px;
+ padding:35px;
+ text-align:center;
+ margin-bottom:20px;
+ box-shadow:0 20px 70px rgba(0,0,0,.4);
+}
+
+.wallet-title{
+ color:#777;
+ font-size:13px;
+ margin-bottom:10px;
+}
+
+.wallet-amount{
+ color:var(--green);
+ font-size:45px;
+ font-weight:bold;
+}
+
+.wallet-note{
+ color:#555;
+ font-size:11px;
+ margin-top:10px;
+}
+
+.wallet-actions{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:15px;
+}
+
+.wallet-action{
+ background:#0d0d0d;
+ border:1px solid #222;
+ border-radius:17px;
+ padding:25px;
+ text-align:center;
+ cursor:pointer;
+ transition:.3s;
+}
+
+.wallet-action:hover{
+ transform:translateY(-5px);
+ border-color:var(--green);
+}
+
+.wallet-action-icon{
+ font-size:40px;
+ margin-bottom:10px;
+}
+
+.wallet-action h3{
+ margin-bottom:8px;
+}
+
+.wallet-action p{
+ color:#666;
+ font-size:11px;
+}
+
+
+/* ================= WALLET MODAL ================= */
+
+.wallet-modal{
+ position:fixed;
+ inset:0;
+ z-index:20000;
+ display:none;
+ align-items:center;
+ justify-content:center;
+ background:rgba(0,0,0,.82);
+ backdrop-filter:blur(8px);
+ padding:20px;
+}
+
+.wallet-modal.active{
+ display:flex;
+}
+
+.wallet-modal-box{
+ width:min(450px,100%);
+ background:#0c0c0c;
+ border:1px solid #252525;
+ border-radius:20px;
+ padding:28px;
+}
+
+.wallet-modal-box h2{
+ color:var(--green);
+ margin-bottom:10px;
+}
+
+.wallet-modal-box p{
+ color:#666;
+ font-size:12px;
+ line-height:1.8;
+ margin-bottom:18px;
+}
+
+.wallet-modal-box input{
+ width:100%;
+ padding:14px;
+ background:#050505;
+ color:white;
+ border:1px solid #222;
+ border-radius:9px;
+ outline:none;
+ margin-bottom:12px;
+}
+
+.wallet-modal-buttons{
+ display:flex;
+ gap:8px;
+}
+
+.wallet-modal-buttons button{
+ flex:1;
+ padding:13px;
+ border-radius:9px;
+ cursor:pointer;
+ font-weight:bold;
+}
+
+.wallet-confirm{
+ background:var(--green);
+ color:#000;
+ border:0;
+}
+
+.wallet-cancel{
+ background:#111;
+ color:#aaa;
+ border:1px solid #333;
 }
 
 
@@ -1290,8 +1743,17 @@ footer span{
 
  .categories,
  .content-grid,
- .shop-grid{
+ .shop-grid,
+ .approved-sponsors{
   grid-template-columns:1fr;
+ }
+
+ .sponsor-grid{
+  grid-template-columns:1fr;
+ }
+
+ .field.full{
+  grid-column:auto;
  }
 
  .profile{
@@ -1304,7 +1766,7 @@ footer span{
  }
 
  .admin-dashboard{
-  grid-template-columns:1fr;
+  grid-template-columns:1fr 1fr;
  }
 
 }
@@ -1344,20 +1806,31 @@ footer span{
   align-items:stretch;
  }
 
+ .admin-dashboard{
+  grid-template-columns:1fr;
+ }
+
  .editor-actions,
- .upload-actions{
+ .upload-actions,
+ .wallet-actions{
+  grid-template-columns:1fr;
   flex-direction:column;
  }
 
- .discount-box{
+ .discount-box,
+ .discount-row{
+  flex-direction:column;
+ }
+
+ .request-header{
   flex-direction:column;
  }
 
 }
+
 </style>
 
 </head>
-
 
 <body>
 
@@ -1370,13 +1843,9 @@ footer span{
 
  <div class="intro-content">
 
-  <div class="intro-welcome">
-   WELCOME TO
-  </div>
+  <div class="intro-welcome">WELCOME TO</div>
 
-  <div class="intro-logo">
-   ALIXMAX
-  </div>
+  <div class="intro-logo">ALIXMAX</div>
 
   <div class="intro-sub">
    GAMING • MODS • GAMEPLAY • TUTORIALS
@@ -1401,9 +1870,7 @@ footer span{
 
 <header>
 
- <div class="logo">
-  ALIXMAX
- </div>
+ <div class="logo">ALIXMAX</div>
 
  <div class="search-area">
 
@@ -1418,16 +1885,13 @@ footer span{
     onkeydown="searchEnter(event)"
    >
 
-   <button onclick="performSearch()">
-    🔎
-   </button>
+   <button onclick="performSearch()">🔎</button>
 
    <div id="suggestions"></div>
 
   </div>
 
  </div>
-
 
  <div
   class="menu-btn"
@@ -1468,6 +1932,14 @@ footer span{
   <span class="menu-left">🆕 جدیدترین مطالب</span>
  </a>
 
+ <a class="menu-link" href="#sponsors">
+  <span class="menu-left">🤝 اسپانسرها</span>
+ </a>
+
+ <a class="menu-link" href="#sponsorRegister">
+  <span class="menu-left">📝 ثبت‌نام اسپانسر</span>
+ </a>
+
  <a class="menu-link" href="#profile">
   <span class="menu-left">👤 پروفایل ALIXMAX</span>
  </a>
@@ -1485,9 +1957,20 @@ footer span{
    👑 پنل مدیریتی
   </span>
 
-  <span id="menuLock">
-   🔒
+  <span id="menuLock">🔒</span>
+
+ </div>
+
+ <div
+  class="menu-link wallet-menu"
+  onclick="openWallet()"
+ >
+
+  <span class="menu-left">
+   👛 کیف پول
   </span>
+
+  <span>💰</span>
 
  </div>
 
@@ -1562,25 +2045,19 @@ footer span{
   <div class="category" id="mods">
    <div class="category-icon">🧩</div>
    <h3>مودها</h3>
-   <p>
-    مودهای جذاب و کاربردی برای بازی‌های مختلف.
-   </p>
+   <p>مودهای جذاب و کاربردی برای بازی‌های مختلف.</p>
   </div>
 
   <div class="category" id="gameplays">
    <div class="category-icon">🎬</div>
    <h3>گیمپلی‌ها</h3>
-   <p>
-    گیمپلی‌ها و ویدیوهای اختصاصی ALIXMAX.
-   </p>
+   <p>گیمپلی‌ها و ویدیوهای اختصاصی ALIXMAX.</p>
   </div>
 
   <div class="category" id="tutorials">
    <div class="category-icon">📚</div>
    <h3>آموزش‌ها</h3>
-   <p>
-    آموزش مود، رفع ارور و ترفندهای گیمینگ.
-   </p>
+   <p>آموزش مود، رفع ارور و ترفندهای گیمینگ.</p>
   </div>
 
  </div>
@@ -1600,21 +2077,13 @@ footer span{
   خدمات و محصولات گیمینگ ALIXMAX
  </p>
 
-
  <div class="shop-grid">
-
-
-  <!-- MODS -->
 
   <div class="shop-card">
 
-   <div class="shop-icon">
-    🧩
-   </div>
+   <div class="shop-icon">🧩</div>
 
-   <h3>
-    مودهای فروشی
-   </h3>
+   <h3>مودهای فروشی</h3>
 
    <p>
     مودهای اختصاصی و حرفه‌ای برای بازی‌های مختلف.
@@ -1634,17 +2103,11 @@ footer span{
   </div>
 
 
-  <!-- THUMBNAIL -->
-
   <div class="shop-card">
 
-   <div class="shop-icon">
-    🖼️
-   </div>
+   <div class="shop-icon">🖼️</div>
 
-   <h3>
-    طراحی تامنیل
-   </h3>
+   <h3>طراحی تامنیل</h3>
 
    <p>
     طراحی تامنیل حرفه‌ای برای ویدیو، آپارات، یوتیوب و شبکه‌های اجتماعی.
@@ -1664,17 +2127,11 @@ footer span{
   </div>
 
 
-  <!-- VIDEO EDIT -->
-
   <div class="shop-card">
 
-   <div class="shop-icon">
-    🎬
-   </div>
+   <div class="shop-icon">🎬</div>
 
-   <h3>
-    ادیت ویدیو
-   </h3>
+   <h3>ادیت ویدیو</h3>
 
    <p>
     ادیت ویدیو بر اساس مدت زمان و سبک محتوای شما.
@@ -1693,50 +2150,239 @@ footer span{
 
   </div>
 
+ </div>
+
+</section>
+
+
+<!-- ================= SPONSOR REGISTER ================= -->
+
+<section
+ class="section sponsor-section"
+ id="sponsorRegister"
+>
+
+ <h2 class="section-title">
+  ثبت‌نام <span>اسپانسر</span>
+ </h2>
+
+ <p class="section-sub">
+  اگر می‌خواهی با ALIXMAX همکاری تبلیغاتی داشته باشی، فرم زیر را تکمیل کن.
+ </p>
+
+ <div class="sponsor-box">
+
+  <h2>🤝 درخواست همکاری تبلیغاتی</h2>
+
+  <p>
+   اطلاعات کسب‌وکار، بنر، توضیحات و مبلغ پیشنهادی تبلیغ را وارد کنید.
+   درخواست بعد از ارسال توسط Owner بررسی می‌شود.
+  </p>
+
+  <div class="sponsor-grid">
+
+   <div class="field">
+
+    <label>نام برند / شرکت *</label>
+
+    <input
+     id="sponsorName"
+     type="text"
+     placeholder="مثلاً ALI STORE"
+    >
+
+   </div>
+
+
+   <div class="field">
+
+    <label>شماره تماس *</label>
+
+    <input
+     id="sponsorPhone"
+     type="tel"
+     placeholder="09123456789"
+     maxlength="11"
+    >
+
+   </div>
+
+
+   <div class="field">
+
+    <label>لینک سایت / پیج</label>
+
+    <input
+     id="sponsorLink"
+     type="text"
+     placeholder="https://..."
+    >
+
+   </div>
+
+
+   <div class="field">
+
+    <label>قیمت پیشنهادی هر تبلیغ *</label>
+
+    <input
+     id="sponsorPrice"
+     type="number"
+     min="0"
+     placeholder="مثلاً 500000"
+    >
+
+   </div>
+
+
+   <div class="field full">
+
+    <label>توضیحات اسپانسر *</label>
+
+    <textarea
+     id="sponsorDescription"
+     placeholder="توضیح کوتاه درباره برند یا تبلیغ..."
+    ></textarea>
+
+   </div>
+
+
+   <div class="field full">
+
+    <label>بنر تبلیغاتی</label>
+
+    <label class="banner-upload">
+
+     <div style="font-size:40px">
+      🖼️
+     </div>
+
+     <div style="color:var(--green);margin:10px 0">
+      انتخاب بنر
+     </div>
+
+     <small style="color:#666">
+      تصویر تبلیغاتی خود را انتخاب کنید
+     </small>
+
+     <input
+      id="sponsorBanner"
+      type="file"
+      accept="image/*"
+      onchange="previewSponsorBanner(event)"
+     >
+
+    </label>
+
+    <div
+     class="banner-preview"
+     id="bannerPreview"
+    >
+     <img id="bannerPreviewImg" alt="بنر">
+    </div>
+
+   </div>
+
+  </div>
+
+
+  <div class="discount-area">
+
+   <div class="discount-area-title">
+    🎟️ کد تخفیف
+   </div>
+
+   <div class="discount-row">
+
+    <input
+     id="sponsorDiscount"
+     type="text"
+     placeholder="کد تخفیف"
+    >
+
+    <button onclick="applySponsorDiscount()">
+     اعمال
+    </button>
+
+   </div>
+
+   <div
+    id="sponsorDiscountMessage"
+    class="discount-message"
+   ></div>
+
+  </div>
+
+
+  <button
+   class="sponsor-submit"
+   onclick="submitSponsorRequest()"
+  >
+   ارسال درخواست اسپانسر 🚀
+  </button>
+
+  <div
+   id="sponsorMessage"
+   class="sponsor-message"
+  ></div>
 
  </div>
 
 </section>
 
 
-<!-- ================= EDITOR CALCULATOR ================= -->
+<!-- ================= APPROVED SPONSORS ================= -->
+
+<section
+ class="section"
+ id="sponsors"
+>
+
+ <h2 class="section-title">
+  اسپانسرهای <span>تأییدشده</span>
+ </h2>
+
+ <p class="section-sub">
+  برندهایی که با ALIXMAX همکاری دارند.
+ </p>
+
+ <div
+  class="approved-sponsors"
+  id="approvedSponsors"
+ ></div>
+
+</section>
+
+
+<!-- ================= EDITOR ================= -->
 
 <section id="editorPage">
 
  <div class="editor-box">
 
-  <h2>
-   🎬 سفارش ادیت ویدیو
-  </h2>
+  <h2>🎬 سفارش ادیت ویدیو</h2>
 
   <p>
    مدت زمان و سبک ویدیو را انتخاب کن تا قیمت دقیق ادیت محاسبه شود.
   </p>
 
-
   <div class="editor-field">
 
-   <label>
-    مدت زمان ویدیو (دقیقه)
-   </label>
+   <label>مدت زمان ویدیو (دقیقه)</label>
 
    <input
     id="videoMinutes"
     type="number"
     min="1"
-    step="1"
     value="5"
     oninput="calculateEditPrice()"
    >
 
   </div>
 
-
   <div class="editor-field">
 
-   <label>
-    سبک ویدیو
-   </label>
+   <label>سبک ویدیو</label>
 
    <select
     id="videoStyle"
@@ -1763,34 +2409,17 @@ footer span{
 
   </div>
 
-
   <div class="price-box">
 
    <div class="price-row">
-
-    <span>
-     مدت ویدیو
-    </span>
-
-    <strong id="priceMinutes">
-     ۵ دقیقه
-    </strong>
-
+    <span>مدت ویدیو</span>
+    <strong id="priceMinutes">۵ دقیقه</strong>
    </div>
-
 
    <div class="price-row">
-
-    <span>
-     قیمت پایه
-    </span>
-
-    <strong id="basePrice">
-     ۴۰,۰۰۰ تومان
-    </strong>
-
+    <span>قیمت پایه</span>
+    <strong id="basePrice">۴۰,۰۰۰ تومان</strong>
    </div>
-
 
    <div
     class="price-row"
@@ -1798,9 +2427,7 @@ footer span{
     style="display:none"
    >
 
-    <span>
-     تخفیف ۳۰٪
-    </span>
+    <span>تخفیف ۳۰٪</span>
 
     <strong id="discountAmount">
      ۰ تومان
@@ -1808,12 +2435,9 @@ footer span{
 
    </div>
 
-
    <div class="price-row">
 
-    <span>
-     قیمت نهایی
-    </span>
+    <span>قیمت نهایی</span>
 
     <strong
      class="final-price"
@@ -1825,9 +2449,6 @@ footer span{
    </div>
 
   </div>
-
-
-  <!-- DISCOUNT -->
 
   <div class="discount-box">
 
@@ -1847,9 +2468,6 @@ footer span{
    id="discountMessage"
    class="discount-message"
   ></div>
-
-
-  <!-- ACTIONS -->
 
   <div class="editor-actions">
 
@@ -1880,25 +2498,19 @@ footer span{
 
  <div class="upload-box">
 
-  <h2>
-   📤 بارگذاری ویدیو
-  </h2>
+  <h2>📤 بارگذاری ویدیو</h2>
 
   <div
    class="upload-summary"
    id="uploadSummary"
-  >
-  </div>
-
+  ></div>
 
   <label
    class="video-upload"
    for="videoFile"
   >
 
-   <div class="video-upload-icon">
-    🎥
-   </div>
+   <div class="video-upload-icon">🎥</div>
 
    <div class="video-upload-title">
     انتخاب ویدیو
@@ -1917,7 +2529,6 @@ footer span{
 
   </label>
 
-
   <div
    class="file-info"
    id="fileInfo"
@@ -1934,7 +2545,6 @@ footer span{
    ></div>
 
   </div>
-
 
   <div class="upload-actions">
 
@@ -2108,9 +2718,7 @@ footer span{
 
   <div>
 
-   <h2>
-    👑 پنل مدیریت ALIXMAX
-   </h2>
+   <h2>👑 پنل مدیریت ALIXMAX</h2>
 
    <p class="section-sub">
     کنترل کامل محتوای سایت
@@ -2164,6 +2772,22 @@ footer span{
 
   <div class="stat">
 
+   <div
+    class="stat-number"
+    id="sponsorCount"
+   >
+    0
+   </div>
+
+   <div class="stat-title">
+    درخواست‌های اسپانسر
+   </div>
+
+  </div>
+
+
+  <div class="stat">
+
    <div class="stat-number">
     👑
    </div>
@@ -2176,6 +2800,8 @@ footer span{
 
  </div>
 
+
+ <!-- POSTS -->
 
  <div class="admin-box">
 
@@ -2227,8 +2853,97 @@ footer span{
 
  </div>
 
+
+ <!-- SPONSOR REQUESTS -->
+
+ <div class="admin-box">
+
+  <h3>
+   🤝 درخواست‌های اسپانسر
+  </h3>
+
+  <div id="sponsorRequests"></div>
+
+ </div>
+
 </section>
 
+
+<!-- ================= WALLET ================= -->
+
+<section id="walletPage">
+
+ <div class="wallet-box">
+
+  <div class="wallet-balance">
+
+   <div class="wallet-title">
+    👛 موجودی کیف پول ALIXMAX
+   </div>
+
+   <div
+    class="wallet-amount"
+    id="walletBalance"
+   >
+    ۰ تومان
+   </div>
+
+   <div class="wallet-note">
+    موجودی فعلاً آزمایشی است و پول واقعی نیست.
+   </div>
+
+  </div>
+
+
+  <div class="wallet-actions">
+
+   <div
+    class="wallet-action"
+    onclick="openDeposit()"
+   >
+
+    <div class="wallet-action-icon">
+     ➕
+    </div>
+
+    <h3>
+     واریز وجه
+    </h3>
+
+    <p>
+     اضافه کردن موجودی آزمایشی
+    </p>
+
+   </div>
+
+
+   <div
+    class="wallet-action"
+    onclick="openWithdraw()"
+   >
+
+    <div class="wallet-action-icon">
+     ➖
+    </div>
+
+    <h3>
+     برداشت وجه
+    </h3>
+
+    <p>
+     درخواست برداشت از کیف پول
+    </p>
+
+   </div>
+
+  </div>
+
+ </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
 
 <footer>
 
@@ -2281,6 +2996,60 @@ footer span{
 </div>
 
 
+<!-- ================= WALLET MODAL ================= -->
+
+<div
+ class="wallet-modal"
+ id="walletModal"
+>
+
+ <div class="wallet-modal-box">
+
+  <h2 id="walletModalTitle">
+   💰 کیف پول
+  </h2>
+
+  <p id="walletModalText"></p>
+
+  <input
+   id="walletAmountInput"
+   type="number"
+   min="1"
+   placeholder="مبلغ"
+  >
+
+  <input
+   id="cardNumberInput"
+   type="text"
+   inputmode="numeric"
+   maxlength="16"
+   placeholder="شماره کارت ۱۶ رقمی"
+   style="display:none"
+  >
+
+  <div class="wallet-modal-buttons">
+
+   <button
+    class="wallet-cancel"
+    onclick="closeWalletModal()"
+   >
+    انصراف
+   </button>
+
+   <button
+    class="wallet-confirm"
+    onclick="confirmWalletAction()"
+   >
+    تأیید
+   </button>
+
+  </div>
+
+ </div>
+
+</div>
+
+
 <div id="toast"></div>
 
 
@@ -2289,21 +3058,36 @@ footer span{
 <script>
 
 
-/* ================= DATA ================= */
+/* =========================================================
+   DATA
+========================================================= */
 
 let posts =
- JSON.parse(
-  localStorage.getItem("ALIXMAX_POSTS")
- ) || [];
+ JSON.parse(localStorage.getItem("ALIXMAX_POSTS")) || [];
 
 let comments =
- JSON.parse(
-  localStorage.getItem("ALIXMAX_COMMENTS")
- ) || [];
+ JSON.parse(localStorage.getItem("ALIXMAX_COMMENTS")) || [];
+
+let sponsorRequests =
+ JSON.parse(localStorage.getItem("ALIXMAX_SPONSORS")) || [];
+
+let walletBalance =
+ Number(localStorage.getItem("ALIXMAX_WALLET")) || 0;
 
 let ownerMode=false;
 
 let selectedVideo=null;
+
+let sponsorBannerData=null;
+
+let sponsorDiscountApplied=false;
+
+let sponsorOriginalPrice=0;
+
+let sponsorFinalPrice=0;
+
+let walletAction="";
+
 
 let editOrder={
  minutes:5,
@@ -2314,7 +3098,9 @@ let editOrder={
 };
 
 
-/* ================= OWNER ================= */
+/* =========================================================
+   OWNER
+========================================================= */
 
 const OWNER_PASSWORD="@Alibayat1388";
 
@@ -2369,6 +3155,10 @@ function loginOwner(){
 
   closeOwnerLogin();
 
+  renderSponsorRequests();
+
+  updateStats();
+
   showToast(
    "ورود موفق! خوش آمدی ALIXMAX 👑"
   );
@@ -2401,7 +3191,9 @@ function logoutOwner(){
 }
 
 
-/* ================= INTRO ================= */
+/* =========================================================
+   INTRO
+========================================================= */
 
 function closeIntro(){
 
@@ -2414,7 +3206,9 @@ function closeIntro(){
 setTimeout(closeIntro,5000);
 
 
-/* ================= MENU ================= */
+/* =========================================================
+   MENU
+========================================================= */
 
 function toggleMenu(){
 
@@ -2452,7 +3246,949 @@ document.addEventListener("click",function(e){
 });
 
 
-/* ================= SHOP ================= */
+/* =========================================================
+   SPONSOR BANNER
+========================================================= */
+
+function previewSponsorBanner(event){
+
+ const file=
+  event.target.files[0];
+
+ if(!file)
+  return;
+
+ if(!file.type.startsWith("image/")){
+
+  showToast(
+   "فایل باید تصویر باشد ❌"
+  );
+
+  event.target.value="";
+
+  return;
+
+ }
+
+ const reader=
+  new FileReader();
+
+ reader.onload=function(e){
+
+  sponsorBannerData=e.target.result;
+
+  document
+   .getElementById("bannerPreviewImg")
+   .src=e.target.result;
+
+  document
+   .getElementById("bannerPreview")
+   .classList.add("active");
+
+ };
+
+ reader.readAsDataURL(file);
+
+}
+
+
+/* =========================================================
+   SPONSOR DISCOUNT
+========================================================= */
+
+function applySponsorDiscount(){
+
+ const code=
+  document
+   .getElementById("sponsorDiscount")
+   .value
+   .trim()
+   .toLowerCase();
+
+ const message=
+  document
+   .getElementById("sponsorDiscountMessage");
+
+
+ if(code==="alixmax503"){
+
+  sponsorDiscountApplied=true;
+
+  if(sponsorOriginalPrice>0){
+
+   sponsorFinalPrice=
+    sponsorOriginalPrice*0.70;
+
+  }
+
+  message.textContent=
+   "کد تخفیف با موفقیت اعمال شد! ۳۰٪ تخفیف 🎉";
+
+  message.className=
+   "discount-message discount-success";
+
+ }else{
+
+  sponsorDiscountApplied=false;
+
+  sponsorFinalPrice=
+   sponsorOriginalPrice;
+
+  message.textContent=
+   "کد تخفیف نامعتبر است ❌";
+
+  message.className=
+   "discount-message discount-error";
+
+ }
+
+}
+
+
+/* =========================================================
+   SPONSOR SUBMIT
+========================================================= */
+
+function submitSponsorRequest(){
+
+ const name=
+  document
+   .getElementById("sponsorName")
+   .value.trim();
+
+ const phone=
+  document
+   .getElementById("sponsorPhone")
+   .value.trim();
+
+ const link=
+  document
+   .getElementById("sponsorLink")
+   .value.trim();
+
+ const price=
+  Number(
+   document
+    .getElementById("sponsorPrice")
+    .value
+  );
+
+ const description=
+  document
+   .getElementById("sponsorDescription")
+   .value.trim();
+
+
+ if(!name){
+
+  showToast("نام برند را وارد کن ❌");
+  return;
+
+ }
+
+
+ if(!/^09\d{9}$/.test(phone)){
+
+  showToast("شماره تماس معتبر نیست ❌");
+  return;
+
+ }
+
+
+ if(!price || price<=0){
+
+  showToast("قیمت تبلیغ را وارد کن ❌");
+  return;
+
+ }
+
+
+ if(!description){
+
+  showToast("توضیحات را وارد کن ❌");
+  return;
+
+ }
+
+
+ sponsorOriginalPrice=price;
+
+ if(sponsorDiscountApplied){
+
+  sponsorFinalPrice=
+   price*0.70;
+
+ }else{
+
+  sponsorFinalPrice=price;
+
+ }
+
+
+ const request={
+
+  id:Date.now(),
+
+  name:name,
+
+  phone:phone,
+
+  link:link,
+
+  description:description,
+
+  originalPrice:price,
+
+  finalPrice:sponsorFinalPrice,
+
+  discount:sponsorDiscountApplied ? 30 : 0,
+
+  banner:sponsorBannerData,
+
+  status:"pending",
+
+  createdAt:
+   new Date().toLocaleDateString("fa-IR")
+
+ };
+
+
+ sponsorRequests.unshift(request);
+
+ saveSponsors();
+
+ clearSponsorForm();
+
+ renderSponsorRequests();
+
+ renderApprovedSponsors();
+
+ updateStats();
+
+
+ showToast(
+  "درخواست اسپانسر با موفقیت ارسال شد 🤝"
+ );
+
+}
+
+
+/* =========================================================
+   CLEAR SPONSOR FORM
+========================================================= */
+
+function clearSponsorForm(){
+
+ document.getElementById("sponsorName").value="";
+
+ document.getElementById("sponsorPhone").value="";
+
+ document.getElementById("sponsorLink").value="";
+
+ document.getElementById("sponsorPrice").value="";
+
+ document.getElementById("sponsorDescription").value="";
+
+ document.getElementById("sponsorDiscount").value="";
+
+ document.getElementById("sponsorBanner").value="";
+
+ document
+  .getElementById("bannerPreview")
+  .classList.remove("active");
+
+ sponsorBannerData=null;
+
+ sponsorDiscountApplied=false;
+
+ sponsorOriginalPrice=0;
+
+ sponsorFinalPrice=0;
+
+ document
+  .getElementById("sponsorDiscountMessage")
+  .textContent="";
+
+}
+
+
+/* =========================================================
+   SAVE SPONSORS
+========================================================= */
+
+function saveSponsors(){
+
+ localStorage.setItem(
+  "ALIXMAX_SPONSORS",
+  JSON.stringify(sponsorRequests)
+ );
+
+}
+
+
+/* =========================================================
+   RENDER SPONSOR REQUESTS
+========================================================= */
+
+function renderSponsorRequests(){
+
+ const box=
+  document.getElementById("sponsorRequests");
+
+ if(!box)
+  return;
+
+ box.innerHTML="";
+
+
+ if(!ownerMode){
+
+  box.innerHTML=`
+   <div style="color:#555;text-align:center;padding:20px">
+    برای مشاهده درخواست‌ها وارد Owner شوید.
+   </div>
+  `;
+
+  return;
+
+ }
+
+
+ if(!sponsorRequests.length){
+
+  box.innerHTML=`
+   <div style="color:#555;text-align:center;padding:25px">
+    هنوز درخواست اسپانسری ثبت نشده.
+   </div>
+  `;
+
+  return;
+
+ }
+
+
+ sponsorRequests.forEach(request=>{
+
+  const card=
+   document.createElement("div");
+
+  card.className=
+   "request-card "+
+   (
+    request.status==="approved"
+    ?"approved"
+    :"pending"
+   );
+
+
+  let statusText="⏳ در انتظار بررسی";
+
+  if(request.status==="approved")
+   statusText="✅ تأیید شده";
+
+  if(request.status==="completed")
+   statusText="💰 انجام شد";
+
+  if(request.status==="rejected")
+   return;
+
+
+  let priceHTML=
+   `<strong>
+     ${formatPrice(request.finalPrice)}
+    </strong>`;
+
+  if(request.discount>0){
+
+   priceHTML+=
+    ` <span style="color:#777;text-decoration:line-through">
+      ${formatPrice(request.originalPrice)}
+      </span>
+      <span style="color:var(--green)">
+      ${request.discount}% تخفیف
+      </span>`;
+
+  }
+
+
+  let actions="";
+
+
+  if(request.status==="pending"){
+
+   actions=`
+
+    <button
+     class="approve-btn"
+     onclick="approveSponsor(${request.id})"
+    >
+     ✅ تأیید درخواست
+    </button>
+
+    <button
+     class="reject-btn"
+     onclick="rejectSponsor(${request.id})"
+    >
+     ❌ رد صلاحیت
+    </button>
+
+   `;
+
+  }
+
+
+  if(request.status==="approved"){
+
+   actions=`
+
+    <button
+     class="done-btn"
+     onclick="completeSponsor(${request.id})"
+    >
+     💰 انجام شد
+    </button>
+
+    <button
+     class="reject-btn"
+     onclick="rejectSponsor(${request.id})"
+    >
+     ❌ رد صلاحیت
+    </button>
+
+   `;
+
+  }
+
+
+  card.innerHTML=`
+
+   <div class="request-header">
+
+    <div class="request-name">
+     🤝 ${escapeHTML(request.name)}
+    </div>
+
+    <div class="request-status ${
+     request.status==="approved"
+     ? "approved-status"
+     :""
+    }">
+     ${statusText}
+    </div>
+
+   </div>
+
+
+   <div class="request-details">
+
+    📱 شماره:
+    ${escapeHTML(request.phone)}
+
+    <br>
+
+    🔗 لینک:
+    ${escapeHTML(request.link || "ثبت نشده")}
+
+    <br>
+
+    💰 مبلغ تبلیغ:
+    ${priceHTML}
+
+    <br>
+
+    📅 تاریخ درخواست:
+    ${request.createdAt}
+
+    <br><br>
+
+    📝 توضیحات:
+    ${escapeHTML(request.description)}
+
+   </div>
+
+
+   ${
+    request.banner
+    ?
+    `<div class="request-banner">
+      <img
+       src="${request.banner}"
+       alt="بنر اسپانسر"
+      >
+     </div>`
+    :
+    ""
+   }
+
+
+   <div class="request-actions">
+    ${actions}
+   </div>
+
+  `;
+
+
+  box.appendChild(card);
+
+ });
+
+}
+
+
+/* =========================================================
+   APPROVE SPONSOR
+========================================================= */
+
+function approveSponsor(id){
+
+ if(!ownerMode){
+
+  openOwnerLogin();
+  return;
+
+ }
+
+ const request=
+  sponsorRequests.find(
+   item=>item.id===id
+  );
+
+ if(!request)
+  return;
+
+
+ request.status="approved";
+
+ saveSponsors();
+
+ renderSponsorRequests();
+
+ renderApprovedSponsors();
+
+ updateStats();
+
+ showToast(
+  "درخواست اسپانسر تأیید شد ✅"
+ );
+
+}
+
+
+/* =========================================================
+   REJECT SPONSOR
+========================================================= */
+
+function rejectSponsor(id){
+
+ if(!ownerMode){
+
+  openOwnerLogin();
+  return;
+
+ }
+
+
+ const index=
+  sponsorRequests.findIndex(
+   item=>item.id===id
+  );
+
+
+ if(index===-1)
+  return;
+
+
+ sponsorRequests.splice(index,1);
+
+ saveSponsors();
+
+ renderSponsorRequests();
+
+ renderApprovedSponsors();
+
+ updateStats();
+
+ showToast(
+  "درخواست اسپانسر رد و حذف شد ❌"
+ );
+
+}
+
+
+/* =========================================================
+   COMPLETE SPONSOR
+========================================================= */
+
+function completeSponsor(id){
+
+ if(!ownerMode){
+
+  openOwnerLogin();
+  return;
+
+ }
+
+
+ const request=
+  sponsorRequests.find(
+   item=>item.id===id
+  );
+
+
+ if(!request)
+  return;
+
+
+ if(request.status!=="approved"){
+
+  showToast(
+   "اول باید درخواست تأیید شود."
+  );
+
+  return;
+
+ }
+
+
+ request.status="completed";
+
+
+ /*
+   مبلغ تبلیغ پس از انجام کار
+   وارد کیف پول آزمایشی می‌شود.
+ */
+
+ walletBalance +=
+  Number(request.finalPrice) || 0;
+
+
+ localStorage.setItem(
+  "ALIXMAX_WALLET",
+  String(walletBalance)
+ );
+
+
+ saveSponsors();
+
+ renderSponsorRequests();
+
+ renderApprovedSponsors();
+
+ updateWallet();
+
+ showToast(
+  "تبلیغ انجام شد و مبلغ به کیف پول اضافه شد 💰"
+ );
+
+}
+
+
+/* =========================================================
+   APPROVED SPONSORS
+========================================================= */
+
+function renderApprovedSponsors(){
+
+ const box=
+  document.getElementById("approvedSponsors");
+
+ if(!box)
+  return;
+
+ box.innerHTML="";
+
+
+ const approved=
+  sponsorRequests.filter(
+   item=>
+    item.status==="approved" ||
+    item.status==="completed"
+  );
+
+
+ if(!approved.length){
+
+  box.innerHTML=`
+   <div style="
+    grid-column:1/-1;
+    color:#555;
+    text-align:center;
+    padding:30px;
+   ">
+    هنوز اسپانسر تأییدشده‌ای وجود ندارد.
+   </div>
+  `;
+
+  return;
+
+ }
+
+
+ approved.forEach(request=>{
+
+  const card=
+   document.createElement("div");
+
+  card.className="sponsor-card";
+
+
+  const banner=
+   request.banner
+   ?
+   `<img
+     src="${request.banner}"
+     alt="${escapeHTML(request.name)}"
+    >`
+   :
+   "🤝";
+
+
+  card.innerHTML=`
+
+   <div class="sponsor-banner">
+    ${banner}
+   </div>
+
+   <div class="sponsor-card-info">
+
+    <h3>
+     ${escapeHTML(request.name)}
+    </h3>
+
+    <p>
+     ${escapeHTML(request.description)}
+    </p>
+
+    <div class="sponsor-price">
+     💰 تبلیغ:
+     ${formatPrice(request.finalPrice)}
+    </div>
+
+   </div>
+
+  `;
+
+
+  box.appendChild(card);
+
+ });
+
+}
+
+
+/* =========================================================
+   WALLET
+========================================================= */
+
+function openWallet(){
+
+ document
+  .getElementById("walletPage")
+  .classList.add("active");
+
+ updateWallet();
+
+ document
+  .getElementById("walletPage")
+  .scrollIntoView({
+   behavior:"smooth"
+  });
+
+}
+
+
+function updateWallet(){
+
+ const balance=
+  document.getElementById("walletBalance");
+
+ if(balance){
+
+  balance.textContent=
+   formatPrice(walletBalance);
+
+ }
+
+}
+
+
+function openDeposit(){
+
+ walletAction="deposit";
+
+ document
+  .getElementById("walletModalTitle")
+  .textContent="➕ واریز وجه آزمایشی";
+
+ document
+  .getElementById("walletModalText")
+  .textContent=
+   "مبلغی که می‌خواهی به صورت آزمایشی به کیف پول اضافه شود وارد کن.";
+
+ document
+  .getElementById("walletAmountInput")
+  .style.display="block";
+
+ document
+  .getElementById("cardNumberInput")
+  .style.display="none";
+
+ document
+  .getElementById("walletAmountInput")
+  .value="";
+
+ document
+  .getElementById("walletModal")
+  .classList.add("active");
+
+}
+
+
+function openWithdraw(){
+
+ walletAction="withdraw";
+
+ document
+  .getElementById("walletModalTitle")
+  .textContent="➖ برداشت وجه";
+
+ document
+  .getElementById("walletModalText")
+  .textContent=
+   "مبلغ برداشت و شماره کارت ۱۶ رقمی خود را وارد کن.";
+
+ document
+  .getElementById("walletAmountInput")
+  .style.display="block";
+
+ document
+  .getElementById("cardNumberInput")
+  .style.display="block";
+
+ document
+  .getElementById("walletAmountInput")
+  .value="";
+
+ document
+  .getElementById("cardNumberInput")
+  .value="";
+
+ document
+  .getElementById("walletModal")
+  .classList.add("active");
+
+}
+
+
+function closeWalletModal(){
+
+ document
+  .getElementById("walletModal")
+  .classList.remove("active");
+
+}
+
+
+function confirmWalletAction(){
+
+ const amount=
+  Number(
+   document
+    .getElementById("walletAmountInput")
+    .value
+  );
+
+
+ if(!amount || amount<=0){
+
+  showToast(
+   "مبلغ معتبر وارد کن ❌"
+  );
+
+  return;
+
+ }
+
+
+ if(walletAction==="deposit"){
+
+  walletBalance+=amount;
+
+  localStorage.setItem(
+   "ALIXMAX_WALLET",
+   String(walletBalance)
+  );
+
+  updateWallet();
+
+  closeWalletModal();
+
+  showToast(
+   "مبلغ با موفقیت به کیف پول آزمایشی اضافه شد 💰"
+  );
+
+  return;
+
+ }
+
+
+ if(walletAction==="withdraw"){
+
+  const card=
+   document
+    .getElementById("cardNumberInput")
+    .value
+    .replace(/\s/g,"");
+
+
+  if(!/^\d{16}$/.test(card)){
+
+   showToast(
+    "شماره کارت باید ۱۶ رقم باشد ❌"
+   );
+
+   return;
+
+  }
+
+
+  if(amount>walletBalance){
+
+   showToast(
+    "موجودی کیف پول کافی نیست ❌"
+   );
+
+   return;
+
+  }
+
+
+  walletBalance-=amount;
+
+
+  localStorage.setItem(
+   "ALIXMAX_WALLET",
+   String(walletBalance)
+  );
+
+
+  updateWallet();
+
+  closeWalletModal();
+
+
+  showToast(
+   "درخواست شما انجام شد و طی ۷ روز کاری به حساب شما واریز خواهد شد ✅"
+  );
+
+ }
+
+}
+
+
+/* =========================================================
+   EDITOR
+========================================================= */
 
 function openEditor(){
 
@@ -2499,38 +4235,28 @@ function calculateEditPrice(){
     .value
   );
 
- if(!minutes || minutes<1){
+ if(!minutes || minutes<1)
   minutes=1;
- }
+
 
  let style=
   document
    .getElementById("videoStyle")
    .value;
 
+
  let rate=40000;
 
- if(style==="gaming"){
-  rate=40000;
- }
 
- if(style==="challenge"){
+ if(style==="challenge")
   rate=30000;
- }
 
- if(style==="vlog"){
+ if(style==="vlog")
   rate=20000;
- }
 
- if(style==="other"){
+ if(style==="other")
   rate=20000;
- }
 
-
- /*
-   قیمت دقیق:
-   هر 5 دقیقه × نرخ
- */
 
  let basePrice=
   (minutes/5)*rate;
@@ -2539,8 +4265,10 @@ function calculateEditPrice(){
  let discount=
   editOrder.discount;
 
+
  let discountAmount=
   basePrice*discount;
+
 
  let finalPrice=
   basePrice-discountAmount;
@@ -2576,31 +4304,22 @@ function calculateEditPrice(){
    formatPrice(finalPrice);
 
 
- if(discount>0){
-
-  document
-   .getElementById("discountRow")
-   .style.display="flex";
-
- }else{
-
-  document
-   .getElementById("discountRow")
-   .style.display="none";
-
- }
+ document
+  .getElementById("discountRow")
+  .style.display=
+   discount>0 ? "flex" : "none";
 
 }
 
 
 function applyDiscount(){
 
- const input=
-  document
-   .getElementById("discountCode");
-
  const code=
-  input.value.trim().toLowerCase();
+  document
+   .getElementById("discountCode")
+   .value
+   .trim()
+   .toLowerCase();
 
  const message=
   document
@@ -2654,10 +4373,15 @@ function confirmEditor(){
 
 
  const styleNames={
+
   gaming:"🎮 گیمینگ",
+
   challenge:"😂 چالشی",
+
   vlog:"🎥 ولاگ",
+
   other:"📹 سایر"
+
  };
 
 
@@ -2713,7 +4437,9 @@ function backToEditor(){
 }
 
 
-/* ================= VIDEO UPLOAD ================= */
+/* =========================================================
+   VIDEO
+========================================================= */
 
 function selectVideo(event){
 
@@ -2773,12 +4499,6 @@ function submitVideo(){
  }
 
 
- /*
-   در این مرحله فایل فقط انتخاب شده.
-   برای ارسال واقعی باید به Supabase Storage
-   متصل شود.
- */
-
  showToast(
   "ویدیو آماده ارسال است 📤"
  );
@@ -2786,7 +4506,9 @@ function submitVideo(){
 }
 
 
-/* ================= PRICE ================= */
+/* =========================================================
+   PRICE
+========================================================= */
 
 function formatPrice(number){
 
@@ -2833,7 +4555,9 @@ function formatFileSize(bytes){
 }
 
 
-/* ================= POSTS ================= */
+/* =========================================================
+   POSTS
+========================================================= */
 
 function publishPost(){
 
@@ -2844,6 +4568,7 @@ function publishPost(){
   return;
 
  }
+
 
  const title=
   document
@@ -2888,13 +4613,20 @@ function publishPost(){
 
 
  const post={
+
   id:Date.now(),
+
   title:title,
+
   type:type,
+
   description:description,
+
   image:null,
+
   createdAt:
    new Date().toLocaleDateString("fa-IR")
+
  };
 
 
@@ -2952,6 +4684,9 @@ function renderPosts(){
 
  const grid=
   document.getElementById("contentGrid");
+
+ if(!grid)
+  return;
 
  grid.innerHTML="";
 
@@ -3050,7 +4785,9 @@ function savePosts(){
 }
 
 
-/* ================= SEARCH ================= */
+/* =========================================================
+   SEARCH
+========================================================= */
 
 function showSuggestions(){
 
@@ -3182,18 +4919,13 @@ function performSearch(){
    card.dataset.type.toLowerCase();
 
 
-  if(
-   title.includes(query) ||
-   type.includes(query)
-  ){
-
-   card.style.display="";
-
-  }else{
-
-   card.style.display="none";
-
-  }
+  card.style.display=
+   (
+    title.includes(query) ||
+    type.includes(query)
+   )
+   ? ""
+   : "none";
 
  });
 
@@ -3209,7 +4941,9 @@ function searchEnter(e){
 }
 
 
-/* ================= COMMENTS ================= */
+/* =========================================================
+   COMMENTS
+========================================================= */
 
 function addComment(){
 
@@ -3314,6 +5048,9 @@ function renderComments(){
  const list=
   document.getElementById("commentsList");
 
+ if(!list)
+  return;
+
  list.innerHTML="";
 
 
@@ -3382,7 +5119,9 @@ function renderComments(){
 }
 
 
-/* ================= STATS ================= */
+/* =========================================================
+   STATS
+========================================================= */
 
 function updateStats(){
 
@@ -3392,6 +5131,9 @@ function updateStats(){
  const commentCount=
   document.getElementById("commentCount");
 
+ const sponsorCount=
+  document.getElementById("sponsorCount");
+
 
  if(postCount)
   postCount.textContent=posts.length;
@@ -3399,24 +5141,38 @@ function updateStats(){
  if(commentCount)
   commentCount.textContent=comments.length;
 
+ if(sponsorCount){
+
+  sponsorCount.textContent=
+   sponsorRequests.filter(
+    r=>r.status!=="completed"
+   ).length;
+
+ }
+
 }
 
 
-/* ================= SECURITY ================= */
+/* =========================================================
+   SECURITY
+========================================================= */
 
 function escapeHTML(text){
 
  const div=
   document.createElement("div");
 
- div.textContent=text;
+ div.textContent=
+  text ?? "";
 
  return div.innerHTML;
 
 }
 
 
-/* ================= TOAST ================= */
+/* =========================================================
+   TOAST
+========================================================= */
 
 function showToast(message){
 
@@ -3436,19 +5192,27 @@ function showToast(message){
    ()=>{
     toast.classList.remove("show");
    },
-   3000
+   3500
   );
 
 }
 
 
-/* ================= START ================= */
+/* =========================================================
+   START
+========================================================= */
 
 renderPosts();
 
 renderComments();
 
+renderSponsorRequests();
+
+renderApprovedSponsors();
+
 updateStats();
+
+updateWallet();
 
 calculateEditPrice();
 
@@ -3460,7 +5224,5 @@ calculateEditPrice();
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="supabase.js"></script>
 
-
 </body>
 </html>
-```
