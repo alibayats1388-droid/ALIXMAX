@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>ALIXMAX | Gaming</title>
+<title>ALIXMAX | Gaming & Marketplace</title>
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
  --green:#00ff66;--black:#030303;--dark:#080808;
  --card:#0d0d0d;--border:#202020;--text:#eee;
- --muted:#777;--red:#ff3838;--gold:#ffd000;
+ --muted:#777;--red:#ff3838;--gold:#ffd000;--blue:#00aaff
 }
 html{scroll-behavior:smooth}
 body{
@@ -20,6 +20,8 @@ body{
 ::-webkit-scrollbar{width:7px}
 ::-webkit-scrollbar-track{background:#030303}
 ::-webkit-scrollbar-thumb{background:var(--green);border-radius:20px}
+
+button,input,textarea,select{font-family:inherit}
 
 /* INTRO */
 #intro{
@@ -73,7 +75,6 @@ header{
 .menu-btn.active span:nth-child(2){opacity:0}
 .menu-btn.active span:nth-child(3){transform:translateY(-9px) rotate(-45deg)}
 
-/* SEARCH */
 .search-area{
  position:absolute;left:50%;transform:translateX(-50%);width:min(430px,40%)
 }
@@ -112,6 +113,9 @@ header{
 }
 .menu-link:hover{background:rgba(0,255,102,.07);color:var(--green);transform:translateX(-5px)}
 .menu-left{display:flex;align-items:center;gap:12px}
+.badge-count{
+ background:#151515;color:var(--green);padding:3px 8px;border-radius:20px;font-size:10px
+}
 
 /* GENERAL */
 .hero{
@@ -142,8 +146,8 @@ header{
 .section-title span{color:var(--green)}
 .section-sub{color:#666;font-size:13px;margin-top:8px;margin-bottom:35px}
 
-/* CATEGORIES */
-.categories,.content-grid,.shop-grid{
+/* GRID */
+.categories,.content-grid,.shop-grid,.market-grid{
  display:grid;grid-template-columns:repeat(3,1fr);gap:20px
 }
 .category{
@@ -191,7 +195,44 @@ header{
  color:#000;font-weight:bold;cursor:pointer
 }
 
-/* GENERIC PAGES */
+/* MARKET */
+.market-section{
+ background:radial-gradient(circle at top right,rgba(0,255,102,.08),transparent 35%),#060606
+}
+.market-toolbar{
+ display:flex;gap:10px;flex-wrap:wrap;margin-bottom:25px
+}
+.market-toolbar input,.market-toolbar select{
+ flex:1;min-width:180px;padding:13px;background:#0b0b0b;
+ border:1px solid #222;color:white;border-radius:9px;outline:none
+}
+.market-toolbar input:focus,.market-toolbar select:focus{border-color:var(--green)}
+.market-card{
+ background:#0d0d0d;border:1px solid #202020;border-radius:17px;
+ overflow:hidden;transition:.3s
+}
+.market-card:hover{transform:translateY(-6px);border-color:rgba(0,255,102,.45)}
+.market-img{
+ height:210px;background:#080808;display:flex;align-items:center;justify-content:center;
+ font-size:60px;overflow:hidden
+}
+.market-img img{width:100%;height:100%;object-fit:cover}
+.market-info{padding:18px}
+.market-category{color:var(--green);font-size:10px}
+.market-info h3{margin:9px 0;font-size:18px}
+.market-desc{color:#777;font-size:12px;line-height:1.8;min-height:45px}
+.market-price{color:var(--green);font-size:18px;font-weight:bold;margin:14px 0}
+.market-seller{color:#555;font-size:10px;margin-bottom:12px}
+.market-actions{display:flex;gap:8px}
+.market-actions button{flex:1;padding:11px;border-radius:8px;border:0;cursor:pointer;font-weight:bold}
+.buy-btn{background:var(--green);color:#000}
+.chat-btn{background:#111;color:#bbb;border:1px solid #333!important}
+.empty{
+ text-align:center;color:#555;padding:35px;border:1px dashed #222;border-radius:12px;
+ grid-column:1/-1
+}
+
+/* PAGES */
 .page-box{
  max-width:850px;margin:auto;background:#0c0c0c;
  border:1px solid #222;border-radius:22px;padding:30px
@@ -213,9 +254,13 @@ header{
  background:#111;color:#aaa;font-weight:bold;cursor:pointer
 }
 
+#editorPage,#uploadPage,#sponsorPage,#requestsPage,#walletPage,#marketPostPage,#chatPage{
+ display:none;min-height:100vh;padding:130px 8% 80px
+}
+#editorPage.active,#uploadPage.active,#sponsorPage.active,#requestsPage.active,
+#walletPage.active,#marketPostPage.active,#chatPage.active{display:block}
+
 /* EDITOR */
-#editorPage,#uploadPage,#sponsorPage,#requestsPage,#walletPage{display:none;min-height:100vh;padding:130px 8% 80px}
-#editorPage.active,#uploadPage.active,#sponsorPage.active,#requestsPage.active,#walletPage.active{display:block}
 .price-box{
  margin-top:25px;padding:22px;background:rgba(0,255,102,.04);
  border:1px solid rgba(0,255,102,.2);border-radius:15px
@@ -257,17 +302,10 @@ header{
 
 /* EXPLORER */
 .explorer-section{background:#050505}
-.explorer-grid{
- display:grid;grid-template-columns:repeat(2,1fr);gap:25px
-}
-.video-card{
- background:#0d0d0d;border:1px solid #202020;border-radius:18px;
- padding:12px;overflow:hidden
-}
+.explorer-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:25px}
+.video-card{background:#0d0d0d;border:1px solid #202020;border-radius:18px;padding:12px;overflow:hidden}
 .video-card:hover{border-color:rgba(0,255,102,.45)}
-.aparat-frame{
- width:100%;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#000
-}
+.aparat-frame{width:100%;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#000}
 .aparat-frame div{width:100%!important;height:100%!important}
 .aparat-frame iframe{width:100%!important;height:100%!important;border:0}
 .video-card-title{padding:14px 6px 5px;color:#ddd;font-weight:bold}
@@ -317,24 +355,15 @@ header{
  width:100%;max-height:280px;object-fit:cover;border-radius:12px;
  border:1px solid #222;display:none;margin-top:12px
 }
-.sponsor-price{
- color:var(--green);font-size:22px;font-weight:bold
-}
-.sponsor-code-box{
- background:#080808;border:1px solid #222;border-radius:12px;padding:18px;margin-top:15px
-}
+.sponsor-code-box{background:#080808;border:1px solid #222;border-radius:12px;padding:18px;margin-top:15px}
 .sponsor-code-box strong{color:var(--green)}
 .sponsor-request{
  background:#0d0d0d;border:1px solid #222;border-radius:16px;
  padding:22px;margin-bottom:15px
 }
-.request-head{
- display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:15px
-}
+.request-head{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:15px}
 .request-name{font-size:19px;font-weight:bold;color:var(--green)}
-.status{
- padding:6px 10px;border-radius:20px;font-size:10px
-}
+.status{padding:6px 10px;border-radius:20px;font-size:10px}
 .status.pending{background:rgba(255,208,0,.1);color:var(--gold)}
 .status.approved{background:rgba(0,255,102,.1);color:var(--green)}
 .status.rejected{background:rgba(255,56,56,.1);color:var(--red)}
@@ -343,9 +372,7 @@ header{
 .request-info{color:#888;font-size:13px;line-height:2}
 .request-info strong{color:#ddd}
 .request-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
-.request-actions button{
- padding:11px 16px;border-radius:8px;border:0;cursor:pointer;font-weight:bold
-}
+.request-actions button{padding:11px 16px;border-radius:8px;border:0;cursor:pointer;font-weight:bold}
 .approve-btn{background:var(--green);color:#000}
 .reject-btn{background:#321010;color:#ff5555;border:1px solid #512020!important}
 .done-btn{background:#101d32;color:#00aaff;border:1px solid #173653!important}
@@ -361,9 +388,7 @@ header{
  border:1px solid #222;text-align:center;margin-bottom:20px
 }
 .balance-label{color:#777;font-size:13px}
-.balance{
- color:var(--green);font-size:42px;font-weight:1000;margin:12px 0
-}
+.balance{color:var(--green);font-size:42px;font-weight:1000;margin:12px 0}
 .wallet-actions{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .wallet-btn{
  padding:16px;border-radius:11px;border:1px solid #292929;
@@ -393,13 +418,48 @@ header{
  border-radius:9px;text-align:center;letter-spacing:2px;margin-bottom:12px
 }
 
+/* CHAT */
+.chat-wrap{
+ max-width:850px;margin:auto;background:#0c0c0c;border:1px solid #222;
+ border-radius:20px;overflow:hidden
+}
+.chat-header{padding:20px;border-bottom:1px solid #222}
+.chat-header h2{color:var(--green)}
+.chat-messages{height:450px;overflow-y:auto;padding:20px}
+.chat-message{
+ background:#111;border:1px solid #202020;border-radius:12px;
+ padding:12px;margin-bottom:10px
+}
+.chat-user{color:var(--green);font-weight:bold;font-size:12px}
+.chat-time{color:#555;font-size:9px;margin-right:8px}
+.chat-text{color:#bbb;line-height:1.8;font-size:13px;margin-top:6px}
+.chat-input{padding:15px;border-top:1px solid #222;display:flex;gap:8px}
+.chat-input input{
+ flex:1;background:#050505;border:1px solid #222;color:white;border-radius:9px;padding:13px;outline:none
+}
+.chat-input button{padding:13px 20px;background:var(--green);border:0;border-radius:9px;font-weight:bold;cursor:pointer}
+
+/* MARKET MODAL */
+.market-modal{
+ display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);
+ backdrop-filter:blur(8px);z-index:10000;align-items:center;justify-content:center;padding:20px
+}
+.market-modal.active{display:flex}
+.market-modal-box{
+ width:min(600px,100%);max-height:90vh;overflow:auto;
+ background:#0c0c0c;border:1px solid #333;border-radius:20px;padding:25px
+}
+.market-modal-box h2{color:var(--green);margin-bottom:20px}
+.market-modal-actions{display:flex;gap:10px;margin-top:15px}
+.market-modal-actions button{flex:1;padding:13px;border-radius:9px;cursor:pointer;font-weight:bold}
+
 /* ADMIN */
 #admin{display:none;background:#080808;border-top:1px solid #151515}
 .owner-mode #admin{display:block}
 .admin-header{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:25px}
 .admin-header h2{color:var(--green)}
 .logout-btn{background:#111;border:1px solid #333;color:#aaa;padding:10px 16px;border-radius:8px;cursor:pointer}
-.admin-dashboard{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-bottom:25px}
+.admin-dashboard{display:grid;grid-template-columns:repeat(5,1fr);gap:15px;margin-bottom:25px}
 .stat{background:#0d0d0d;border:1px solid #202020;border-radius:14px;padding:20px}
 .stat-number{color:var(--green);font-size:30px;font-weight:bold}
 .stat-title{color:#777;font-size:12px;margin-top:7px}
@@ -412,7 +472,7 @@ header{
 .admin-box textarea{min-height:100px}
 .publish{background:var(--green);color:#000;border:0;padding:12px 25px;border-radius:8px;font-weight:bold;cursor:pointer}
 
-/* OWNER LOGIN */
+/* OWNER */
 .owner-overlay{
  position:fixed;inset:0;background:rgba(0,0,0,.8);backdrop-filter:blur(8px);
  z-index:10000;display:none;align-items:center;justify-content:center;padding:20px
@@ -446,50 +506,52 @@ header{
 footer{padding:35px;text-align:center;color:#555;border-top:1px solid #151515}
 footer span{color:var(--green)}
 
+@media(max-width:1000px){
+ .categories,.content-grid,.shop-grid,.market-grid{grid-template-columns:1fr 1fr}
+ .admin-dashboard{grid-template-columns:repeat(3,1fr)}
+}
 @media(max-width:900px){
  .search-area{position:relative;left:auto;transform:none;width:90%;margin:15px auto}
- .categories,.content-grid,.shop-grid{grid-template-columns:1fr}
  .explorer-grid{grid-template-columns:1fr}
  .profile{grid-template-columns:1fr;text-align:center}
  .avatar{margin:auto}
- .admin-dashboard{grid-template-columns:1fr 1fr}
 }
 @media(max-width:600px){
  header{padding:0 5%}.logo{font-size:22px}
  .hero{padding:140px 5% 90px}.hero h1{font-size:48px}
  .section{padding:70px 5%}
+ .categories,.content-grid,.shop-grid,.market-grid{grid-template-columns:1fr}
  .form-row{grid-template-columns:1fr}
  #sideMenu{width:290px}
- .admin-dashboard{grid-template-columns:1fr}
+ .admin-dashboard{grid-template-columns:1fr 1fr}
  .admin-header{flex-direction:column;align-items:stretch}
  .editor-actions,.upload-actions,.wallet-actions{grid-template-columns:1fr;flex-direction:column}
- .discount-box{flex-direction:column}
+ .discount-box,.chat-input{flex-direction:column}
+ .market-toolbar{flex-direction:column}
 }
 </style>
 </head>
 
 <body>
 
-<!-- INTRO -->
 <div id="intro">
  <div class="intro-grid"></div>
  <div class="intro-content">
   <div class="intro-welcome">WELCOME TO</div>
   <div class="intro-logo">ALIXMAX</div>
-  <div class="intro-sub">GAMING • MODS • GAMEPLAY • TUTORIALS</div>
+  <div class="intro-sub">GAMING • MODS • MARKET • COMMUNITY</div>
   <div class="intro-line"></div>
   <div class="intro-loading">در حال ورود به دنیای ALIXMAX...</div>
  </div>
  <div class="intro-skip" onclick="closeIntro()">ورود به سایت ←</div>
 </div>
 
-<!-- HEADER -->
 <header>
  <div class="logo">ALIXMAX</div>
 
  <div class="search-area">
   <div class="search-box">
-   <input id="searchInput" type="search" placeholder="جستجوی مطلب..."
+   <input id="searchInput" type="search" placeholder="جستجوی مطلب یا کالا..."
     autocomplete="off" oninput="showSuggestions()" onkeydown="searchEnter(event)">
    <button onclick="performSearch()">🔎</button>
    <div id="suggestions"></div>
@@ -501,59 +563,54 @@ footer span{color:var(--green)}
  </div>
 </header>
 
-<!-- SIDE MENU -->
 <div id="sideMenu">
  <div class="menu-title">منوی ALIXMAX 🎮</div>
 
- <a class="menu-link" href="#home"><span class="menu-left">🏠 صفحه اصلی</span></a>
- <a class="menu-link" href="#categories"><span class="menu-left">🗂️ دسته‌بندی‌ها</span></a>
- <a class="menu-link" href="#explorer"><span class="menu-left">🌎 Explorer</span></a>
- <a class="menu-link" href="#shop"><span class="menu-left">🛒 فروشگاه</span></a>
- <a class="menu-link" href="#latest"><span class="menu-left">🆕 جدیدترین مطالب</span></a>
- <a class="menu-link" href="#profile"><span class="menu-left">👤 پروفایل ALIXMAX</span></a>
- <a class="menu-link" href="#comments"><span class="menu-left">💬 نظرات کاربران</span></a>
+ <a class="menu-link" href="#home" onclick="closeMenu()">🏠 صفحه اصلی</a>
+ <a class="menu-link" href="#categories" onclick="closeMenu()">🗂️ دسته‌بندی‌ها</a>
+ <a class="menu-link" href="#explorer" onclick="closeMenu()">🌎 Explorer</a>
+ <a class="menu-link" href="#shop" onclick="closeMenu()">🛒 فروشگاه خدمات</a>
+ <a class="menu-link" href="#market" onclick="closeMenu()">🏪 بازارچه کالا</a>
+ <a class="menu-link" href="#latest" onclick="closeMenu()">🆕 جدیدترین مطالب</a>
+ <a class="menu-link" href="#profile" onclick="closeMenu()">👤 پروفایل ALIXMAX</a>
+ <a class="menu-link" href="#comments" onclick="closeMenu()">💬 نظرات کاربران</a>
 
- <div class="menu-link" onclick="openSponsorPage()">
-  <span class="menu-left">🤝 ثبت‌نام اسپانسر</span>
- </div>
+ <div class="menu-link" onclick="openMarketPost()">📢 ثبت آگهی کالا</div>
+ <div class="menu-link" onclick="openChat()">💬 چت کاربران</div>
+
+ <div class="menu-link" onclick="openSponsorPage()">🤝 ثبت‌نام اسپانسر</div>
 
  <div class="menu-link" onclick="openRequestsPage()">
-  <span class="menu-left">📋 درخواست‌های اسپانسر</span>
-  <span id="requestBadge">0</span>
+  📋 درخواست‌های اسپانسر
+  <span class="badge-count" id="requestBadge">0</span>
  </div>
 
- <div class="menu-link" onclick="openWallet()">
-  <span class="menu-left">👛 کیف پول</span>
-  <span>💰</span>
- </div>
+ <div class="menu-link" onclick="openWallet()">👛 کیف پول <span>💰</span></div>
 
  <div class="menu-link" onclick="openOwnerLogin()">
-  <span class="menu-left">👑 پنل مدیریتی</span>
-  <span id="menuLock">🔒</span>
+  👑 پنل مدیریتی <span id="menuLock">🔒</span>
  </div>
 
  <a class="menu-link" href="https://www.aparat.com/Alixmax.yt" target="_blank">
-  <span class="menu-left">📺 آپارات</span>
+  📺 آپارات
  </a>
 </div>
 
-<!-- HOME -->
 <section class="hero" id="home">
  <div class="hero-content">
   <div class="badge">🎮 دنیای گیمینگ ALIXMAX</div>
   <h1>دنیای <span>گیمینگ</span> اینجاست.</h1>
   <p>
-   مودهای جذاب، گیمپلی‌های خفن، آموزش‌های کاربردی،
-   خدمات گیمینگ و محتوای اختصاصی ALIXMAX در یک سایت.
+   مودهای جذاب، گیمپلی، آموزش، خدمات گیمینگ،
+   بازارچه خرید و فروش کالا و جامعه ALIXMAX در یک سایت.
   </p>
   <div class="hero-buttons">
    <a href="#latest" class="btn primary">مشاهده مطالب 🎮</a>
-   <a href="#explorer" class="btn secondary">Explorer 🌎</a>
+   <a href="#market" class="btn secondary">ورود به بازارچه 🛒</a>
   </div>
  </div>
 </section>
 
-<!-- CATEGORIES -->
 <section class="section" id="categories">
  <h2 class="section-title">دسته‌بندی <span>محتوا</span></h2>
  <p class="section-sub">چیزی که می‌خوای رو پیدا کن.</p>
@@ -564,13 +621,11 @@ footer span{color:var(--green)}
    <h3>مودها</h3>
    <p>مودهای جذاب و کاربردی برای بازی‌های مختلف.</p>
   </div>
-
   <div class="category">
    <div class="category-icon">🎬</div>
    <h3>گیمپلی‌ها</h3>
    <p>گیمپلی‌ها و ویدیوهای اختصاصی ALIXMAX.</p>
   </div>
-
   <div class="category">
    <div class="category-icon">📚</div>
    <h3>آموزش‌ها</h3>
@@ -579,7 +634,6 @@ footer span{color:var(--green)}
  </div>
 </section>
 
-<!-- EXPLORER -->
 <section class="section explorer-section" id="explorer">
  <h2 class="section-title">ALIXMAX <span>EXPLORER</span> 🌎</h2>
  <p class="section-sub">ویدیوهای ALIXMAX را همین‌جا تماشا کن.</p>
@@ -633,7 +687,6 @@ footer span{color:var(--green)}
  </div>
 </section>
 
-<!-- SHOP -->
 <section class="section shop-section" id="shop">
  <h2 class="section-title">ALIXMAX <span>SHOP</span></h2>
  <p class="section-sub">خدمات و محصولات گیمینگ ALIXMAX</p>
@@ -668,6 +721,108 @@ footer span{color:var(--green)}
    <button class="shop-btn" onclick="openEditor()">سفارش ادیت 🎬</button>
   </div>
 
+ </div>
+</section>
+
+<!-- MARKET -->
+<section class="section market-section" id="market">
+ <h2 class="section-title">🏪 <span>بازارچه</span> ALIXMAX</h2>
+ <p class="section-sub">کالاهای گیمینگ و دیجیتال را خرید و فروش کن.</p>
+
+ <div class="market-toolbar">
+  <input id="marketSearch" placeholder="جستجوی کالا..." oninput="renderMarket()">
+
+  <select id="marketCategory" onchange="renderMarket()">
+   <option value="">همه دسته‌بندی‌ها</option>
+   <option value="گیمینگ">🎮 گیمینگ</option>
+   <option value="کامپیوتر">💻 کامپیوتر</option>
+   <option value="موبایل">📱 موبایل</option>
+   <option value="کنسول">🕹️ کنسول</option>
+   <option value="لوازم جانبی">🖱️ لوازم جانبی</option>
+   <option value="قطعات">⚙️ قطعات</option>
+   <option value="سایر">📦 سایر</option>
+  </select>
+
+  <button class="action-btn" onclick="openMarketPost()">📢 ثبت آگهی</button>
+  <button class="secondary-btn" onclick="openChat()">💬 چت عمومی</button>
+ </div>
+
+ <div class="market-grid" id="marketGrid"></div>
+</section>
+
+<!-- MARKET POST -->
+<section id="marketPostPage">
+ <div class="page-box">
+  <h2>📢 ثبت آگهی کالا</h2>
+  <p class="section-sub">کالای خودت را برای فروش در بازارچه منتشر کن.</p>
+
+  <div class="field">
+   <label>نام فروشنده *</label>
+   <input id="sellerName" placeholder="مثلاً علی">
+  </div>
+
+  <div class="field">
+   <label>شماره تماس *</label>
+   <input id="sellerPhone" type="tel" maxlength="11" placeholder="09123456789">
+  </div>
+
+  <div class="field">
+   <label>نام کالا *</label>
+   <input id="marketTitle" placeholder="مثلاً RTX 3060">
+  </div>
+
+  <div class="field">
+   <label>دسته‌بندی *</label>
+   <select id="marketPostCategory">
+    <option value="گیمینگ">🎮 گیمینگ</option>
+    <option value="کامپیوتر">💻 کامپیوتر</option>
+    <option value="موبایل">📱 موبایل</option>
+    <option value="کنسول">🕹️ کنسول</option>
+    <option value="لوازم جانبی">🖱️ لوازم جانبی</option>
+    <option value="قطعات">⚙️ قطعات</option>
+    <option value="سایر">📦 سایر</option>
+   </select>
+  </div>
+
+  <div class="field">
+   <label>قیمت کالا به تومان *</label>
+   <input id="marketPrice" type="number" min="1" placeholder="مثلاً 15000000">
+  </div>
+
+  <div class="field">
+   <label>توضیحات کالا *</label>
+   <textarea id="marketDescription" placeholder="وضعیت کالا، مشخصات، لوازم همراه و هر توضیحی که خریدار باید بداند..."></textarea>
+  </div>
+
+  <div class="field">
+   <label>عکس کالا</label>
+   <input id="marketImage" type="file" accept="image/*">
+  </div>
+
+  <div style="display:flex;gap:10px">
+   <button class="secondary-btn" onclick="closeSpecialPages()">❌ انصراف</button>
+   <button class="action-btn" onclick="publishMarketItem()">🚀 انتشار آگهی</button>
+  </div>
+ </div>
+</section>
+
+<!-- CHAT -->
+<section id="chatPage">
+ <div class="chat-wrap">
+  <div class="chat-header">
+   <h2>💬 چت عمومی ALIXMAX</h2>
+   <p style="color:#666;font-size:11px;margin-top:8px">
+    اینجا کاربران می‌توانند درباره کالاها و خرید و فروش با هم صحبت کنند.
+   </p>
+  </div>
+
+  <div class="chat-messages" id="chatMessages"></div>
+
+  <div class="chat-input">
+   <input id="chatName" placeholder="نام شما">
+   <input id="chatText" placeholder="پیامت را بنویس..." onkeydown="chatEnter(event)">
+   <button onclick="sendChat()">ارسال</button>
+  </div>
  </div>
 </section>
 
@@ -739,7 +894,7 @@ footer span{color:var(--green)}
  </div>
 </section>
 
-<!-- SPONSOR REGISTER -->
+<!-- SPONSOR -->
 <section id="sponsorPage">
  <div class="page-box">
   <h2>🤝 ثبت‌نام اسپانسر</h2>
@@ -749,30 +904,11 @@ footer span{color:var(--green)}
    اطلاعات زیر را کامل کن. درخواست ابتدا برای Owner ارسال می‌شود و پس از تأیید نمایش داده خواهد شد.
   </div>
 
-  <div class="field">
-   <label>نام برند / اسپانسر *</label>
-   <input id="sponsorName" placeholder="مثلاً ALI STORE">
-  </div>
-
-  <div class="field">
-   <label>شماره تماس *</label>
-   <input id="sponsorPhone" type="tel" placeholder="09123456789">
-  </div>
-
-  <div class="field">
-   <label>لینک پیج / سایت</label>
-   <input id="sponsorLink" placeholder="https://...">
-  </div>
-
-  <div class="field">
-   <label>توضیحات تبلیغ *</label>
-   <textarea id="sponsorDescription" placeholder="توضیح بده تبلیغ درباره چیست..."></textarea>
-  </div>
-
-  <div class="field">
-   <label>قیمت پیشنهادی هر تبلیغ (تومان) *</label>
-   <input id="sponsorPrice" type="number" min="1" placeholder="مثلاً 500000">
-  </div>
+  <div class="field"><label>نام برند / اسپانسر *</label><input id="sponsorName" placeholder="مثلاً ALI STORE"></div>
+  <div class="field"><label>شماره تماس *</label><input id="sponsorPhone" type="tel" placeholder="09123456789"></div>
+  <div class="field"><label>لینک پیج / سایت</label><input id="sponsorLink" placeholder="https://..."></div>
+  <div class="field"><label>توضیحات تبلیغ *</label><textarea id="sponsorDescription" placeholder="توضیح بده تبلیغ درباره چیست..."></textarea></div>
+  <div class="field"><label>قیمت پیشنهادی هر تبلیغ (تومان) *</label><input id="sponsorPrice" type="number" min="1" placeholder="مثلاً 500000"></div>
 
   <div class="field">
    <label>بنر / عکس تبلیغ</label>
@@ -785,23 +921,17 @@ footer span{color:var(--green)}
     <label>کد تخفیف</label>
     <input id="sponsorDiscountCode" value="alixmax503" placeholder="کد تخفیف">
    </div>
-
    <p style="color:#777;font-size:12px">
-    کد تخفیف پیش‌فرض:
-    <strong>ALIXMAX503</strong>
-    — دارای ۳۰٪ تخفیف
+    کد تخفیف پیش‌فرض: <strong>ALIXMAX503</strong> — دارای ۳۰٪ تخفیف
    </p>
   </div>
 
   <br>
-
-  <button class="action-btn" onclick="submitSponsorRequest()">
-   🚀 ارسال درخواست اسپانسر
-  </button>
+  <button class="action-btn" onclick="submitSponsorRequest()">🚀 ارسال درخواست اسپانسر</button>
  </div>
 </section>
 
-<!-- SPONSOR REQUESTS -->
+<!-- REQUESTS -->
 <section id="requestsPage">
  <div class="page-box" style="max-width:1000px">
   <h2>📋 درخواست‌های اسپانسر</h2>
@@ -891,58 +1021,43 @@ footer span{color:var(--green)}
  <div class="admin-header">
   <div>
    <h2>👑 پنل مدیریت ALIXMAX</h2>
-   <p class="section-sub">کنترل سایت و درخواست‌های اسپانسر</p>
+   <p class="section-sub">کنترل سایت، آگهی‌ها و درخواست‌های اسپانسر</p>
   </div>
   <button class="logout-btn" onclick="logoutOwner()">🔒 خروج از Owner</button>
  </div>
 
  <div class="admin-dashboard">
-  <div class="stat">
-   <div class="stat-number" id="postCount">0</div>
-   <div class="stat-title">تعداد مطالب</div>
-  </div>
-
-  <div class="stat">
-   <div class="stat-number" id="commentCount">0</div>
-   <div class="stat-title">تعداد نظرات</div>
-  </div>
-
-  <div class="stat">
-   <div class="stat-number" id="sponsorCount">0</div>
-   <div class="stat-title">درخواست اسپانسر</div>
-  </div>
-
-  <div class="stat">
-   <div class="stat-number" id="ownerWalletStat">0</div>
-   <div class="stat-title">موجودی کیف پول</div>
-  </div>
+  <div class="stat"><div class="stat-number" id="postCount">0</div><div class="stat-title">تعداد مطالب</div></div>
+  <div class="stat"><div class="stat-number" id="commentCount">0</div><div class="stat-title">تعداد نظرات</div></div>
+  <div class="stat"><div class="stat-number" id="sponsorCount">0</div><div class="stat-title">درخواست اسپانسر</div></div>
+  <div class="stat"><div class="stat-number" id="marketCount">0</div><div class="stat-title">آگهی بازارچه</div></div>
+  <div class="stat"><div class="stat-number" id="ownerWalletStat">0</div><div class="stat-title">موجودی کیف پول</div></div>
  </div>
 
  <div class="admin-box">
   <h3>➕ انتشار مطلب جدید</h3>
-
   <input id="postTitle" type="text" placeholder="عنوان مطلب">
-
   <select id="postType">
    <option value="مود">🧩 مود</option>
    <option value="گیمپلی">🎬 گیمپلی</option>
    <option value="آموزش">📚 آموزش</option>
   </select>
-
   <textarea id="postDescription" placeholder="توضیحات مطلب"></textarea>
-
   <input id="postImage" type="file" accept="image/*">
-
   <br><br>
-
   <button class="publish" onclick="publishPost()">انتشار مطلب 🚀</button>
  </div>
 
  <div class="admin-box" style="margin-top:20px">
-  <h3>📋 مدیریت درخواست‌های اسپانسر</h3>
+  <h3>🏪 مدیریت بازارچه</h3>
   <p style="color:#666;font-size:12px;line-height:2">
-   از اینجا می‌توانی درخواست‌ها را تأیید، رد یا پس از انجام تبلیغ، انجام‌شده کنی.
+   آگهی‌های کاربران در بازارچه ذخیره می‌شوند و Owner می‌تواند آن‌ها را حذف کند.
   </p>
+  <button class="publish" onclick="openMarketAdmin()">مشاهده آگهی‌ها</button>
+ </div>
+
+ <div class="admin-box" style="margin-top:20px">
+  <h3>📋 مدیریت درخواست‌های اسپانسر</h3>
   <button class="publish" onclick="openRequestsPage()">مشاهده درخواست‌ها</button>
  </div>
 </section>
@@ -957,53 +1072,55 @@ footer span{color:var(--green)}
   <div class="big-lock">🔒</div>
   <h2>Owner — ALIXMAX</h2>
   <p>برای ورود به پنل مدیریتی رمز Owner را وارد کنید.</p>
-
-  <input id="ownerPassword" type="password" placeholder="رمز Owner"
-   onkeydown="ownerEnter(event)">
-
+  <input id="ownerPassword" type="password" placeholder="رمز Owner" onkeydown="ownerEnter(event)">
   <button onclick="loginOwner()">ورود به پنل 👑</button>
-
   <div class="close-owner" onclick="closeOwnerLogin()">بستن</div>
  </div>
 </div>
 
-<!-- WITHDRAW MODAL -->
+<!-- DEPOSIT -->
+<div class="card-modal" id="depositModal">
+ <div class="card-modal-box">
+  <h3>➕ واریز وجه</h3>
+  <p>کیف پول فعلاً مجازی است. مبلغ موردنظر را برای تست وارد کن.</p>
+  <input id="depositAmount" type="number" min="1" placeholder="مبلغ واریز">
+  <button class="action-btn" style="width:100%" onclick="submitDeposit()">واریز مجازی</button>
+  <div class="close-owner" onclick="closeDeposit()">انصراف</div>
+ </div>
+</div>
+
+<!-- WITHDRAW -->
 <div class="card-modal" id="withdrawModal">
  <div class="card-modal-box">
   <h3>💳 برداشت وجه</h3>
-  <p>
-   شماره کارت ۱۶ رقمی خود را وارد کنید.
-   مبلغ برداشت از موجودی کیف پول مجازی کسر خواهد شد.
-  </p>
-
+  <p>شماره کارت ۱۶ رقمی خود را وارد کنید.</p>
   <input id="withdrawAmount" type="number" min="1" placeholder="مبلغ برداشت">
-
-  <input id="withdrawCard" type="text" maxlength="19"
-   placeholder="6037 0000 0000 0000">
-
-  <button class="action-btn" style="width:100%" onclick="submitWithdraw()">
-   تأیید برداشت
-  </button>
-
+  <input id="withdrawCard" type="text" maxlength="19" placeholder="6037 0000 0000 0000">
+  <button class="action-btn" style="width:100%" onclick="submitWithdraw()">تأیید برداشت</button>
   <div class="close-owner" onclick="closeWithdraw()">انصراف</div>
  </div>
 </div>
 
-<!-- DEPOSIT MODAL -->
-<div class="card-modal" id="depositModal">
- <div class="card-modal-box">
-  <h3>➕ واریز وجه</h3>
-  <p>
-   کیف پول فعلاً مجازی است. مبلغ موردنظر را برای تست وارد کن.
-  </p>
+<!-- BUY MODAL -->
+<div class="market-modal" id="buyModal">
+ <div class="market-modal-box">
+  <h2>🛒 خرید کالا</h2>
+  <div id="buyInfo"></div>
 
-  <input id="depositAmount" type="number" min="1" placeholder="مبلغ واریز">
+  <div class="field">
+   <label>نام خریدار *</label>
+   <input id="buyerName" placeholder="نام شما">
+  </div>
 
-  <button class="action-btn" style="width:100%" onclick="submitDeposit()">
-   واریز مجازی
-  </button>
+  <div class="field">
+   <label>شماره تماس *</label>
+   <input id="buyerPhone" maxlength="11" placeholder="09123456789">
+  </div>
 
-  <div class="close-owner" onclick="closeDeposit()">انصراف</div>
+  <div class="market-modal-actions">
+   <button class="secondary-btn" onclick="closeBuyModal()">انصراف</button>
+   <button class="action-btn" onclick="confirmPurchase()">💰 خرید با کیف پول</button>
+  </div>
  </div>
 </div>
 
@@ -1012,16 +1129,20 @@ footer span{color:var(--green)}
 <script>
 /* ================= DATA ================= */
 
-let posts = JSON.parse(localStorage.getItem("ALIXMAX_POSTS")) || [];
-let comments = JSON.parse(localStorage.getItem("ALIXMAX_COMMENTS")) || [];
-let sponsors = JSON.parse(localStorage.getItem("ALIXMAX_SPONSORS")) || [];
-let wallet = JSON.parse(localStorage.getItem("ALIXMAX_WALLET")) || {
+let posts=JSON.parse(localStorage.getItem("ALIXMAX_POSTS"))||[];
+let comments=JSON.parse(localStorage.getItem("ALIXMAX_COMMENTS"))||[];
+let sponsors=JSON.parse(localStorage.getItem("ALIXMAX_SPONSORS"))||[];
+let marketItems=JSON.parse(localStorage.getItem("ALIXMAX_MARKET"))||[];
+let chats=JSON.parse(localStorage.getItem("ALIXMAX_CHAT"))||[];
+
+let wallet=JSON.parse(localStorage.getItem("ALIXMAX_WALLET"))||{
  balance:0,
  transactions:[]
 };
 
 let ownerMode=false;
 let selectedVideo=null;
+let selectedMarketItem=null;
 
 let editOrder={
  minutes:5,
@@ -1032,6 +1153,28 @@ let editOrder={
 };
 
 const OWNER_PASSWORD="@Alibayat1388";
+
+/* ================= STORAGE ================= */
+
+function savePosts(){
+ localStorage.setItem("ALIXMAX_POSTS",JSON.stringify(posts));
+}
+
+function saveSponsors(){
+ localStorage.setItem("ALIXMAX_SPONSORS",JSON.stringify(sponsors));
+}
+
+function saveMarket(){
+ localStorage.setItem("ALIXMAX_MARKET",JSON.stringify(marketItems));
+}
+
+function saveChat(){
+ localStorage.setItem("ALIXMAX_CHAT",JSON.stringify(chats));
+}
+
+function saveWallet(){
+ localStorage.setItem("ALIXMAX_WALLET",JSON.stringify(wallet));
+}
 
 /* ================= OWNER ================= */
 
@@ -1045,7 +1188,7 @@ function closeOwnerLogin(){
 }
 
 function ownerEnter(e){
- if(e.key==="Enter") loginOwner();
+ if(e.key==="Enter")loginOwner();
 }
 
 function loginOwner(){
@@ -1076,6 +1219,7 @@ function logoutOwner(){
 function closeIntro(){
  document.getElementById("intro").classList.add("hide");
 }
+
 setTimeout(closeIntro,5000);
 
 /* ================= MENU ================= */
@@ -1089,9 +1233,7 @@ document.addEventListener("click",function(e){
  const menu=document.getElementById("sideMenu");
  const btn=document.getElementById("menuBtn");
 
- if(menu.classList.contains("active") &&
-    !menu.contains(e.target) &&
-    !btn.contains(e.target)){
+ if(menu.classList.contains("active")&&!menu.contains(e.target)&&!btn.contains(e.target)){
   menu.classList.remove("active");
   btn.classList.remove("active");
  }
@@ -1102,14 +1244,25 @@ function closeMenu(){
  document.getElementById("menuBtn").classList.remove("active");
 }
 
-/* ================= PAGE NAVIGATION ================= */
+/* ================= SPECIAL PAGES ================= */
 
 function hideSpecialPages(){
- document.getElementById("editorPage").classList.remove("active");
- document.getElementById("uploadPage").classList.remove("active");
- document.getElementById("sponsorPage").classList.remove("active");
- document.getElementById("requestsPage").classList.remove("active");
- document.getElementById("walletPage").classList.remove("active");
+ [
+  "editorPage",
+  "uploadPage",
+  "sponsorPage",
+  "requestsPage",
+  "walletPage",
+  "marketPostPage",
+  "chatPage"
+ ].forEach(id=>{
+  document.getElementById(id).classList.remove("active");
+ });
+}
+
+function closeSpecialPages(){
+ hideSpecialPages();
+ document.getElementById("market").scrollIntoView({behavior:"smooth"});
 }
 
 function openSponsorPage(){
@@ -1142,8 +1295,6 @@ function openWallet(){
  document.getElementById("walletPage").scrollIntoView({behavior:"smooth"});
 }
 
-/* ================= EDITOR ================= */
-
 function openEditor(){
  hideSpecialPages();
  document.getElementById("editorPage").classList.add("active");
@@ -1156,16 +1307,406 @@ function cancelEditor(){
  document.getElementById("shop").scrollIntoView({behavior:"smooth"});
 }
 
+/* ================= MARKET ================= */
+
+function openMarketPost(){
+ closeMenu();
+ hideSpecialPages();
+ document.getElementById("marketPostPage").classList.add("active");
+ document.getElementById("marketPostPage").scrollIntoView({behavior:"smooth"});
+}
+
+function publishMarketItem(){
+
+ const seller=document.getElementById("sellerName").value.trim();
+ const phone=document.getElementById("sellerPhone").value.trim();
+ const title=document.getElementById("marketTitle").value.trim();
+ const category=document.getElementById("marketPostCategory").value;
+ const price=Number(document.getElementById("marketPrice").value);
+ const description=document.getElementById("marketDescription").value.trim();
+ const imageInput=document.getElementById("marketImage");
+
+ if(!seller){
+  showToast("نام فروشنده را وارد کن ❌");
+  return;
+ }
+
+ if(!/^09\d{9}$/.test(phone)){
+  showToast("شماره موبایل معتبر نیست ❌");
+  return;
+ }
+
+ if(!title){
+  showToast("نام کالا را وارد کن ❌");
+  return;
+ }
+
+ if(!price||price<1){
+  showToast("قیمت کالا را وارد کن ❌");
+  return;
+ }
+
+ if(!description){
+  showToast("توضیحات کالا را وارد کن ❌");
+  return;
+ }
+
+ const item={
+  id:Date.now(),
+  seller,
+  phone,
+  title,
+  category,
+  price,
+  description,
+  image:null,
+  createdAt:new Date().toLocaleDateString("fa-IR"),
+  sold:false
+ };
+
+ if(imageInput.files[0]){
+
+  const reader=new FileReader();
+
+  reader.onload=function(e){
+   item.image=e.target.result;
+   marketItems.unshift(item);
+   saveMarket();
+   clearMarketForm();
+   renderMarket();
+   updateStats();
+   showToast("آگهی با موفقیت منتشر شد 📢");
+   closeSpecialPages();
+  };
+
+  reader.readAsDataURL(imageInput.files[0]);
+
+ }else{
+
+  marketItems.unshift(item);
+  saveMarket();
+  clearMarketForm();
+  renderMarket();
+  updateStats();
+  showToast("آگهی با موفقیت منتشر شد 📢");
+  closeSpecialPages();
+ }
+}
+
+function clearMarketForm(){
+ document.getElementById("sellerName").value="";
+ document.getElementById("sellerPhone").value="";
+ document.getElementById("marketTitle").value="";
+ document.getElementById("marketPrice").value="";
+ document.getElementById("marketDescription").value="";
+ document.getElementById("marketImage").value="";
+}
+
+function renderMarket(){
+
+ const grid=document.getElementById("marketGrid");
+ if(!grid)return;
+
+ const query=(document.getElementById("marketSearch")?.value||"").trim().toLowerCase();
+ const category=document.getElementById("marketCategory")?.value||"";
+
+ grid.innerHTML="";
+
+ const items=marketItems.filter(item=>{
+
+  if(item.sold)return false;
+
+  const matchQuery=
+   item.title.toLowerCase().includes(query)||
+   item.description.toLowerCase().includes(query)||
+   item.category.toLowerCase().includes(query);
+
+  const matchCategory=!category||item.category===category;
+
+  return matchQuery&&matchCategory;
+ });
+
+ if(!items.length){
+  grid.innerHTML=`<div class="empty">هنوز کالایی در این دسته‌بندی پیدا نشد 📦</div>`;
+  return;
+ }
+
+ items.forEach(item=>{
+
+  const card=document.createElement("div");
+  card.className="market-card searchable-market";
+  card.dataset.title=item.title;
+  card.dataset.category=item.category;
+
+  const image=item.image
+   ? `<img src="${item.image}" alt="${escapeHTML(item.title)}">`
+   : "📦";
+
+  card.innerHTML=`
+   <div class="market-img">${image}</div>
+
+   <div class="market-info">
+    <div class="market-category">${escapeHTML(item.category)}</div>
+
+    <h3>${escapeHTML(item.title)}</h3>
+
+    <div class="market-desc">
+     ${escapeHTML(item.description)}
+    </div>
+
+    <div class="market-price">
+     ${formatPrice(item.price)}
+    </div>
+
+    <div class="market-seller">
+     👤 فروشنده: ${escapeHTML(item.seller)}
+    </div>
+
+    <div class="market-actions">
+     <button class="buy-btn" onclick="openBuyModal(${item.id})">
+      🛒 خرید
+     </button>
+
+     <button class="chat-btn" onclick="openChatForItem(${item.id})">
+      💬 چت
+     </button>
+    </div>
+
+    ${ownerMode?`
+     <button onclick="deleteMarketItem(${item.id})"
+      style="width:100%;margin-top:8px;padding:9px;background:#321010;color:#ff5555;border:1px solid #512020;border-radius:8px;cursor:pointer">
+      حذف آگهی
+     </button>`:""}
+   </div>
+  `;
+
+  grid.appendChild(card);
+ });
+}
+
+function deleteMarketItem(id){
+
+ if(!ownerMode){
+  openOwnerLogin();
+  return;
+ }
+
+ const index=marketItems.findIndex(x=>x.id===id);
+
+ if(index===-1)return;
+
+ marketItems.splice(index,1);
+ saveMarket();
+ renderMarket();
+ updateStats();
+
+ showToast("آگهی حذف شد ❌");
+}
+
+function openMarketAdmin(){
+
+ if(!ownerMode){
+  openOwnerLogin();
+  return;
+ }
+
+ document.getElementById("market").scrollIntoView({behavior:"smooth"});
+ renderMarket();
+}
+
+/* ================= BUY ================= */
+
+function openBuyModal(id){
+
+ const item=marketItems.find(x=>x.id===id);
+
+ if(!item||item.sold)return;
+
+ selectedMarketItem=item;
+
+ document.getElementById("buyInfo").innerHTML=`
+  <div style="background:#080808;border:1px solid #222;border-radius:12px;padding:15px;margin-bottom:20px">
+   <strong style="color:var(--green)">${escapeHTML(item.title)}</strong>
+   <p style="color:#777;margin-top:8px;line-height:1.8">
+    ${escapeHTML(item.description)}
+   </p>
+   <div style="color:var(--green);font-weight:bold;margin-top:10px">
+    ${formatPrice(item.price)}
+   </div>
+   <div style="color:#555;font-size:11px;margin-top:6px">
+    فروشنده: ${escapeHTML(item.seller)}
+   </div>
+  </div>
+ `;
+
+ document.getElementById("buyModal").classList.add("active");
+}
+
+function closeBuyModal(){
+ document.getElementById("buyModal").classList.remove("active");
+ selectedMarketItem=null;
+}
+
+function confirmPurchase(){
+
+ if(!selectedMarketItem)return;
+
+ const name=document.getElementById("buyerName").value.trim();
+ const phone=document.getElementById("buyerPhone").value.trim();
+
+ if(!name){
+  showToast("نام خریدار را وارد کن ❌");
+  return;
+ }
+
+ if(!/^09\d{9}$/.test(phone)){
+  showToast("شماره موبایل معتبر نیست ❌");
+  return;
+ }
+
+ const item=marketItems.find(x=>x.id===selectedMarketItem.id);
+
+ if(!item)return;
+
+ if(wallet.balance<Number(item.price)){
+  showToast("موجودی کیف پول برای خرید کافی نیست ❌");
+  return;
+ }
+
+ wallet.balance-=Number(item.price);
+
+ wallet.transactions.unshift({
+  id:Date.now(),
+  type:"out",
+  title:"خرید کالا: "+item.title,
+  amount:Number(item.price),
+  date:new Date().toLocaleDateString("fa-IR")
+ });
+
+ item.sold=true;
+ item.buyer={
+  name,
+  phone,
+  date:new Date().toLocaleDateString("fa-IR")
+ };
+
+ saveWallet();
+ saveMarket();
+
+ renderWallet();
+ renderMarket();
+ updateStats();
+
+ closeBuyModal();
+
+ document.getElementById("buyerName").value="";
+ document.getElementById("buyerPhone").value="";
+
+ showToast("خرید با موفقیت ثبت شد 🛒💚");
+}
+
+/* ================= CHAT ================= */
+
+function openChat(){
+ closeMenu();
+ hideSpecialPages();
+ document.getElementById("chatPage").classList.add("active");
+ renderChat();
+ document.getElementById("chatPage").scrollIntoView({behavior:"smooth"});
+}
+
+function openChatForItem(id){
+
+ const item=marketItems.find(x=>x.id===id);
+
+ openChat();
+
+ if(item){
+  document.getElementById("chatText").value=
+   "سلام، درباره کالای «"+item.title+"» سوال دارم.";
+ }
+}
+
+function sendChat(){
+
+ const name=document.getElementById("chatName").value.trim();
+ const text=document.getElementById("chatText").value.trim();
+
+ if(!name){
+  showToast("نامت را وارد کن ❌");
+  return;
+ }
+
+ if(!text)return;
+
+ chats.push({
+  id:Date.now(),
+  name,
+  text,
+  date:new Date().toLocaleTimeString("fa-IR",{hour:"2-digit",minute:"2-digit"})
+ });
+
+ if(chats.length>300){
+  chats=chats.slice(-300);
+ }
+
+ saveChat();
+ renderChat();
+
+ document.getElementById("chatText").value="";
+}
+
+function chatEnter(e){
+ if(e.key==="Enter")sendChat();
+}
+
+function renderChat(){
+
+ const box=document.getElementById("chatMessages");
+ if(!box)return;
+
+ box.innerHTML="";
+
+ if(!chats.length){
+  box.innerHTML=`<div style="text-align:center;color:#555;padding:40px">
+   هنوز پیامی ارسال نشده. اولین پیام را تو بفرست 👋
+  </div>`;
+  return;
+ }
+
+ chats.forEach(message=>{
+
+  const div=document.createElement("div");
+  div.className="chat-message";
+
+  div.innerHTML=`
+   <div>
+    <span class="chat-user">${escapeHTML(message.name)}</span>
+    <span class="chat-time">${escapeHTML(message.date)}</span>
+   </div>
+   <div class="chat-text">${escapeHTML(message.text)}</div>
+  `;
+
+  box.appendChild(div);
+ });
+
+ box.scrollTop=box.scrollHeight;
+}
+
+/* ================= EDITOR ================= */
+
 function calculateEditPrice(){
+
  let minutes=parseInt(document.getElementById("videoMinutes").value);
- if(!minutes || minutes<1) minutes=1;
+
+ if(!minutes||minutes<1)minutes=1;
 
  let style=document.getElementById("videoStyle").value;
  let rate=40000;
 
- if(style==="challenge") rate=30000;
- if(style==="vlog") rate=20000;
- if(style==="other") rate=20000;
+ if(style==="challenge")rate=30000;
+ if(style==="vlog")rate=20000;
+ if(style==="other")rate=20000;
 
  let basePrice=(minutes/5)*rate;
  let discountAmount=basePrice*editOrder.discount;
@@ -1182,22 +1723,25 @@ function calculateEditPrice(){
  document.getElementById("finalPrice").textContent=formatPrice(finalPrice);
 
  document.getElementById("discountRow").style.display=
-  editOrder.discount>0 ? "flex" : "none";
+  editOrder.discount>0?"flex":"none";
 }
 
 function applyDiscount(){
+
  const code=document.getElementById("discountCode").value.trim().toLowerCase();
  const message=document.getElementById("discountMessage");
 
  if(code==="alixmax503"){
+
   editOrder.discount=.30;
 
   message.textContent="کد تخفیف با موفقیت اعمال شد! ۳۰٪ تخفیف 🎉";
   message.className="discount-message discount-success";
 
   calculateEditPrice();
-  showToast("۳۰٪ تخفیف اعمال شد 💚");
+
  }else{
+
   editOrder.discount=0;
 
   message.textContent="کد تخفیف نامعتبر است ❌";
@@ -1208,6 +1752,7 @@ function applyDiscount(){
 }
 
 function confirmEditor(){
+
  calculateEditPrice();
 
  document.getElementById("editorPage").classList.remove("active");
@@ -1237,8 +1782,10 @@ function backToEditor(){
 }
 
 function selectVideo(event){
+
  const file=event.target.files[0];
- if(!file) return;
+
+ if(!file)return;
 
  if(!file.type.startsWith("video/")){
   showToast("لطفاً یک فایل ویدیویی انتخاب کن ❌");
@@ -1249,13 +1796,13 @@ function selectVideo(event){
  selectedVideo=file;
 
  document.getElementById("fileName").textContent="🎥 "+file.name;
- document.getElementById("fileSize").textContent=
-  "حجم فایل: "+formatFileSize(file.size);
+ document.getElementById("fileSize").textContent="حجم فایل: "+formatFileSize(file.size);
 
  document.getElementById("fileInfo").classList.add("active");
 }
 
 function submitVideo(){
+
  if(!selectedVideo){
   showToast("اول ویدیو را انتخاب کن 🎥");
   return;
@@ -1267,6 +1814,7 @@ function submitVideo(){
 /* ================= SPONSOR ================= */
 
 function previewSponsorImage(event){
+
  const file=event.target.files[0];
  const preview=document.getElementById("sponsorPreview");
 
@@ -1310,26 +1858,27 @@ function submitSponsorRequest(){
   return;
  }
 
- if(!price || price<1){
+ if(!price||price<1){
   showToast("قیمت تبلیغ را وارد کن ❌");
   return;
  }
 
  const sponsor={
   id:Date.now(),
-  name:name,
-  phone:phone,
-  link:link,
-  description:description,
-  price:price,
+  name,
+  phone,
+  link,
+  description,
+  price,
   image:null,
-  discountCode:discountCode || "alixmax503",
+  discountCode:discountCode||"alixmax503",
   discountPercent:30,
   status:"pending",
   createdAt:new Date().toLocaleDateString("fa-IR")
  };
 
  if(imageInput.files[0]){
+
   const reader=new FileReader();
 
   reader.onload=function(e){
@@ -1338,12 +1887,13 @@ function submitSponsorRequest(){
    saveSponsors();
    updateStats();
    clearSponsorForm();
-   showToast("درخواست اسپانسر ارسال شد و منتظر تأیید Owner است 🤝");
+   showToast("درخواست اسپانسر ارسال شد 🤝");
   };
 
   reader.readAsDataURL(imageInput.files[0]);
 
  }else{
+
   sponsors.unshift(sponsor);
   saveSponsors();
   updateStats();
@@ -1362,32 +1912,23 @@ function clearSponsorForm(){
  document.getElementById("sponsorPreview").style.display="none";
 }
 
-function saveSponsors(){
- localStorage.setItem("ALIXMAX_SPONSORS",JSON.stringify(sponsors));
-}
-
-/* ================= SPONSOR REQUEST MANAGEMENT ================= */
+/* ================= SPONSOR MANAGEMENT ================= */
 
 function renderRequests(){
 
  const list=document.getElementById("requestsList");
- if(!list) return;
+
+ if(!list)return;
 
  list.innerHTML="";
 
  if(!ownerMode){
-  list.innerHTML=`
-   <div style="text-align:center;color:#555;padding:30px">
-    فقط Owner می‌تواند درخواست‌ها را ببیند.
-   </div>`;
+  list.innerHTML=`<div class="empty">فقط Owner می‌تواند درخواست‌ها را ببیند.</div>`;
   return;
  }
 
  if(!sponsors.length){
-  list.innerHTML=`
-   <div style="text-align:center;color:#555;padding:30px">
-    هنوز درخواست اسپانسری وجود ندارد.
-   </div>`;
+  list.innerHTML=`<div class="empty">هنوز درخواست اسپانسری وجود ندارد.</div>`;
   return;
  }
 
@@ -1415,32 +1956,22 @@ function renderRequests(){
   }
 
   let image=sponsor.image
-   ? `<img class="request-banner" src="${sponsor.image}" alt="Sponsor">`
-   : "";
+   ?`<img class="request-banner" src="${sponsor.image}" alt="Sponsor">`
+   :"";
 
   let actions="";
 
   if(sponsor.status==="pending"){
    actions=`
-    <button class="approve-btn" onclick="approveSponsor(${sponsor.id})">
-     ✅ تأیید
-    </button>
-
-    <button class="reject-btn" onclick="rejectSponsor(${sponsor.id})">
-     ❌ رد صلاحیت
-    </button>
+    <button class="approve-btn" onclick="approveSponsor(${sponsor.id})">✅ تأیید</button>
+    <button class="reject-btn" onclick="rejectSponsor(${sponsor.id})">❌ رد صلاحیت</button>
    `;
   }
 
   if(sponsor.status==="approved"){
    actions=`
-    <button class="done-btn" onclick="completeSponsor(${sponsor.id})">
-     🏁 انجام شد
-    </button>
-
-    <button class="reject-btn" onclick="rejectSponsor(${sponsor.id})">
-     ❌ رد صلاحیت
-    </button>
+    <button class="done-btn" onclick="completeSponsor(${sponsor.id})">🏁 انجام شد</button>
+    <button class="reject-btn" onclick="rejectSponsor(${sponsor.id})">❌ رد صلاحیت</button>
    `;
   }
 
@@ -1456,36 +1987,23 @@ function renderRequests(){
     📱 شماره تماس:
     <strong>${escapeHTML(sponsor.phone)}</strong>
 
-    <br>
-
-    💰 مبلغ هر تبلیغ:
+    <br>💰 مبلغ هر تبلیغ:
     <strong>${formatPrice(sponsor.price)}</strong>
 
-    <br>
+    <br>🔗 لینک:
+    <strong>${escapeHTML(sponsor.link||"ثبت نشده")}</strong>
 
-    🔗 لینک:
-    <strong>${escapeHTML(sponsor.link || "ثبت نشده")}</strong>
+    <br>🎁 کد تخفیف:
+    <strong>${escapeHTML(sponsor.discountCode)}</strong> — ۳۰٪
 
-    <br>
-
-    🎁 کد تخفیف:
-    <strong>${escapeHTML(sponsor.discountCode)}</strong>
-    — ۳۰٪
-
-    <br>
-
-    📅 تاریخ:
+    <br>📅 تاریخ:
     <strong>${escapeHTML(sponsor.createdAt)}</strong>
 
-    <br><br>
-
-    📝 توضیحات:
+    <br><br>📝 توضیحات:
     <strong>${escapeHTML(sponsor.description)}</strong>
    </div>
 
-   <div class="request-actions">
-    ${actions}
-   </div>
+   <div class="request-actions">${actions}</div>
   `;
 
   list.appendChild(div);
@@ -1500,9 +2018,11 @@ function approveSponsor(id){
  }
 
  const sponsor=sponsors.find(x=>x.id===id);
- if(!sponsor) return;
+
+ if(!sponsor)return;
 
  sponsor.status="approved";
+
  saveSponsors();
  renderRequests();
  updateStats();
@@ -1519,7 +2039,7 @@ function rejectSponsor(id){
 
  const index=sponsors.findIndex(x=>x.id===id);
 
- if(index===-1) return;
+ if(index===-1)return;
 
  sponsors.splice(index,1);
 
@@ -1527,7 +2047,7 @@ function rejectSponsor(id){
  renderRequests();
  updateStats();
 
- showToast("درخواست اسپانسر رد و حذف شد ❌");
+ showToast("درخواست اسپانسر حذف شد ❌");
 }
 
 function completeSponsor(id){
@@ -1539,7 +2059,7 @@ function completeSponsor(id){
 
  const sponsor=sponsors.find(x=>x.id===id);
 
- if(!sponsor) return;
+ if(!sponsor)return;
 
  sponsor.status="done";
 
@@ -1560,31 +2080,29 @@ function completeSponsor(id){
  renderWallet();
  updateStats();
 
- showToast(
-  formatPrice(sponsor.price)+" به کیف پول اضافه شد 💰"
- );
+ showToast(formatPrice(sponsor.price)+" به کیف پول اضافه شد 💰");
 }
 
 /* ================= WALLET ================= */
-
-function saveWallet(){
- localStorage.setItem("ALIXMAX_WALLET",JSON.stringify(wallet));
-}
 
 function renderWallet(){
 
  const balance=document.getElementById("walletBalance");
  const history=document.getElementById("walletHistory");
 
+ if(!balance||!history)return;
+
  balance.textContent=Math.round(wallet.balance).toLocaleString("fa-IR");
 
  history.innerHTML="";
 
  if(!wallet.transactions.length){
+
   history.innerHTML=`
    <div style="text-align:center;color:#555;padding:25px">
     هنوز تراکنشی ثبت نشده.
    </div>`;
+
   return;
  }
 
@@ -1593,7 +2111,7 @@ function renderWallet(){
   const div=document.createElement("div");
   div.className="transaction "+t.type;
 
-  const sign=t.type==="in" ? "+" : "-";
+  const sign=t.type==="in"?"+":"-";
 
   div.innerHTML=`
    <span>${sign} ${escapeHTML(t.title)}</span>
@@ -1617,7 +2135,7 @@ function submitDeposit(){
 
  const amount=Number(document.getElementById("depositAmount").value);
 
- if(!amount || amount<1){
+ if(!amount||amount<1){
   showToast("مبلغ معتبر وارد کن ❌");
   return;
  }
@@ -1628,7 +2146,7 @@ function submitDeposit(){
   id:Date.now(),
   type:"in",
   title:"واریز وجه مجازی",
-  amount:amount,
+  amount,
   date:new Date().toLocaleDateString("fa-IR")
  });
 
@@ -1656,7 +2174,7 @@ function submitWithdraw(){
  const amount=Number(document.getElementById("withdrawAmount").value);
  const card=document.getElementById("withdrawCard").value.replace(/\s/g,"");
 
- if(!amount || amount<1){
+ if(!amount||amount<1){
   showToast("مبلغ برداشت را وارد کن ❌");
   return;
  }
@@ -1677,7 +2195,7 @@ function submitWithdraw(){
   id:Date.now(),
   type:"out",
   title:"برداشت وجه — کارت "+card.slice(-4),
-  amount:amount,
+  amount,
   date:new Date().toLocaleDateString("fa-IR")
  });
 
@@ -1689,7 +2207,7 @@ function submitWithdraw(){
  document.getElementById("withdrawAmount").value="";
  document.getElementById("withdrawCard").value="";
 
- showToast("درخواست شما انجام شد و طی ۷ روز کاری به حساب شما واریز خواهد شد 💳");
+ showToast("درخواست برداشت ثبت شد 💳");
 }
 
 /* ================= POSTS ================= */
@@ -1718,9 +2236,9 @@ function publishPost(){
 
  const post={
   id:Date.now(),
-  title:title,
-  type:type,
-  description:description,
+  title,
+  type,
+  description,
   image:null,
   createdAt:new Date().toLocaleDateString("fa-IR")
  };
@@ -1736,7 +2254,7 @@ function publishPost(){
    renderPosts();
    clearPostForm();
    updateStats();
-   showToast("مطلب با موفقیت منتشر شد 🚀");
+   showToast("مطلب منتشر شد 🚀");
   };
 
   reader.readAsDataURL(imageInput.files[0]);
@@ -1749,31 +2267,40 @@ function publishPost(){
   clearPostForm();
   updateStats();
 
-  showToast("مطلب با موفقیت منتشر شد 🚀");
+  showToast("مطلب منتشر شد 🚀");
  }
 }
 
 function renderPosts(){
 
  const grid=document.getElementById("contentGrid");
+
+ if(!grid)return;
+
  grid.innerHTML="";
+
+ if(!posts.length){
+  grid.innerHTML=`<div class="empty">هنوز مطلبی منتشر نشده.</div>`;
+  return;
+ }
 
  posts.forEach(post=>{
 
   const card=document.createElement("div");
+
   card.className="content-card searchable";
   card.dataset.title=post.title;
   card.dataset.type=post.type;
 
   let icon="🎮";
 
-  if(post.type==="مود") icon="🧩";
-  if(post.type==="گیمپلی") icon="🎬";
-  if(post.type==="آموزش") icon="📚";
+  if(post.type==="مود")icon="🧩";
+  if(post.type==="گیمپلی")icon="🎬";
+  if(post.type==="آموزش")icon="📚";
 
   const image=post.image
-   ? `<img src="${post.image}" alt="${escapeHTML(post.title)}">`
-   : icon;
+   ?`<img src="${post.image}" alt="${escapeHTML(post.title)}">`
+   :icon;
 
   card.innerHTML=`
    <div class="content-image">${image}</div>
@@ -1795,10 +2322,6 @@ function clearPostForm(){
  document.getElementById("postImage").value="";
 }
 
-function savePosts(){
- localStorage.setItem("ALIXMAX_POSTS",JSON.stringify(posts));
-}
-
 /* ================= SEARCH ================= */
 
 function showSuggestions(){
@@ -1814,30 +2337,61 @@ function showSuggestions(){
   return;
  }
 
- const results=posts.filter(post=>
-  post.title.toLowerCase().includes(query) ||
-  post.type.toLowerCase().includes(query)
- );
+ const results=[];
+
+ posts.forEach(post=>{
+  if(
+   post.title.toLowerCase().includes(query)||
+   post.type.toLowerCase().includes(query)
+  ){
+   results.push({
+    title:post.title,
+    type:post.type,
+    target:"post"
+   });
+  }
+ });
+
+ marketItems.forEach(item=>{
+  if(
+   item.title.toLowerCase().includes(query)||
+   item.category.toLowerCase().includes(query)
+  ){
+   results.push({
+    title:item.title,
+    type:"🏪 "+item.category,
+    target:"market"
+   });
+  }
+ });
 
  if(!results.length){
   suggestions.classList.remove("active");
   return;
  }
 
- results.slice(0,6).forEach(post=>{
+ results.slice(0,8).forEach(result=>{
 
   const item=document.createElement("div");
   item.className="suggestion";
 
   item.innerHTML=`
-   <div class="suggestion-title">${escapeHTML(post.title)}</div>
-   <div class="suggestion-type">${escapeHTML(post.type)}</div>
+   <div class="suggestion-title">${escapeHTML(result.title)}</div>
+   <div class="suggestion-type">${escapeHTML(result.type)}</div>
   `;
 
   item.onclick=function(){
-   input.value=post.title;
+
+   input.value=result.title;
    suggestions.classList.remove("active");
-   performSearch();
+
+   if(result.target==="market"){
+    document.getElementById("market").scrollIntoView({behavior:"smooth"});
+    document.getElementById("marketSearch").value=result.title;
+    renderMarket();
+   }else{
+    performSearch();
+   }
   };
 
   suggestions.appendChild(item);
@@ -1853,27 +2407,29 @@ function performSearch(){
 
  document.getElementById("suggestions").classList.remove("active");
 
- const cards=document.querySelectorAll(".searchable");
-
  if(!query){
-  cards.forEach(card=>card.style.display="");
+  document.querySelectorAll(".searchable").forEach(card=>card.style.display="");
+  renderMarket();
   return;
  }
 
- cards.forEach(card=>{
+ document.querySelectorAll(".searchable").forEach(card=>{
 
   const title=card.dataset.title.toLowerCase();
   const type=card.dataset.type.toLowerCase();
 
   card.style.display=
-   title.includes(query)||type.includes(query)
-   ? ""
-   : "none";
+   title.includes(query)||type.includes(query)?"":"none";
  });
+
+ document.getElementById("marketSearch").value=query;
+ renderMarket();
+
+ document.getElementById("market").scrollIntoView({behavior:"smooth"});
 }
 
 function searchEnter(e){
- if(e.key==="Enter") performSearch();
+ if(e.key==="Enter")performSearch();
 }
 
 /* ================= COMMENTS ================= */
@@ -1901,9 +2457,9 @@ function addComment(){
 
  comments.unshift({
   id:Date.now(),
-  name:name,
-  phone:phone,
-  text:text,
+  name,
+  phone,
+  text,
   date:new Date().toLocaleDateString("fa-IR")
  });
 
@@ -1922,6 +2478,9 @@ function addComment(){
 function renderComments(){
 
  const list=document.getElementById("commentsList");
+
+ if(!list)return;
+
  list.innerHTML="";
 
  if(!comments.length){
@@ -1949,7 +2508,6 @@ function renderComments(){
    </div>
 
    <div class="comment-phone">📱 ${masked}</div>
-
    <div class="comment-text">${escapeHTML(comment.text)}</div>
   `;
 
@@ -1964,14 +2522,22 @@ function updateStats(){
  const postCount=document.getElementById("postCount");
  const commentCount=document.getElementById("commentCount");
  const sponsorCount=document.getElementById("sponsorCount");
+ const marketCount=document.getElementById("marketCount");
  const ownerWalletStat=document.getElementById("ownerWalletStat");
  const badge=document.getElementById("requestBadge");
 
- if(postCount) postCount.textContent=posts.length;
- if(commentCount) commentCount.textContent=comments.length;
- if(sponsorCount) sponsorCount.textContent=sponsors.length;
- if(ownerWalletStat) ownerWalletStat.textContent=
-  Math.round(wallet.balance).toLocaleString("fa-IR");
+ if(postCount)postCount.textContent=posts.length;
+ if(commentCount)commentCount.textContent=comments.length;
+ if(sponsorCount)sponsorCount.textContent=sponsors.length;
+
+ if(marketCount){
+  marketCount.textContent=marketItems.filter(x=>!x.sold).length;
+ }
+
+ if(ownerWalletStat){
+  ownerWalletStat.textContent=
+   Math.round(wallet.balance).toLocaleString("fa-IR");
+ }
 
  if(badge){
   const pending=sponsors.filter(s=>s.status==="pending").length;
@@ -1984,7 +2550,8 @@ function updateStats(){
 function escapeHTML(text){
 
  const div=document.createElement("div");
- div.textContent=text;
+ div.textContent=String(text??"");
+
  return div.innerHTML;
 }
 
@@ -1999,14 +2566,14 @@ function formatNumber(number){
 function formatFileSize(bytes){
 
  if(bytes<1024*1024){
-  return (bytes/1024).toFixed(1)+" KB";
+  return(bytes/1024).toFixed(1)+" KB";
  }
 
  if(bytes<1024*1024*1024){
-  return (bytes/(1024*1024)).toFixed(2)+" MB";
+  return(bytes/(1024*1024)).toFixed(2)+" MB";
  }
 
- return (bytes/(1024*1024*1024)).toFixed(2)+" GB";
+ return(bytes/(1024*1024*1024)).toFixed(2)+" GB";
 }
 
 /* ================= TOAST ================= */
@@ -2031,12 +2598,13 @@ renderPosts();
 renderComments();
 renderRequests();
 renderWallet();
+renderMarket();
+renderChat();
 updateStats();
 calculateEditPrice();
 
 </script>
 
-<!-- SUPABASE -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="supabase.js"></script>
 
