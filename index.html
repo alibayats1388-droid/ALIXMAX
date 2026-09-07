@@ -529,6 +529,310 @@ footer span{color:var(--green)}
  .discount-box,.chat-input{flex-direction:column}
  .market-toolbar{flex-direction:column}
 }
+
+/* ================= MOBILE / RESPONSIVE FIX ================= */
+@media(max-width:900px){
+  header{
+    height:68px;
+    padding:0 14px;
+  }
+  .logo{font-size:20px}
+  .menu-btn{
+    flex:0 0 48px;
+    width:48px;height:48px;
+    display:flex!important;
+    visibility:visible!important;
+    opacity:1!important;
+    position:relative;
+    z-index:6001;
+  }
+  .search-area{
+    position:absolute;
+    top:76px;
+    right:5%;
+    left:5%;
+    width:auto;
+    margin:0;
+  }
+  .search-box{width:100%}
+  #sideMenu{
+    top:68px;
+    right:-100%;
+    width:min(340px,88vw);
+    height:calc(100vh - 68px);
+    padding-bottom:40px;
+    z-index:6000;
+  }
+  #sideMenu.active{right:0}
+  .hero{padding-top:155px}
+}
+@media(max-width:600px){
+  body{font-size:14px}
+  header{height:68px}
+  .logo{font-size:19px;letter-spacing:1px}
+  .search-area{top:76px;right:4%;left:4%}
+  .search-box input{padding:11px 12px;font-size:13px}
+  .search-box button{width:44px}
+  .hero{min-height:650px;padding:145px 5% 70px}
+  .hero h1{font-size:clamp(38px,12vw,52px)}
+  .hero p{font-size:13px;line-height:1.9}
+  .section{padding:58px 5%}
+  .page-box,.upload-box,.wallet-main{padding:20px}
+  .market-actions{flex-direction:column}
+  .market-actions button{width:100%}
+  .request-head{align-items:flex-start;flex-direction:column}
+  .request-actions button{width:100%}
+  .wallet-actions{display:flex;flex-direction:column}
+  .chat-messages{height:55vh;min-height:300px;max-height:520px}
+  .chat-input{display:flex;flex-direction:column}
+  .chat-input input,.chat-input button{width:100%;min-height:46px}
+  .market-toolbar>*{width:100%;min-width:0!important}
+  .profile{padding:22px}
+  .avatar{width:110px;height:110px}
+  .admin-dashboard{grid-template-columns:1fr 1fr}
+  .admin-box{padding:20px}
+  .intro-logo{font-size:20vw}
+}
+@media(max-width:380px){
+  .admin-dashboard{grid-template-columns:1fr}
+  .hero h1{font-size:36px}
+  #sideMenu{width:92vw}
+}
+
+/* ================= GROUP / COMMUNITY ================= */
+#groupPage{
+  display:none;
+  min-height:100vh;
+  padding:110px 3% 40px;
+  background:#050505;
+}
+#groupPage.active{display:block}
+.group-shell{
+  max-width:1250px;
+  height:calc(100vh - 150px);
+  min-height:600px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:240px 1fr;
+  direction:ltr;
+  background:#090909;
+  border:1px solid #1e1e1e;
+  border-radius:20px;
+  overflow:hidden;
+}
+.group-sidebar{
+  direction:rtl;
+  background:#0b0b0b;
+  border-left:1px solid #1c1c1c;
+  padding:18px;
+  overflow:auto;
+}
+.group-brand{
+  color:var(--green);
+  font-size:20px;
+  font-weight:bold;
+  margin-bottom:18px;
+}
+.group-room{
+  padding:13px;
+  border-radius:10px;
+  color:#aaa;
+  cursor:pointer;
+  margin-bottom:5px;
+}
+.group-room:hover,.group-room.active{
+  background:rgba(0,255,102,.08);
+  color:var(--green);
+}
+.group-main{
+  direction:rtl;
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+  background:#080808;
+}
+.group-topbar{
+  padding:16px 20px;
+  border-bottom:1px solid #1c1c1c;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+}
+.group-topbar h2{color:var(--green);font-size:19px}
+.group-topbar p{color:#666;font-size:11px;margin-top:5px}
+.group-user{
+  background:#101010;
+  border:1px solid #252525;
+  border-radius:10px;
+  padding:9px 12px;
+  color:#aaa;
+  font-size:11px;
+  white-space:nowrap;
+}
+.group-messages{
+  flex:1;
+  overflow-y:auto;
+  padding:20px;
+}
+.group-msg{
+  max-width:78%;
+  margin-bottom:12px;
+  padding:11px 14px;
+  border-radius:13px;
+  background:#101010;
+  border:1px solid #202020;
+}
+.group-msg.me{margin-right:auto;background:rgba(0,255,102,.06);border-color:rgba(0,255,102,.2)}
+.group-msg-user{color:var(--green);font-size:11px;font-weight:bold}
+.group-msg-time{color:#555;font-size:9px;margin-right:7px}
+.group-msg-text{color:#bbb;font-size:13px;line-height:1.9;margin-top:5px;white-space:pre-wrap;word-break:break-word}
+.group-compose{
+  border-top:1px solid #1c1c1c;
+  padding:12px;
+  display:flex;
+  gap:8px;
+}
+.group-compose input{
+  flex:1;
+  min-width:0;
+  background:#050505;
+  color:#fff;
+  border:1px solid #242424;
+  border-radius:10px;
+  padding:13px;
+  outline:none;
+}
+.group-compose button{
+  background:var(--green);
+  color:#000;
+  border:0;
+  border-radius:10px;
+  padding:0 20px;
+  font-weight:bold;
+  cursor:pointer;
+}
+.group-login-overlay,.group-gate-overlay{
+  position:fixed;
+  inset:0;
+  z-index:12000;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  background:rgba(0,0,0,.86);
+  backdrop-filter:blur(10px);
+}
+.group-login-overlay.active,.group-gate-overlay.active{display:flex}
+.group-login-box{
+  width:min(430px,100%);
+  background:#0b0b0b;
+  border:1px solid rgba(0,255,102,.3);
+  border-radius:20px;
+  padding:28px;
+  text-align:center;
+  box-shadow:0 20px 80px #000;
+}
+.group-login-box h2{color:var(--green);margin-bottom:8px}
+.group-login-box p{color:#666;font-size:12px;line-height:1.8;margin-bottom:18px}
+.group-login-box input{
+  width:100%;
+  padding:13px;
+  margin-bottom:10px;
+  background:#050505;
+  color:#fff;
+  border:1px solid #222;
+  border-radius:9px;
+  outline:none;
+  text-align:center;
+}
+.group-login-box button{
+  width:100%;
+  padding:13px;
+  background:var(--green);
+  color:#000;
+  border:0;
+  border-radius:9px;
+  font-weight:bold;
+  cursor:pointer;
+}
+.group-close{
+  margin-top:12px;color:#666;font-size:12px;cursor:pointer
+}
+.group-announcement{
+  margin:12px 20px 0;
+  padding:13px 15px;
+  background:rgba(0,170,255,.06);
+  border:1px solid rgba(0,170,255,.25);
+  border-radius:12px;
+  color:#aaa;
+}
+.group-announcement strong{color:#00aaff}
+.group-tools{
+  display:flex;
+  gap:8px;
+  padding:12px 20px 0;
+  flex-wrap:wrap;
+}
+.group-tools button{
+  padding:9px 12px;
+  border-radius:8px;
+  background:#101010;
+  color:#aaa;
+  border:1px solid #292929;
+  cursor:pointer;
+}
+.group-tools button:hover{color:var(--green);border-color:var(--green)}
+.group-admin-panel{
+  display:none;
+  padding:12px 20px 0;
+}
+.owner-mode .group-admin-panel{display:block}
+.group-admin-panel .admin-inline{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+}
+.group-admin-panel input,.group-admin-panel textarea{
+  width:100%;
+  background:#050505;color:#fff;border:1px solid #222;
+  border-radius:8px;padding:11px;outline:none;
+}
+.group-admin-panel textarea{min-height:70px;grid-column:1/-1}
+.group-admin-panel button{
+  background:var(--green);border:0;border-radius:8px;padding:10px;font-weight:bold;cursor:pointer
+}
+@media(max-width:700px){
+  #groupPage{padding:95px 0 20px}
+  .group-shell{
+    width:100%;
+    height:calc(100vh - 115px);
+    min-height:0;
+    border-radius:0;
+    grid-template-columns:1fr;
+    position:relative;
+  }
+  .group-sidebar{
+    display:flex;
+    gap:6px;
+    overflow-x:auto;
+    border-left:0;
+    border-bottom:1px solid #1c1c1c;
+    padding:10px;
+  }
+  .group-brand{display:none}
+  .group-room{white-space:nowrap;margin:0;padding:10px 12px}
+  .group-main{min-height:0}
+  .group-topbar{padding:12px}
+  .group-topbar h2{font-size:16px}
+  .group-user{font-size:10px}
+  .group-msg{max-width:90%}
+  .group-compose{padding:9px}
+  .group-compose button{padding:0 15px}
+  .group-admin-panel .admin-inline{grid-template-columns:1fr}
+  .group-admin-panel textarea{grid-column:auto}
+}
+
 </style>
 </head>
 
@@ -1015,6 +1319,78 @@ footer span{color:var(--green)}
   <div id="commentsList"></div>
  </div>
 </section>
+
+<!-- GROUP COMMUNITY -->
+<section id="groupPage">
+  <div class="group-shell">
+    <aside class="group-sidebar">
+      <div class="group-brand">ALIXMAX GROUP 👥</div>
+      <div class="group-room active" onclick="switchGroupRoom('chat',this)">💬 چت عمومی</div>
+      <div class="group-room" onclick="switchGroupRoom('scenarios',this)">📝 سناریوها</div>
+      <div class="group-room" onclick="switchGroupRoom('ideas',this)">💡 ایده ویدیو</div>
+      <div class="group-room" onclick="switchGroupRoom('announcements',this)">📢 اطلاعیه‌ها</div>
+      <div class="group-room" onclick="logoutGroup()">🔒 خروج</div>
+    </aside>
+    <main class="group-main">
+      <div class="group-topbar">
+        <div>
+          <h2 id="groupRoomTitle">💬 چت عمومی</h2>
+          <p>محیط کاری خصوصی اعضای گروه ALIXMAX</p>
+        </div>
+        <div class="group-user" id="groupCurrentUser">مهمان</div>
+      </div>
+
+      <div id="groupAnnouncementBox"></div>
+
+      <div class="group-tools">
+        <button onclick="groupQuickText('سناریو')">📝 نوشتن سناریو</button>
+        <button onclick="groupQuickText('ایده')">💡 ثبت ایده</button>
+        <button onclick="groupQuickText('اعلان')">📢 اعلان</button>
+      </div>
+
+      <div class="group-admin-panel">
+        <div class="admin-inline">
+          <input id="announcementTitle" placeholder="عنوان اعلان؛ مثال: ضبط ویدیو">
+          <input id="announcementDate" type="datetime-local">
+          <textarea id="announcementText" placeholder="متن اعلان؛ مثال: پنجشنبه ساعت ۴ عصر ویدیوی جدید"></textarea>
+          <button onclick="createGroupAnnouncement()">📢 ثبت اعلان برای اعضا</button>
+        </div>
+      </div>
+
+      <div class="group-messages" id="groupMessages"></div>
+
+      <div class="group-compose">
+        <input id="groupMessageInput" placeholder="پیامت را بنویس..." onkeydown="groupMessageEnter(event)">
+        <button onclick="sendGroupMessage()">ارسال</button>
+      </div>
+    </main>
+  </div>
+</section>
+
+<!-- GROUP GATE -->
+<div class="group-gate-overlay" id="groupGateOverlay">
+  <div class="group-login-box">
+    <div class="big-lock">🔐</div>
+    <h2>اعضای گروه ALIXMAX</h2>
+    <p>این بخش خصوصی است. ابتدا رمز ورود به پنل گروه را وارد کن.</p>
+    <input id="groupGatePassword" type="password" placeholder="رمز پنل گروه" onkeydown="groupGateEnter(event)">
+    <button onclick="verifyGroupGate()">ورود به پنل گروه 👥</button>
+    <div class="group-close" onclick="closeGroupGate()">بستن</div>
+  </div>
+</div>
+
+<!-- GROUP MEMBER LOGIN -->
+<div class="group-login-overlay" id="groupLoginOverlay">
+  <div class="group-login-box">
+    <div class="big-lock">👤</div>
+    <h2>ورود عضو گروه</h2>
+    <p>نام کاربری و رمز حساب خودت را وارد کن.</p>
+    <input id="groupUsername" autocomplete="username" placeholder="نام کاربری">
+    <input id="groupPassword" autocomplete="current-password" type="password" placeholder="رمز حساب">
+    <button onclick="loginGroupMember()">ورود به گروه 🚀</button>
+    <div class="group-close" onclick="closeGroupLogin()">بستن</div>
+  </div>
+</div>
 
 <!-- ADMIN -->
 <section class="section" id="admin">
@@ -2607,6 +2983,500 @@ calculateEditPrice();
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="supabase.js"></script>
+
+
+<script>
+/* =========================================================
+   ALIXMAX v2 - Supabase persistence + group community
+   Works with an existing supabase.js that exposes:
+   window.supabaseClient OR window.supabaseClientDB OR a global `supabaseClient`.
+   ========================================================= */
+(function(){
+"use strict";
+
+let groupGateUnlocked=false;
+let groupLoggedInUser=null;
+let currentGroupRoom="chat";
+let groupChannel=null;
+
+function getDB(){
+  try{
+    if(window.supabaseClient && typeof window.supabaseClient.from==="function") return window.supabaseClient;
+    if(window.supabaseClientDB && typeof window.supabaseClientDB.from==="function") return window.supabaseClientDB;
+    if(typeof supabaseClient!=="undefined" && supabaseClient && typeof supabaseClient.from==="function") return supabaseClient;
+  }catch(e){}
+  return null;
+}
+window.ALIXMAX_DB=getDB;
+
+async function dbInsert(table,row){
+  const db=getDB(); if(!db) return {data:null,error:new Error("Supabase client not found")};
+  return await db.from(table).insert(row);
+}
+async function dbSelect(table,opts={}){
+  const db=getDB(); if(!db) return {data:null,error:new Error("Supabase client not found")};
+  let q=db.from(table).select(opts.select||"*");
+  if(opts.order) q=q.order(opts.order.column,{ascending:opts.order.ascending!==false});
+  if(opts.limit) q=q.limit(opts.limit);
+  if(opts.eq) Object.entries(opts.eq).forEach(([k,v])=>q=q.eq(k,v));
+  return await q;
+}
+async function dbDelete(table,col,val){
+  const db=getDB(); if(!db) return {error:new Error("Supabase client not found")};
+  return await db.from(table).delete().eq(col,val);
+}
+async function dbUpsert(table,row,onConflict){
+  const db=getDB(); if(!db) return {data:null,error:new Error("Supabase client not found")};
+  return await db.from(table).upsert(row,onConflict?{onConflict}:undefined);
+}
+
+function uid(){
+  return crypto.randomUUID ? crypto.randomUUID() : Date.now()+"-"+Math.random().toString(36).slice(2);
+}
+function sha256(str){
+  return crypto.subtle.digest("SHA-256",new TextEncoder().encode(str))
+    .then(buf=>Array.from(new Uint8Array(buf)).map(x=>x.toString(16).padStart(2,"0")).join(""));
+}
+function latinDigits(s){
+  return String(s||"").replace(/[۰-۹]/g,d=>"۰۱۲۳۴۵۶۷۸۹".indexOf(d)).replace(/[٠-٩]/g,d=>"٠١٢٣٤٥٦٧٨٩".indexOf(d));
+}
+
+/* ---------- Real site visits ---------- */
+async function registerSiteVisit(){
+  const db=getDB(); if(!db) return;
+  let visitorId=localStorage.getItem("ALIXMAX_VISITOR_ID");
+  if(!visitorId){ visitorId=uid(); localStorage.setItem("ALIXMAX_VISITOR_ID",visitorId); }
+  const today=new Date().toISOString().slice(0,10);
+  const key="ALIXMAX_VISIT_DAY";
+  if(localStorage.getItem(key)===today) return;
+  const {error}=await db.from("site_visits").insert({visitor_id:visitorId});
+  if(!error) localStorage.setItem(key,today);
+}
+async function loadVisitCount(){
+  const db=getDB(); if(!db || !ownerMode)return;
+  const {count,error}=await db.from("site_visits").select("*",{count:"exact",head:true});
+  if(!error && document.getElementById("siteVisitCount"))
+    document.getElementById("siteVisitCount").textContent=Number(count||0).toLocaleString("fa-IR");
+}
+window.loadVisitCount=loadVisitCount;
+
+/* ---------- Generic cloud loading ---------- */
+async function loadCloudData(){
+  const db=getDB();
+  if(!db){
+    showToast("Supabase client پیدا نشد؛ اطلاعات فعلاً روی دستگاه می‌ماند ⚠️");
+    return;
+  }
+
+  try{
+    const [p,c,s,m,ch]=await Promise.all([
+      dbSelect("posts",{order:{column:"created_at",ascending:false}}),
+      dbSelect("comments",{order:{column:"created_at",ascending:false}}),
+      dbSelect("sponsors",{order:{column:"created_at",ascending:false}}),
+      dbSelect("market_items",{order:{column:"created_at",ascending:false}}),
+      dbSelect("chat_messages",{order:{column:"created_at",ascending:true},limit:300})
+    ]);
+
+    if(!p.error && Array.isArray(p.data)) posts=p.data.map(x=>({
+      id:x.id,title:x.title,type:x.type,description:x.description,image:x.image||null,
+      createdAt:x.created_at?new Date(x.created_at).toLocaleDateString("fa-IR"):x.createdAt
+    }));
+    if(!c.error && Array.isArray(c.data)) comments=c.data.map(x=>({
+      id:x.id,name:x.name,phone:x.phone,text:x.text,
+      date:x.created_at?new Date(x.created_at).toLocaleDateString("fa-IR"):x.date
+    }));
+    if(!s.error && Array.isArray(s.data)) sponsors=s.data.map(x=>({
+      id:x.id,name:x.name,phone:x.phone,link:x.link,description:x.description,price:x.price,
+      image:x.image||null,discountCode:x.discount_code||"alixmax503",
+      discountPercent:x.discount_percent??30,status:x.status||"pending",
+      createdAt:x.created_at?new Date(x.created_at).toLocaleDateString("fa-IR"):x.createdAt
+    }));
+    if(!m.error && Array.isArray(m.data)) marketItems=m.data.map(x=>({
+      id:x.id,seller:x.seller,phone:x.phone,title:x.title,category:x.category,price:x.price,
+      description:x.description,image:x.image||null,sold:!!x.sold,buyer:x.buyer||null,
+      createdAt:x.created_at?new Date(x.created_at).toLocaleDateString("fa-IR"):x.createdAt
+    }));
+    if(!ch.error && Array.isArray(ch.data)) chats=ch.data.map(x=>({
+      id:x.id,name:x.name,text:x.text,
+      date:x.created_at?new Date(x.created_at).toLocaleTimeString("fa-IR",{hour:"2-digit",minute:"2-digit"}):x.date
+    }));
+
+    renderPosts();renderComments();renderRequests();renderWallet();renderMarket();renderChat();updateStats();
+    if(ownerMode){loadVisitCount();loadGroupMembersAdmin();}
+  }catch(e){
+    console.error("ALIXMAX cloud load:",e);
+  }
+}
+
+/* ---------- Override saves: cloud first, local fallback ---------- */
+const oldSavePosts=window.savePosts;
+window.savePosts=async function(){
+  localStorage.setItem("ALIXMAX_POSTS",JSON.stringify(posts));
+  const db=getDB(); if(!db)return;
+  try{
+    const p=posts[0]; if(p){
+      await db.from("posts").upsert({
+        id:String(p.id),title:p.title,type:p.type,description:p.description,image:p.image||null
+      },{onConflict:"id"});
+    }
+  }catch(e){console.warn(e)}
+};
+const oldSaveSponsors=window.saveSponsors;
+window.saveSponsors=async function(){
+  localStorage.setItem("ALIXMAX_SPONSORS",JSON.stringify(sponsors));
+  const db=getDB(); if(!db)return;
+  try{
+    const s=sponsors[0]; if(s){
+      await db.from("sponsors").upsert({
+        id:String(s.id),name:s.name,phone:s.phone,link:s.link||null,description:s.description,
+        price:Number(s.price),image:s.image||null,discount_code:s.discountCode||"alixmax503",
+        discount_percent:30,status:s.status||"pending"
+      },{onConflict:"id"});
+    }
+  }catch(e){console.warn(e)}
+};
+const oldSaveMarket=window.saveMarket;
+window.saveMarket=async function(){
+  localStorage.setItem("ALIXMAX_MARKET",JSON.stringify(marketItems));
+  const db=getDB(); if(!db)return;
+  try{
+    const m=marketItems[0]; if(m){
+      await db.from("market_items").upsert({
+        id:String(m.id),seller:m.seller,phone:m.phone,title:m.title,category:m.category,
+        price:Number(m.price),description:m.description,image:m.image||null,sold:!!m.sold,buyer:m.buyer||null
+      },{onConflict:"id"});
+    }
+  }catch(e){console.warn(e)}
+};
+const oldSaveChat=window.saveChat;
+window.saveChat=async function(){
+  localStorage.setItem("ALIXMAX_CHAT",JSON.stringify(chats));
+  const db=getDB(); if(!db)return;
+  try{
+    const x=chats[chats.length-1]; if(x){
+      await db.from("chat_messages").upsert({
+        id:String(x.id),name:x.name,text:x.text
+      },{onConflict:"id"});
+    }
+  }catch(e){console.warn(e)}
+};
+const oldSaveWallet=window.saveWallet;
+window.saveWallet=async function(){
+  localStorage.setItem("ALIXMAX_WALLET",JSON.stringify(wallet));
+  /* Wallet is intentionally kept compatible with the existing UI.
+     For secure multi-user money, move balance mutations to an RPC/Edge Function. */
+  const db=getDB(); if(!db || !ownerMode)return;
+  try{
+    await db.from("wallet_state").upsert({id:1,balance:Number(wallet.balance),transactions:wallet.transactions||[]},{onConflict:"id"});
+  }catch(e){console.warn(e)}
+};
+
+/* Comments did not have a save function in the original. */
+window.cloudSaveComment=async function(comment){
+  localStorage.setItem("ALIXMAX_COMMENTS",JSON.stringify(comments));
+  const db=getDB(); if(!db)return;
+  try{
+    await db.from("comments").upsert({
+      id:String(comment.id),name:comment.name,phone:comment.phone,text:comment.text
+    },{onConflict:"id"});
+  }catch(e){console.warn(e)}
+};
+
+/* Make a cloud-aware comment submission without changing the original UI. */
+const originalAddComment=window.addComment;
+window.addComment=async function(){
+  const before=comments.length;
+  await originalAddComment();
+  if(comments.length>before) await window.cloudSaveComment(comments[0]);
+};
+
+/* ---------- Site visit + cloud boot ---------- */
+window.addEventListener("load",async function(){
+  setTimeout(async()=>{
+    await registerSiteVisit();
+    await loadCloudData();
+    setupGroupRealtime();
+  },300);
+});
+
+/* =========================================================
+   GROUP
+   ========================================================= */
+window.openGroupGate=function(){
+  closeMenu();
+  document.getElementById("groupGateOverlay").classList.add("active");
+  document.getElementById("groupGatePassword").value="";
+  setTimeout(()=>document.getElementById("groupGatePassword").focus(),100);
+};
+window.closeGroupGate=function(){
+  document.getElementById("groupGateOverlay").classList.remove("active");
+};
+window.groupGateEnter=function(e){if(e.key==="Enter")verifyGroupGate();};
+
+window.verifyGroupGate=function(){
+  const pass=document.getElementById("groupGatePassword").value;
+  if(pass!=="@Alixmax503"){
+    showToast("رمز پنل گروه اشتباه است ❌");
+    return;
+  }
+  groupGateUnlocked=true;
+  closeGroupGate();
+  document.getElementById("groupLoginOverlay").classList.add("active");
+  document.getElementById("groupUsername").focus();
+};
+window.closeGroupLogin=function(){
+  document.getElementById("groupLoginOverlay").classList.remove("active");
+};
+
+window.loginGroupMember=async function(){
+  if(!groupGateUnlocked){openGroupGate();return;}
+  const username=document.getElementById("groupUsername").value.trim();
+  const password=document.getElementById("groupPassword").value;
+  if(!username||!password){showToast("نام کاربری و رمز را کامل وارد کن ❌");return;}
+
+  const db=getDB();
+  if(!db){
+    showToast("اتصال Supabase پیدا نشد ❌");
+    return;
+  }
+  try{
+    const hash=await sha256(password);
+    const {data,error}=await db.from("group_members")
+      .select("id,username,password_hash,display_name,is_active")
+      .eq("username",username)
+      .eq("is_active",true)
+      .maybeSingle();
+    if(error){console.error(error);showToast("خطا در ورود عضو ❌");return;}
+    if(!data || data.password_hash!==hash){
+      showToast("نام کاربری یا رمز اشتباه است ❌");
+      return;
+    }
+    groupLoggedInUser={id:data.id,username:data.username,display_name:data.display_name||data.username};
+    localStorage.setItem("ALIXMAX_GROUP_USER",JSON.stringify(groupLoggedInUser));
+    closeGroupLogin();
+    openGroupPage();
+    showToast("خوش آمدی "+groupLoggedInUser.display_name+" 👋");
+  }catch(e){
+    console.error(e);showToast("ورود انجام نشد ❌");
+  }
+};
+
+window.openGroupPage=function(){
+  hideSpecialPages();
+  document.getElementById("groupPage").classList.add("active");
+  document.getElementById("groupCurrentUser").textContent=
+    groupLoggedInUser ? "👤 "+groupLoggedInUser.display_name : "مهمان";
+  renderGroupMessages();
+  loadAnnouncements();
+  document.getElementById("groupPage").scrollIntoView({behavior:"smooth"});
+};
+window.logoutGroup=function(){
+  groupLoggedInUser=null;
+  localStorage.removeItem("ALIXMAX_GROUP_USER");
+  groupGateUnlocked=false;
+  document.getElementById("groupPage").classList.remove("active");
+  document.getElementById("groupMessages").innerHTML="";
+  showToast("از گروه خارج شدی 🔒");
+  window.scrollTo({top:0,behavior:"smooth"});
+};
+
+window.switchGroupRoom=function(room,el){
+  currentGroupRoom=room;
+  document.querySelectorAll(".group-room").forEach(x=>x.classList.remove("active"));
+  if(el)el.classList.add("active");
+  const titles={chat:"💬 چت عمومی",scenarios:"📝 سناریوها",ideas:"💡 ایده ویدیو",announcements:"📢 اطلاعیه‌ها"};
+  document.getElementById("groupRoomTitle").textContent=titles[room]||"💬 چت عمومی";
+  renderGroupMessages();
+  if(room==="announcements")loadAnnouncements();
+};
+
+window.groupQuickText=function(kind){
+  const input=document.getElementById("groupMessageInput");
+  if(kind==="سناریو")input.value="📝 سناریو: ";
+  if(kind==="ایده")input.value="💡 ایده ویدیو: ";
+  if(kind==="اعلان")input.value="📢 اعلان: ";
+  input.focus();
+};
+
+window.groupMessageEnter=function(e){
+  if(e.key==="Enter" && !e.shiftKey){e.preventDefault();sendGroupMessage();}
+};
+
+window.sendGroupMessage=async function(){
+  if(!groupLoggedInUser){showToast("اول وارد حساب عضو گروه شو 🔐");return;}
+  const input=document.getElementById("groupMessageInput");
+  const text=input.value.trim();
+  if(!text)return;
+  const db=getDB(); if(!db){showToast("Supabase متصل نیست ❌");return;}
+  const row={
+    id:uid(),
+    room:currentGroupRoom,
+    member_id:groupLoggedInUser.id,
+    username:groupLoggedInUser.username,
+    display_name:groupLoggedInUser.display_name,
+    text
+  };
+  const {error}=await db.from("group_messages").insert(row);
+  if(error){console.error(error);showToast("ارسال پیام ناموفق بود ❌");return;}
+  input.value="";
+  await renderGroupMessages();
+};
+
+window.renderGroupMessages=async function(){
+  const box=document.getElementById("groupMessages"); if(!box)return;
+  if(!groupLoggedInUser){
+    box.innerHTML='<div class="empty">برای دیدن گروه باید وارد حساب شوی 🔐</div>';return;
+  }
+  const db=getDB(); if(!db)return;
+  const {data,error}=await db.from("group_messages")
+    .select("*").eq("room",currentGroupRoom)
+    .order("created_at",{ascending:true}).limit(300);
+  if(error){console.error(error);return;}
+  box.innerHTML="";
+  if(!data?.length){
+    box.innerHTML='<div class="empty">هنوز پیامی در این بخش نیست. اولین پیام را بفرست 👋</div>';return;
+  }
+  data.forEach(m=>{
+    const div=document.createElement("div");
+    div.className="group-msg"+(m.member_id===groupLoggedInUser.id?" me":"");
+    div.innerHTML=`
+      <div><span class="group-msg-user">${escapeHTML(m.display_name||m.username)}</span>
+      <span class="group-msg-time">${escapeHTML(new Date(m.created_at).toLocaleTimeString("fa-IR",{hour:"2-digit",minute:"2-digit"}))}</span></div>
+      <div class="group-msg-text">${escapeHTML(m.text)}</div>`;
+    box.appendChild(div);
+  });
+  box.scrollTop=box.scrollHeight;
+};
+
+window.createGroupAnnouncement=async function(){
+  if(!ownerMode){openOwnerLogin();return;}
+  const title=document.getElementById("announcementTitle").value.trim();
+  const body=document.getElementById("announcementText").value.trim();
+  const at=document.getElementById("announcementDate").value;
+  if(!title||!body){showToast("عنوان و متن اعلان را کامل کن ❌");return;}
+  const db=getDB(); if(!db){showToast("Supabase متصل نیست ❌");return;}
+  const {error}=await db.from("group_announcements").insert({
+    id:uid(),title,body,scheduled_at:at?new Date(at).toISOString():null
+  });
+  if(error){console.error(error);showToast("ثبت اعلان ناموفق بود ❌");return;}
+  document.getElementById("announcementTitle").value="";
+  document.getElementById("announcementText").value="";
+  document.getElementById("announcementDate").value="";
+  await loadAnnouncements();
+  showToast("اعلان برای اعضا ثبت شد 📢");
+};
+
+async function loadAnnouncements(){
+  const box=document.getElementById("groupAnnouncementBox"); if(!box)return;
+  const db=getDB(); if(!db)return;
+  const {data,error}=await db.from("group_announcements")
+    .select("*").order("scheduled_at",{ascending:true}).limit(20);
+  if(error)return;
+  box.innerHTML="";
+  (data||[]).forEach(a=>{
+    const d=document.createElement("div");
+    d.className="group-announcement";
+    const when=a.scheduled_at?new Date(a.scheduled_at).toLocaleString("fa-IR"):"بدون زمان";
+    d.innerHTML=`📢 <strong>${escapeHTML(a.title)}</strong> — ${escapeHTML(when)}<br><span>${escapeHTML(a.body)}</span>`;
+    box.appendChild(d);
+  });
+}
+window.loadAnnouncements=loadAnnouncements;
+
+window.createGroupMember=async function(){
+  if(!ownerMode){openOwnerLogin();return;}
+  const username=document.getElementById("newGroupUsername").value.trim();
+  const password=document.getElementById("newGroupPassword").value;
+  if(!username||!password){showToast("نام کاربری و رمز را کامل کن ❌");return;}
+  if(password.length<6){showToast("رمز عضو حداقل ۶ کاراکتر باشد ❌");return;}
+  const db=getDB(); if(!db){showToast("Supabase متصل نیست ❌");return;}
+  const hash=await sha256(password);
+  const {error}=await db.from("group_members").insert({
+    id:uid(),username,display_name:username,password_hash:hash,is_active:true
+  });
+  if(error){console.error(error);showToast("ساخت حساب ناموفق بود؛ شاید یوزرنیم تکراری است ❌");return;}
+  document.getElementById("newGroupUsername").value="";
+  document.getElementById("newGroupPassword").value="";
+  showToast("حساب عضو ساخته شد ✅");
+  loadGroupMembersAdmin();
+};
+
+async function loadGroupMembersAdmin(){
+  const db=getDB(); if(!db)return;
+  const {data,error}=await db.from("group_members")
+    .select("id,username,display_name,is_active").order("created_at",{ascending:false});
+  if(error)return;
+  const countEl=document.getElementById("groupMemberCount");
+  if(countEl)countEl.textContent=(data||[]).length.toLocaleString("fa-IR");
+  const list=document.getElementById("groupMembersAdminList");
+  if(!list)return;
+  list.innerHTML=(data||[]).map(m=>`
+    <div style="display:flex;justify-content:space-between;gap:8px;align-items:center;padding:10px;border-bottom:1px solid #1b1b1b;color:#aaa;font-size:12px">
+      <span>👤 ${escapeHTML(m.display_name||m.username)}</span>
+      <button onclick="toggleGroupMember('${String(m.id).replace(/'/g,"")} ',${!m.is_active})"
+        style="padding:7px 10px;border-radius:7px;border:1px solid #333;background:#111;color:#aaa;cursor:pointer">
+        ${m.is_active?"غیرفعال":"فعال"}
+      </button>
+    </div>`).join("") || '<div style="color:#555">عضوی ثبت نشده.</div>';
+}
+window.loadGroupMembersAdmin=loadGroupMembersAdmin;
+
+window.toggleGroupMember=async function(id,active){
+  if(!ownerMode){openOwnerLogin();return;}
+  const db=getDB(); if(!db)return;
+  await db.from("group_members").update({is_active:active}).eq("id",id.trim());
+  loadGroupMembersAdmin();
+};
+
+/* Realtime: group messages + announcements */
+function setupGroupRealtime(){
+  const db=getDB(); if(!db || !db.channel)return;
+  try{
+    if(groupChannel)db.removeChannel(groupChannel);
+    groupChannel=db.channel("alixmax-group-live")
+      .on("postgres_changes",{event:"*",schema:"public",table:"group_messages"},()=>renderGroupMessages())
+      .on("postgres_changes",{event:"*",schema:"public",table:"group_announcements"},()=>loadAnnouncements())
+      .subscribe();
+  }catch(e){console.warn("Realtime setup:",e)}
+}
+window.setupGroupRealtime=setupGroupRealtime;
+
+/* Restore group session on refresh (member must already have passed the gate once in this browser). */
+try{
+  const saved=JSON.parse(localStorage.getItem("ALIXMAX_GROUP_USER")||"null");
+  if(saved && saved.id && saved.username){
+    groupLoggedInUser=saved;
+    groupGateUnlocked=true;
+  }
+}catch(e){}
+
+/* Add wallet/site visits/group stats to the existing stats updater without replacing its logic. */
+const oldUpdateStats=window.updateStats;
+window.updateStats=function(){
+  try{oldUpdateStats();}catch(e){}
+  if(ownerMode){
+    loadVisitCount();
+    loadGroupMembersAdmin();
+  }
+};
+
+/* When owner logs in, refresh cloud admin stats. */
+const oldLoginOwner=window.loginOwner;
+window.loginOwner=function(){
+  oldLoginOwner();
+  setTimeout(()=>{loadVisitCount();loadGroupMembersAdmin();},250);
+};
+
+/* Ensure the group page is hidden whenever old special pages are hidden. */
+const oldHideSpecialPages=window.hideSpecialPages;
+window.hideSpecialPages=function(){
+  oldHideSpecialPages();
+  const gp=document.getElementById("groupPage");
+  if(gp)gp.classList.remove("active");
+};
+
+})();
+</script>
 
 </body>
 </html>
